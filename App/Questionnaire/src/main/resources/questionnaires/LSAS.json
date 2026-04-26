@@ -1,0 +1,95 @@
+{
+    "id": "lsas",
+    "name": "Liebowitz Social Anxiety Scale – Self Report",
+    "short_name": "LSAS-SR",
+    "category": "social_anxiety",
+    "description": "A 24-item self-report scale assessing fear/anxiety and avoidance across social interaction and performance situations.",
+    "version": "Self-Report",
+    "source": "Liebowitz (1987); Fresco et al. (2001)",
+  
+    "instructions": "For each situation, rate the level of fear or anxiety you feel and how often you avoid the situation, based on how it has affected you during the last week.",
+  
+    "response_format": {
+      "type": "dual_rating",
+      "scales": {
+        "fear_anxiety_0_3": [
+          { "label": "None", "value": 0 },
+          { "label": "Mild", "value": 1 },
+          { "label": "Moderate", "value": 2 },
+          { "label": "Severe", "value": 3 }
+        ],
+        "avoidance_0_3": [
+          { "label": "Never (0%)", "value": 0 },
+          { "label": "Occasionally (1–33%)", "value": 1 },
+          { "label": "Often (33–67%)", "value": 2 },
+          { "label": "Usually (67–100%)", "value": 3 }
+        ]
+      }
+    },
+  
+    "questions": [
+      { "id": "lsas_q1", "text": "Telephoning in public", "domain": "performance" },
+      { "id": "lsas_q2", "text": "Participating in small groups", "domain": "performance" },
+      { "id": "lsas_q3", "text": "Eating in public places", "domain": "performance" },
+      { "id": "lsas_q4", "text": "Drinking with others in public places", "domain": "performance" },
+      { "id": "lsas_q5", "text": "Talking to people in authority", "domain": "social" },
+      { "id": "lsas_q6", "text": "Acting, performing, or giving a talk in front of an audience", "domain": "performance" },
+      { "id": "lsas_q7", "text": "Going to a party", "domain": "social" },
+      { "id": "lsas_q8", "text": "Working while being observed", "domain": "performance" },
+      { "id": "lsas_q9", "text": "Writing while being observed", "domain": "performance" },
+      { "id": "lsas_q10", "text": "Calling someone you don’t know very well", "domain": "social" },
+      { "id": "lsas_q11", "text": "Talking with people you don’t know very well", "domain": "social" },
+      { "id": "lsas_q12", "text": "Meeting strangers", "domain": "social" },
+      { "id": "lsas_q13", "text": "Urinating in a public bathroom", "domain": "performance" },
+      { "id": "lsas_q14", "text": "Entering a room when others are already seated", "domain": "performance" },
+      { "id": "lsas_q15", "text": "Being the centre of attention", "domain": "social" },
+      { "id": "lsas_q16", "text": "Speaking up at a meeting", "domain": "performance" },
+      { "id": "lsas_q17", "text": "Taking a test", "domain": "performance" },
+      { "id": "lsas_q18", "text": "Expressing disagreement or disapproval to people you don’t know very well", "domain": "social" },
+      { "id": "lsas_q19", "text": "Looking at people you don’t know very well in the eyes", "domain": "social" },
+      { "id": "lsas_q20", "text": "Giving a report to a group", "domain": "performance" },
+      { "id": "lsas_q21", "text": "Trying to pick up someone", "domain": "performance" },
+      { "id": "lsas_q22", "text": "Returning goods to a store", "domain": "social" },
+      { "id": "lsas_q23", "text": "Giving a party", "domain": "social" },
+      { "id": "lsas_q24", "text": "Resisting a high-pressure salesperson", "domain": "social" }
+    ],
+  
+    "scoring": {
+      "method": "sum_dual",
+      "components": {
+        "fear_anxiety_total": {
+          "question_count": 24,
+          "score_range": [0, 72]
+        },
+        "avoidance_total": {
+          "question_count": 24,
+          "score_range": [0, 72]
+        }
+      },
+      "total_score_range": [0, 144]
+    },
+  
+    "subscales": [
+      {
+        "name": "Performance",
+        "question_domain": "performance"
+      },
+      {
+        "name": "Social Interaction",
+        "question_domain": "social"
+      }
+    ],
+  
+    "severity_levels": [
+      { "label": "No Social Anxiety", "min": 0, "max": 29 },
+      { "label": "Social Anxiety Disorder (probable)", "min": 30, "max": 59 },
+      { "label": "Generalized Social Anxiety Disorder (probable)", "min": 60, "max": 144 }
+    ],
+  
+    "metadata": {
+      "estimated_time_minutes": 10,
+      "clinical_use": true,
+      "license": "Free for research and clinical use",
+      "notes": "Cutoffs of 30 and 60 provide optimal sensitivity and specificity for identifying social anxiety disorder and generalized subtype."
+    }
+  }

@@ -1,0 +1,306 @@
+{
+  "id": "pcl5_standard_scoring",
+  "questionnaire_id": "pcl5",
+  "method": "pcl5_scoring",
+  "responses": [
+    {
+      "question_id": "pcl5_q1",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q2",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q3",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q4",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q5",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q6",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q7",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q8",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q9",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q10",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q11",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q12",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q13",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q14",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q15",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q16",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q17",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q18",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q19",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pcl5_q20",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    }
+  ],
+  "components": [
+    {
+      "id": "criterion_b_intrusion",
+      "name": "Criterion B – Intrusion",
+      "calculation": {
+        "type": "sum",
+        "inputs": [
+          {
+            "question_id": "pcl5_q1",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pcl5_q2",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pcl5_q3",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pcl5_q4",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pcl5_q5",
+            "response_key": "value"
+          }
+        ],
+        "score_range": [
+          0,
+          20
+        ]
+      }
+    },
+    {
+      "id": "criterion_c_avoidance",
+      "name": "Criterion C – Avoidance",
+      "calculation": {
+        "type": "sum",
+        "inputs": [
+          {
+            "question_id": "pcl5_q6",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pcl5_q7",
+            "response_key": "value"
+          }
+        ],
+        "score_range": [
+          0,
+          8
+        ]
+      }
+    },
+    {
+      "id": "criterion_d_cognition_mood",
+      "name": "Criterion D – Negative Alterations in Cognition and Mood",
+      "calculation": {
+        "type": "sum",
+        "inputs": [
+          {
+            "question_id": "pcl5_q8",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pcl5_q9",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pcl5_q10",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pcl5_q11",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pcl5_q12",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pcl5_q13",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pcl5_q14",
+            "response_key": "value"
+          }
+        ],
+        "score_range": [
+          0,
+          28
+        ]
+      }
+    },
+    {
+      "id": "criterion_e_arousal",
+      "name": "Criterion E – Arousal and Reactivity",
+      "calculation": {
+        "type": "sum",
+        "inputs": [
+          {
+            "question_id": "pcl5_q15",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pcl5_q16",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pcl5_q17",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pcl5_q18",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pcl5_q19",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pcl5_q20",
+            "response_key": "value"
+          }
+        ],
+        "score_range": [
+          0,
+          24
+        ]
+      }
+    }
+  ],
+  "global_score": {
+    "calculation": {
+      "type": "sum_components",
+      "components": [
+        "criterion_b_intrusion",
+        "criterion_c_avoidance",
+        "criterion_d_cognition_mood",
+        "criterion_e_arousal"
+      ],
+      "score_range": [
+        0,
+        80
+      ]
+    },
+    "interpretation": {
+      "rules": [
+        {
+          "min": 0,
+          "max": 80,
+          "label": "Total Symptom Severity",
+          "description": "Provisional PTSD diagnosis requires symptom thresholds (score >= 2) in Criterion B (1 item), C (1 item), D (2 items), and E (2 items)."
+        }
+      ]
+    }
+  }
+}

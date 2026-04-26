@@ -1,0 +1,169 @@
+{
+  "sessionId": "167dc49e-b62e-456f-9741-4fc9012c4391",
+  "phase": "COMPLETED",
+  "nextQuestion": null,
+  "result": {
+    "questionnaireId": "k10",
+    "finalScore": 27.0,
+    "severityLabel": "Moderate mental disorder",
+    "description": "Symptoms indicative of a moderate mental disorder.",
+    "componentScores": {
+      "distress_total": 27.0
+    }
+  },
+  "breakdown": {
+    "questionnaireId": "k10",
+    "responses": [
+      {
+        "questionId": "k10_q1",
+        "questionText": "During the last 30 days, about how often did you feel tired out for no good reason?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "k10_q2",
+        "questionText": "During the last 30 days, about how often did you feel nervous?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "k10_q3",
+        "questionText": "During the last 30 days, about how often did you feel so nervous that nothing could calm you down?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "k10_q4",
+        "questionText": "During the last 30 days, about how often did you feel hopeless?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "k10_q5",
+        "questionText": "During the last 30 days, about how often did you feel restless or fidgety?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "k10_q6",
+        "questionText": "During the last 30 days, about how often did you feel so restless you could not sit still?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "k10_q7",
+        "questionText": "During the last 30 days, about how often did you feel depressed?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "k10_q8",
+        "questionText": "During the last 30 days, about how often did you feel that everything was an effort?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 4.0,
+            "normalizedValue": 4.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "k10_q9",
+        "questionText": "During the last 30 days, about how often did you feel so sad that nothing could cheer you up?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "k10_q10",
+        "questionText": "During the last 30 days, about how often did you feel worthless?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      }
+    ],
+    "components": [
+      {
+        "componentId": "distress_total",
+        "componentName": "K10 Total Score",
+        "inputs": [],
+        "calculationType": "engine",
+        "score": 27.0
+      }
+    ],
+    "globalScore": {
+      "score": 27.0,
+      "label": "Moderate mental disorder",
+      "description": "Symptoms indicative of a moderate mental disorder.",
+      "componentIds": [
+        "distress_total"
+      ]
+    },
+    "metadata": {
+      "engine": "scoring-engine"
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "sessionId": "da739bea-305e-4aa7-8f2c-4cff51c1b373",
+  "phase": "COMPLETED",
+  "nextQuestion": null,
+  "result": {
+    "questionnaireId": "asrs",
+    "finalScore": 12.0,
+    "severityLabel": "High likelihood of ADHD",
+    "description": "Symptom pattern is consistent with ADHD and warrants further clinical evaluation.",
+    "componentScores": {
+      "part_a_total": 12.0
+    }
+  },
+  "breakdown": {
+    "questionnaireId": "asrs",
+    "responses": [
+      {
+        "questionId": "asrs_q1",
+        "questionText": "How often do you have trouble wrapping up the final details of a project, once the challenging parts have been done?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "asrs_q2",
+        "questionText": "How often do you have difficulty getting things in order when you have to do a task that requires organization?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "asrs_q3",
+        "questionText": "How often do you have problems remembering appointments or obligations?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "asrs_q4",
+        "questionText": "When you have a task that requires a lot of thought, how often do you avoid or delay getting started?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "asrs_q5",
+        "questionText": "How often do you fidget or squirm with your hands or feet when you have to sit down for a long time?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "asrs_q6",
+        "questionText": "How often do you feel overly active and compelled to do things, like you were driven by a motor?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      }
+    ],
+    "components": [
+      {
+        "componentId": "part_a_total",
+        "componentName": "ASRS Part A Score",
+        "inputs": [],
+        "calculationType": "engine",
+        "score": 12.0
+      }
+    ],
+    "globalScore": {
+      "score": 12.0,
+      "label": "High likelihood of ADHD",
+      "description": "Symptom pattern is consistent with ADHD and warrants further clinical evaluation.",
+      "componentIds": [
+        "part_a_total"
+      ]
+    },
+    "metadata": {
+      "engine": "scoring-engine"
+    }
+  }
+}

@@ -1,0 +1,305 @@
+{
+  "id": "lsas",
+  "name": "Liebowitz Social Anxiety Scale – Self Report",
+  "short_name": "LSAS-SR",
+  "category": "social_anxiety",
+  "description": "A 24-item self-report scale assessing fear/anxiety and avoidance across social interaction and performance situations.",
+  "version": "Self-Report",
+  "source": "Liebowitz (1987); Fresco et al. (2001)",
+  "instructions": "For each situation, rate the level of fear or anxiety you feel and how often you avoid the situation, based on how it has affected you during the last week.",
+  "questions": [
+    {
+      "id": "lsas_q1",
+      "text": "Telephoning in public",
+      "domain": "performance",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q2",
+      "text": "Participating in small groups",
+      "domain": "interaction",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q3",
+      "text": "Eating in public places",
+      "domain": "performance",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q4",
+      "text": "Drinking with others in public places",
+      "domain": "performance",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q5",
+      "text": "Talking to people in authority",
+      "domain": "interaction",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q6",
+      "text": "Acting, performing, or giving a talk in front of an audience",
+      "domain": "performance",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q7",
+      "text": "Going to a party",
+      "domain": "interaction",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q8",
+      "text": "Working while being observed",
+      "domain": "performance",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q9",
+      "text": "Writing while being observed",
+      "domain": "performance",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q10",
+      "text": "Calling someone you don’t know very well",
+      "domain": "interaction",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q11",
+      "text": "Talking with people you don’t know very well",
+      "domain": "interaction",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q12",
+      "text": "Meeting strangers",
+      "domain": "interaction",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q13",
+      "text": "Urinating in a public bathroom",
+      "domain": "performance",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q14",
+      "text": "Entering a room when others are already seated",
+      "domain": "performance",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q15",
+      "text": "Being the centre of attention",
+      "domain": "interaction",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q16",
+      "text": "Speaking up at a meeting",
+      "domain": "performance",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q17",
+      "text": "Taking a test",
+      "domain": "performance",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q18",
+      "text": "Expressing disagreement or disapproval to people you don’t know very well",
+      "domain": "interaction",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q19",
+      "text": "Looking at people you don’t know very well in the eyes",
+      "domain": "interaction",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q20",
+      "text": "Giving a report to a group",
+      "domain": "performance",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q21",
+      "text": "Trying to pick up someone",
+      "domain": "interaction",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q22",
+      "text": "Returning goods to a store",
+      "domain": "performance",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q23",
+      "text": "Giving a party",
+      "domain": "interaction",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    },
+    {
+      "id": "lsas_q24",
+      "text": "Resisting a high-pressure salesperson",
+      "domain": "performance",
+      "response_format": {
+        "type": "dual_scale",
+        "response_keys": {
+          "fear": "fear_anxiety_0_3",
+          "avoidance": "avoidance_0_3"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "estimated_time_minutes": 10,
+    "clinical_use": true,
+    "license": "Free for research and clinical use"
+  }
+}

@@ -1,0 +1,141 @@
+
+STEP-1:  run a docker container for postgres with the postgis extension enabled
+
+docker run -d \
+  --name postgis-db \
+  -e POSTGRES_DB=crisis_db \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres \
+  -p 5432:5432 \
+  postgis/postgis:15-3.4
+
+=====================================================================================
+
+STEP-2: Enter the docker container and interact with the database
+
+docker exec -it postgis-db psql -U postgres -d crisis_db
+
+=====================================================================================
+
+STEP-3: verify if the postgis is enabled or not in postgres container, if not then just create the postgis extension
+
+CREATE EXTENSION IF NOT EXISTS postgis;
+
+=====================================================================================
+
+STEP-4.1: create a table named states within the crisis_db database
+DROP TABLE IF EXISTS states;
+
+CREATE TABLE states (
+    id SERIAL PRIMARY KEY,
+    st_nm TEXT,
+    geom GEOMETRY(MULTIPOLYGON, 4326)
+);
+
+STEP-4.2: create a table named states within the crisis_db database
+
+DROP TABLE IF EXISTS districts;
+
+CREATE TABLE districts (
+    id SERIAL PRIMARY KEY,
+    district TEXT,
+    state TEXT,
+    geom GEOMETRY(MULTIPOLYGON, 4326)
+);
+
+
+
+=====================================================================================
+
+STEP-5.1: Import states GeoJSON into PostGIS
+
+{first exit the container interactive shell}
+
+docker run --rm \
+  -v /Users/pratyakshtrivedi/Developer/Emergency_Twilio/Emergency_service:/data \
+  ghcr.io/osgeo/gdal:alpine-small-latest \
+  ogr2ogr -f "PostgreSQL" \
+  PG:"host=host.docker.internal port=5432 dbname=crisis_db user=postgres password=postgres" \
+  /data/india_states.geojson \
+  -nln states \
+  -nlt MULTIPOLYGON \
+  -lco GEOMETRY_NAME=geom \
+  -overwrite \
+  -progress
+
+STEP-5.2 Import states GeoJSON into PostGIS
+
+docker run --rm \
+  -v /Users/pratyakshtrivedi/Developer/Emergency_Twilio/Emergency_service:/data \
+  ghcr.io/osgeo/gdal:alpine-small-latest \
+  ogr2ogr -f "PostgreSQL" \
+  PG:"host=host.docker.internal port=5432 dbname=crisis_db user=postgres password=postgres" \
+  /data/dists11.geojson \
+  -nln districts \
+  -nlt MULTIPOLYGON \
+  -lco GEOMETRY_NAME=geom \
+  -overwrite \
+  -progress
+
+=====================================================================================
+
+{then again enter the container interactive shell}
+docker exec -it postgis-db psql -U postgres -d crisis_db
+
+STEP-6.1: Add Spatial Indexing on states
+
+CREATE INDEX states_geom_idx
+ON states
+USING GIST (geom);
+
+STEP-6.2: Add Spatial Indexing on districts
+
+CREATE INDEX districts_geom_idx
+ON districts
+USING GIST (geom);
+
+=====================================================================================
+
+STEP-7: Verify the contents of the database
+
+=> SELECT COUNT(*) FROM states;
+
+=> SELECT COUNT(*) FROM districts;
+
+=> SELECT st_nm
+   FROM states
+   WHERE ST_Intersects(
+       geom,
+       ST_SetSRID(ST_Point(76.7794, 30.7333), 4326)
+   );
+      st_nm
+
+=> SELECT district, st_nm
+   FROM districts
+   WHERE ST_Intersects(
+       geom,
+       ST_SetSRID(ST_Point(77.2090, 28.6139), 4326)
+   );
+
+=> SELECT DISTINCT district, st_nm
+   FROM districts
+   WHERE ST_Intersects(
+       geom,
+       ST_SetSRID(ST_Point(72.8777, 19.0760), 4326)
+   );
+
+=> SELECT DISTINCT district, st_nm
+   FROM districts
+   WHERE ST_Intersects(
+       geom,
+       ST_SetSRID(ST_Point(77.2090, 28.6139), 4326)
+   );
+
+=> SELECT DISTINCT district, st_nm
+   FROM districts
+   WHERE ST_Intersects(
+       geom,
+       ST_SetSRID(ST_Point(75.7873, 26.9124), 4326)
+   );
+
+=====================================================================================

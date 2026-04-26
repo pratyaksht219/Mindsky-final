@@ -1,0 +1,42 @@
+services:
+  postgis-db:
+    image: postgis/postgis:15-3.4
+    container_name: postgis-db
+    environment:
+      POSTGRES_DB: crisis_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgis_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  data-loader:
+    image: ghcr.io/osgeo/gdal:alpine-small-latest
+    depends_on:
+      - postgis-db
+    volumes:
+      - .:/data
+    entrypoint: ["/bin/sh", "/data/import.sh"]
+
+  emergency-service:
+    image: pratyaksht219/mindsky-emergency-demo:latest
+    container_name: emergency-service
+    depends_on:
+      - postgis-db
+      - data-loader
+    ports:
+      - "8084:8084"
+    environment:
+      #Database
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgis-db:5432/crisis_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      # Twilio (from .env)
+      TWILIO_SID: ${TWILIO_SID}
+      TWILIO_AUTH_TOKEN: ${TWILIO_AUTH_TOKEN}
+      TWILIO_NUMBER: ${TWILIO_NUMBER}
+
+volumes:
+  postgis_data:

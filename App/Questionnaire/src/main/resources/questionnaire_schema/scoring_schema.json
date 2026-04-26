@@ -1,0 +1,236 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/scoring.schema.json",
+  "type": "object",
+  "required": [
+    "id",
+    "questionnaire_id",
+    "method",
+    "responses",
+    "components",
+    "global_score"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique scoring definition ID (e.g., phq9_scoring, psqi_scoring)"
+    },
+    "questionnaire_id": {
+      "type": "string",
+      "description": "ID of the questionnaire this scoring applies to"
+    },
+    "method": {
+      "type": "string",
+      "description": "Questionnaire-specific scoring method",
+      "examples": [
+        "phq9_scoring",
+        "gad7_scoring",
+        "lsas_scoring",
+        "psqi_scoring"
+      ]
+    },
+    "responses": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "question_id",
+          "response_key"
+        ],
+        "properties": {
+          "question_id": {
+            "type": "string"
+          },
+          "response_key": {
+            "type": "string",
+            "description": "Key used to extract the response value"
+          },
+          "transform": {
+            "type": "object",
+            "description": "Optional transformation before scoring",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "identity",
+                  "bucket",
+                  "formula"
+                ]
+              },
+              "formula": {
+                "type": "string",
+                "description": "Expression used when transform.type = formula"
+              },
+              "buckets": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "min",
+                    "max",
+                    "score"
+                  ],
+                  "properties": {
+                    "min": {
+                      "type": "number"
+                    },
+                    "max": {
+                      "type": "number"
+                    },
+                    "score": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "calculation"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Component identifier"
+          },
+          "name": {
+            "type": "string"
+          },
+          "calculation": {
+            "type": "object",
+            "required": [
+              "type"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "sum",
+                  "average",
+                  "max",
+                  "formula"
+                ]
+              },
+              "inputs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "question_id",
+                    "response_key"
+                  ],
+                  "properties": {
+                    "question_id": {
+                      "type": "string"
+                    },
+                    "response_key": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "formula": {
+                "type": "string",
+                "description": "Expression referencing inputs by alias"
+              },
+              "score_range": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              }
+            }
+          }
+        }
+      }
+    },
+    "global_score": {
+      "type": "object",
+      "required": [
+        "calculation",
+        "interpretation"
+      ],
+      "properties": {
+        "calculation": {
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "sum_components",
+                "formula"
+              ]
+            },
+            "components": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "formula": {
+              "type": "string"
+            },
+            "score_range": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          }
+        },
+        "interpretation": {
+          "type": "object",
+          "required": [
+            "rules"
+          ],
+          "properties": {
+            "rules": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "min",
+                  "max",
+                  "label"
+                ],
+                "properties": {
+                  "min": {
+                    "type": "number"
+                  },
+                  "max": {
+                    "type": "number"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

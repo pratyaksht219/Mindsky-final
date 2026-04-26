@@ -1,0 +1,43 @@
+# ── Scraper Service Deployment + Service ──
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scraper-service
+  namespace: mindsky
+  labels:
+    app: scraper-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scraper-service
+  template:
+    metadata:
+      labels:
+        app: scraper-service
+    spec:
+      containers:
+        - name: scraper-service
+          image: pratyaksht219/mindsky-emergency-scraper:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8001
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8001
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            failureThreshold: 5
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: scraper-service
+  namespace: mindsky
+spec:
+  selector:
+    app: scraper-service
+  ports:
+    - port: 8001
+      targetPort: 8001

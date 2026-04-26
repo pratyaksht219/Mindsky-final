@@ -1,0 +1,279 @@
+{
+  "id": "psqi_scoring_definition",
+  "questionnaire_id": "psqi",
+  "method": "psqi_component_scoring",
+  "responses": [
+    {
+      "question_id": "psqi_q1",
+      "response_key": "time"
+    },
+    {
+      "question_id": "psqi_q2",
+      "response_key": "minutes"
+    },
+    {
+      "question_id": "psqi_q3",
+      "response_key": "time"
+    },
+    {
+      "question_id": "psqi_q4",
+      "response_key": "hours"
+    },
+    {
+      "question_id": "psqi_q5a",
+      "response_key": "value"
+    },
+    {
+      "question_id": "psqi_q5b",
+      "response_key": "value"
+    },
+    {
+      "question_id": "psqi_q5c",
+      "response_key": "value"
+    },
+    {
+      "question_id": "psqi_q5d",
+      "response_key": "value"
+    },
+    {
+      "question_id": "psqi_q5e",
+      "response_key": "value"
+    },
+    {
+      "question_id": "psqi_q5f",
+      "response_key": "value"
+    },
+    {
+      "question_id": "psqi_q5g",
+      "response_key": "value"
+    },
+    {
+      "question_id": "psqi_q5h",
+      "response_key": "value"
+    },
+    {
+      "question_id": "psqi_q5i",
+      "response_key": "value"
+    },
+    {
+      "question_id": "psqi_q6",
+      "response_key": "value"
+    },
+    {
+      "question_id": "psqi_q7",
+      "response_key": "value"
+    },
+    {
+      "question_id": "psqi_q8",
+      "response_key": "value"
+    },
+    {
+      "question_id": "psqi_q9",
+      "response_key": "value"
+    }
+  ],
+  "components": [
+    {
+      "id": "comp1_subjective_quality",
+      "name": "Component 1: Subjective sleep quality",
+      "calculation": {
+        "type": "sum",
+        "inputs": [
+          {
+            "question_id": "psqi_q6",
+            "response_key": "value"
+          }
+        ],
+        "score_range": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "comp2_sleep_latency",
+      "name": "Component 2: Sleep latency",
+      "calculation": {
+        "type": "formula",
+        "inputs": [
+          {
+            "question_id": "psqi_q2",
+            "response_key": "minutes"
+          },
+          {
+            "question_id": "psqi_q5a",
+            "response_key": "value"
+          }
+        ],
+        "formula": "map_sleep_latency(inputs[0], inputs[1])",
+        "score_range": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "comp3_sleep_duration",
+      "name": "Component 3: Sleep duration",
+      "calculation": {
+        "type": "formula",
+        "inputs": [
+          {
+            "question_id": "psqi_q4",
+            "response_key": "hours"
+          }
+        ],
+        "formula": "map_sleep_duration(inputs[0])",
+        "score_range": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "comp4_sleep_efficiency",
+      "name": "Component 4: Habitual sleep efficiency",
+      "calculation": {
+        "type": "formula",
+        "inputs": [
+          {
+            "question_id": "psqi_q1",
+            "response_key": "time"
+          },
+          {
+            "question_id": "psqi_q3",
+            "response_key": "time"
+          },
+          {
+            "question_id": "psqi_q4",
+            "response_key": "hours"
+          }
+        ],
+        "formula": "map_sleep_efficiency(inputs[0], inputs[1], inputs[2])",
+        "score_range": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "comp5_sleep_disturbances",
+      "name": "Component 5: Sleep disturbances",
+      "calculation": {
+        "type": "formula",
+        "inputs": [
+          {
+            "question_id": "psqi_q5b",
+            "response_key": "value"
+          },
+          {
+            "question_id": "psqi_q5c",
+            "response_key": "value"
+          },
+          {
+            "question_id": "psqi_q5d",
+            "response_key": "value"
+          },
+          {
+            "question_id": "psqi_q5e",
+            "response_key": "value"
+          },
+          {
+            "question_id": "psqi_q5f",
+            "response_key": "value"
+          },
+          {
+            "question_id": "psqi_q5g",
+            "response_key": "value"
+          },
+          {
+            "question_id": "psqi_q5h",
+            "response_key": "value"
+          },
+          {
+            "question_id": "psqi_q5i",
+            "response_key": "value"
+          }
+        ],
+        "formula": "map_sum_to_disturbances(sum(inputs))",
+        "score_range": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "comp6_sleeping_medication",
+      "name": "Component 6: Use of sleeping medication",
+      "calculation": {
+        "type": "sum",
+        "inputs": [
+          {
+            "question_id": "psqi_q7",
+            "response_key": "value"
+          }
+        ],
+        "score_range": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "id": "comp7_daytime_dysfunction",
+      "name": "Component 7: Daytime dysfunction",
+      "calculation": {
+        "type": "formula",
+        "inputs": [
+          {
+            "question_id": "psqi_q8",
+            "response_key": "value"
+          },
+          {
+            "question_id": "psqi_q9",
+            "response_key": "value"
+          }
+        ],
+        "formula": "map_sum_to_dysfunction(sum(inputs))",
+        "score_range": [
+          0,
+          3
+        ]
+      }
+    }
+  ],
+  "global_score": {
+    "calculation": {
+      "type": "sum_components",
+      "components": [
+        "comp1_subjective_quality",
+        "comp2_sleep_latency",
+        "comp3_sleep_duration",
+        "comp4_sleep_efficiency",
+        "comp5_sleep_disturbances",
+        "comp6_sleeping_medication",
+        "comp7_daytime_dysfunction"
+      ],
+      "score_range": [
+        0,
+        21
+      ]
+    },
+    "interpretation": {
+      "rules": [
+        {
+          "min": 0,
+          "max": 4,
+          "label": "Good Sleep Quality",
+          "description": "Global score of 5 or less indicates good sleep quality."
+        },
+        {
+          "min": 5,
+          "max": 21,
+          "label": "Poor Sleep Quality",
+          "description": "Global score greater than 5 indicates clinically significant sleep disturbance."
+        }
+      ]
+    }
+  }
+}

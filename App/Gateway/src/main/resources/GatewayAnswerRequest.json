@@ -1,0 +1,12 @@
+{
+  "sessionId": "4e159f5e-2346-48d0-a24b-7ec2a9d1e17d",
+  "correlationId": "{{correlation_id}}",
+  "message": "I get extremely nervous when I have to speak in front of people.",
+  "questionnaireId": "lsas",
+  "questionId": "lsas_q1",
+  "answer": 2,
+  "responses": {
+    "fear": 2,
+    "avoidance": 1
+  }
+}

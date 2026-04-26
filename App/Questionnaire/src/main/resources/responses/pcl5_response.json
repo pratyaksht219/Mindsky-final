@@ -1,0 +1,326 @@
+{
+  "sessionId": "51a23e27-6c0b-4cd7-8a5e-73abf97b2621",
+  "phase": "COMPLETED",
+  "nextQuestion": null,
+  "result": {
+    "questionnaireId": "pcl5",
+    "finalScore": 33.0,
+    "severityLabel": "Provisional PTSD",
+    "description": "Meets DSM-5 symptom criteria across intrusion, avoidance, cognition/mood, and arousal domains.",
+    "componentScores": {
+      "criterion_c_avoidance": 3.0,
+      "criterion_d_cognition_mood": 10.0,
+      "criterion_e_arousal": 11.0,
+      "criterion_b_intrusion": 9.0
+    }
+  },
+  "breakdown": {
+    "questionnaireId": "pcl5",
+    "responses": [
+      {
+        "questionId": "pcl5_q1",
+        "questionText": "Repeated, disturbing, and unwanted memories of the stressful experience?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q2",
+        "questionText": "Repeated, disturbing dreams of the stressful experience?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q3",
+        "questionText": "Suddenly feeling or acting as if the stressful experience were actually happening again?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q4",
+        "questionText": "Feeling very upset when something reminded you of the stressful experience?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q5",
+        "questionText": "Having strong physical reactions when reminded of the stressful experience?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q6",
+        "questionText": "Avoiding memories, thoughts, or feelings related to the stressful experience?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q7",
+        "questionText": "Avoiding external reminders of the stressful experience?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q8",
+        "questionText": "Trouble remembering important parts of the stressful experience?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q9",
+        "questionText": "Having strong negative beliefs about yourself, others, or the world?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q10",
+        "questionText": "Blaming yourself or someone else for the stressful experience?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q11",
+        "questionText": "Having strong negative feelings such as fear, horror, anger, guilt, or shame?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q12",
+        "questionText": "Loss of interest in activities that you used to enjoy?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q13",
+        "questionText": "Feeling distant or cut off from other people?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q14",
+        "questionText": "Trouble experiencing positive feelings?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q15",
+        "questionText": "Irritable behavior, angry outbursts, or acting aggressively?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q16",
+        "questionText": "Taking too many risks or doing things that could cause you harm?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q17",
+        "questionText": "Being super-alert, watchful, or on guard?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q18",
+        "questionText": "Feeling jumpy or easily startled?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q19",
+        "questionText": "Having difficulty concentrating?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pcl5_q20",
+        "questionText": "Trouble falling or staying asleep?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      }
+    ],
+    "components": [
+      {
+        "componentId": "criterion_b_intrusion",
+        "componentName": "Criterion B – Intrusion",
+        "inputs": [],
+        "calculationType": "engine",
+        "score": 9.0
+      },
+      {
+        "componentId": "criterion_c_avoidance",
+        "componentName": "Criterion C – Avoidance",
+        "inputs": [],
+        "calculationType": "engine",
+        "score": 3.0
+      },
+      {
+        "componentId": "criterion_d_cognition_mood",
+        "componentName": "Criterion D – Negative Alterations in Cognition and Mood",
+        "inputs": [],
+        "calculationType": "engine",
+        "score": 10.0
+      },
+      {
+        "componentId": "criterion_e_arousal",
+        "componentName": "Criterion E – Arousal and Reactivity",
+        "inputs": [],
+        "calculationType": "engine",
+        "score": 11.0
+      }
+    ],
+    "globalScore": {
+      "score": 33.0,
+      "label": "Provisional PTSD",
+      "description": "Meets DSM-5 symptom criteria across intrusion, avoidance, cognition/mood, and arousal domains.",
+      "componentIds": [
+        "criterion_b_intrusion",
+        "criterion_c_avoidance",
+        "criterion_d_cognition_mood",
+        "criterion_e_arousal"
+      ]
+    },
+    "metadata": {
+      "engine": "scoring-engine"
+    }
+  }
+}

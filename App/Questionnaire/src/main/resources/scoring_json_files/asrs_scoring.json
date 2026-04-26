@@ -1,0 +1,98 @@
+{
+  "id": "asrs_scoring",
+  "questionnaire_id": "asrs",
+  "method": "asrs_scoring",
+  "responses": [
+    {
+      "question_id": "asrs_q1",
+      "response_key": "value"
+    },
+    {
+      "question_id": "asrs_q2",
+      "response_key": "value"
+    },
+    {
+      "question_id": "asrs_q3",
+      "response_key": "value"
+    },
+    {
+      "question_id": "asrs_q4",
+      "response_key": "value"
+    },
+    {
+      "question_id": "asrs_q5",
+      "response_key": "value"
+    },
+    {
+      "question_id": "asrs_q6",
+      "response_key": "value"
+    }
+  ],
+  "components": [
+    {
+      "id": "part_a_total",
+      "name": "ASRS Part A Score",
+      "calculation": {
+        "type": "sum",
+        "inputs": [
+          {
+            "question_id": "asrs_q1",
+            "response_key": "value"
+          },
+          {
+            "question_id": "asrs_q2",
+            "response_key": "value"
+          },
+          {
+            "question_id": "asrs_q3",
+            "response_key": "value"
+          },
+          {
+            "question_id": "asrs_q4",
+            "response_key": "value"
+          },
+          {
+            "question_id": "asrs_q5",
+            "response_key": "value"
+          },
+          {
+            "question_id": "asrs_q6",
+            "response_key": "value"
+          }
+        ],
+        "score_range": [
+          0,
+          24
+        ]
+      }
+    }
+  ],
+  "global_score": {
+    "calculation": {
+      "type": "sum_components",
+      "components": [
+        "part_a_total"
+      ],
+      "score_range": [
+        0,
+        24
+      ]
+    },
+    "interpretation": {
+      "rules": [
+        {
+          "min": 0,
+          "max": 9,
+          "label": "Low likelihood of ADHD",
+          "description": "Symptoms are below the threshold typically associated with ADHD."
+        },
+        {
+          "min": 10,
+          "max": 24,
+          "label": "High likelihood of ADHD",
+          "description": "Symptom pattern is consistent with ADHD and warrants further clinical evaluation."
+        }
+      ]
+    }
+  }
+}

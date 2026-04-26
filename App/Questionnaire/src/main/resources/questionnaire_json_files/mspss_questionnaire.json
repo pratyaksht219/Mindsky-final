@@ -1,0 +1,137 @@
+{
+  "id": "mspss",
+  "name": "Multidimensional Scale of Perceived Social Support",
+  "short_name": "MSPSS",
+  "category": "Social Support",
+  "description": "A 12-item scale designed to measure perceptions of support from three sources: Family, Friends, and a Significant Other.",
+  "version": "1988",
+  "source": "Zimet, Dahlem, Zimet & Farley (1988)",
+  "instructions": "Read each statement carefully. Indicate how you feel about each statement using the 7-point scale.",
+  "questions": [
+    {
+      "id": "mspss_q1",
+      "text": "There is a special person who is around when I am in need.",
+      "domain": "SO",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_1_7",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "mspss_q2",
+      "text": "There is a special person with whom I can share my joys and sorrows.",
+      "domain": "SO",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_1_7",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "mspss_q3",
+      "text": "My family really tries to help me.",
+      "domain": "Fam",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_1_7",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "mspss_q4",
+      "text": "I get the emotional help and support I need from my family.",
+      "domain": "Fam",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_1_7",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "mspss_q5",
+      "text": "I have a special person who is a real source of comfort to me.",
+      "domain": "SO",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_1_7",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "mspss_q6",
+      "text": "My friends really try to help me.",
+      "domain": "Fri",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_1_7",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "mspss_q7",
+      "text": "I can count on my friends when things go wrong.",
+      "domain": "Fri",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_1_7",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "mspss_q8",
+      "text": "I can talk about my problems with my family.",
+      "domain": "Fam",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_1_7",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "mspss_q9",
+      "text": "I have friends with whom I can share my joys and sorrows.",
+      "domain": "Fri",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_1_7",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "mspss_q10",
+      "text": "There is a special person in my life who cares about my feelings.",
+      "domain": "SO",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_1_7",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "mspss_q11",
+      "text": "My family is willing to help me make decisions.",
+      "domain": "Fam",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_1_7",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "mspss_q12",
+      "text": "I can talk about my problems with my friends.",
+      "domain": "Fri",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_1_7",
+        "response_key": "value"
+      }
+    }
+  ],
+  "metadata": {
+    "estimated_time_minutes": 5,
+    "clinical_use": true,
+    "license": "Public Domain (Research Use)"
+  }
+}

@@ -1,0 +1,429 @@
+{
+  "sessionId": "9776cd3a-41c5-457e-9c57-e677fb349369",
+  "phase": "COMPLETED",
+  "nextQuestion": null,
+  "result": {
+    "questionnaireId": "psqi",
+    "finalScore": 8.0,
+    "severityLabel": "Poor Sleep Quality",
+    "description": "Global score greater than 5 indicates clinically significant sleep disturbance.",
+    "componentScores": {
+      "comp1_subjective_quality": 2.0,
+      "comp3_sleep_duration": 1.0,
+      "comp2_sleep_latency": 2.0,
+      "comp5_sleep_disturbances": 1.0,
+      "comp4_sleep_efficiency": 0.0,
+      "comp7_daytime_dysfunction": 2.0,
+      "comp6_sleeping_medication": 0.0
+    }
+  },
+  "breakdown": {
+    "questionnaireId": "psqi",
+    "responses": [
+      {
+        "questionId": "psqi_q1",
+        "questionText": "During the past month, what time have you usually gone to bed at night?",
+        "responses": [
+          {
+            "responseKey": "time",
+            "rawValue": "23:30",
+            "normalizedValue": null,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "psqi_q2",
+        "questionText": "During the past month, how long (in minutes) has it usually taken you to fall asleep each night?",
+        "responses": [
+          {
+            "responseKey": "minutes",
+            "rawValue": 45.0,
+            "normalizedValue": 45.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "psqi_q3",
+        "questionText": "During the past month, what time have you usually gotten up in the morning?",
+        "responses": [
+          {
+            "responseKey": "time",
+            "rawValue": "07:00",
+            "normalizedValue": null,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "psqi_q4",
+        "questionText": "During the past month, how many hours of actual sleep did you get at night?",
+        "responses": [
+          {
+            "responseKey": "hours",
+            "rawValue": 6.5,
+            "normalizedValue": 6.5,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "psqi_q5a",
+        "questionText": "Cannot get to sleep within 30 minutes",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "psqi_q5b",
+        "questionText": "Wake up in the middle of the night or early morning",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "psqi_q5c",
+        "questionText": "Have to get up to use the bathroom",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 0.0,
+            "normalizedValue": 0.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "psqi_q5d",
+        "questionText": "Cannot breathe comfortably",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 0.0,
+            "normalizedValue": 0.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "psqi_q5e",
+        "questionText": "Cough or snore loudly",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 0.0,
+            "normalizedValue": 0.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "psqi_q5f",
+        "questionText": "Feel too cold",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "psqi_q5g",
+        "questionText": "Feel too hot",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "psqi_q5h",
+        "questionText": "Had bad dreams",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "psqi_q5i",
+        "questionText": "Have pain",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 0.0,
+            "normalizedValue": 0.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "psqi_q6",
+        "questionText": "During the past month, how would you rate your sleep quality overall?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "psqi_q7",
+        "questionText": "During the past month, how often have you taken medicine to help you sleep?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 0.0,
+            "normalizedValue": 0.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "psqi_q8",
+        "questionText": "During the past month, how often have you had trouble staying awake while driving, eating meals, or engaging in social activity?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "psqi_q9",
+        "questionText": "During the past month, how much of a problem has it been for you to keep up enough enthusiasm to get things done?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      }
+    ],
+    "components": [
+      {
+        "componentId": "comp1_subjective_quality",
+        "componentName": "Component 1: Subjective sleep quality",
+        "inputs": [
+          {
+            "responseKey": "value",
+            "questionId": "psqi_q6",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0
+          }
+        ],
+        "calculationType": "engine",
+        "score": 2.0
+      },
+      {
+        "componentId": "comp2_sleep_latency",
+        "componentName": "Component 2: Sleep latency",
+        "inputs": [
+          {
+            "responseKey": "minutes",
+            "questionId": "psqi_q2",
+            "rawValue": 45.0,
+            "normalizedValue": 45.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "psqi_q5a",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0
+          }
+        ],
+        "calculationType": "engine",
+        "score": 2.0
+      },
+      {
+        "componentId": "comp3_sleep_duration",
+        "componentName": "Component 3: Sleep duration",
+        "inputs": [
+          {
+            "responseKey": "hours",
+            "questionId": "psqi_q4",
+            "rawValue": 6.5,
+            "normalizedValue": 6.5
+          }
+        ],
+        "calculationType": "engine",
+        "score": 1.0
+      },
+      {
+        "componentId": "comp4_sleep_efficiency",
+        "componentName": "Component 4: Habitual sleep efficiency",
+        "inputs": [
+          {
+            "responseKey": "time",
+            "questionId": "psqi_q1",
+            "rawValue": "23:30",
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "time",
+            "questionId": "psqi_q3",
+            "rawValue": "07:00",
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "hours",
+            "questionId": "psqi_q4",
+            "rawValue": 6.5,
+            "normalizedValue": 6.5
+          }
+        ],
+        "calculationType": "engine",
+        "score": 0.0
+      },
+      {
+        "componentId": "comp5_sleep_disturbances",
+        "componentName": "Component 5: Sleep disturbances",
+        "inputs": [
+          {
+            "responseKey": "value",
+            "questionId": "psqi_q5b",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "psqi_q5c",
+            "rawValue": 0.0,
+            "normalizedValue": 0.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "psqi_q5d",
+            "rawValue": 0.0,
+            "normalizedValue": 0.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "psqi_q5e",
+            "rawValue": 0.0,
+            "normalizedValue": 0.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "psqi_q5f",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "psqi_q5g",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "psqi_q5h",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "psqi_q5i",
+            "rawValue": 0.0,
+            "normalizedValue": 0.0
+          }
+        ],
+        "calculationType": "engine",
+        "score": 1.0
+      },
+      {
+        "componentId": "comp6_sleeping_medication",
+        "componentName": "Component 6: Use of sleeping medication",
+        "inputs": [
+          {
+            "responseKey": "value",
+            "questionId": "psqi_q7",
+            "rawValue": 0.0,
+            "normalizedValue": 0.0
+          }
+        ],
+        "calculationType": "engine",
+        "score": 0.0
+      },
+      {
+        "componentId": "comp7_daytime_dysfunction",
+        "componentName": "Component 7: Daytime dysfunction",
+        "inputs": [
+          {
+            "responseKey": "value",
+            "questionId": "psqi_q8",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "psqi_q9",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0
+          }
+        ],
+        "calculationType": "engine",
+        "score": 2.0
+      }
+    ],
+    "globalScore": {
+      "score": 8.0,
+      "label": "Poor Sleep Quality",
+      "description": "Global score greater than 5 indicates clinically significant sleep disturbance.",
+      "componentIds": [
+        "comp1_subjective_quality",
+        "comp2_sleep_latency",
+        "comp3_sleep_duration",
+        "comp4_sleep_efficiency",
+        "comp5_sleep_disturbances",
+        "comp6_sleeping_medication",
+        "comp7_daytime_dysfunction"
+      ]
+    },
+    "metadata": {
+      "engine": "scoring-engine"
+    }
+  }
+}

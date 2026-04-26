@@ -1,0 +1,176 @@
+{
+  "id": "mspss",
+  "questionnaire_id": "mspss",
+  "method": "mspss_mean_scoring",
+  "responses": [
+    {
+      "question_id": "mspss_q1",
+      "response_key": "value"
+    },
+    {
+      "question_id": "mspss_q2",
+      "response_key": "value"
+    },
+    {
+      "question_id": "mspss_q3",
+      "response_key": "value"
+    },
+    {
+      "question_id": "mspss_q4",
+      "response_key": "value"
+    },
+    {
+      "question_id": "mspss_q5",
+      "response_key": "value"
+    },
+    {
+      "question_id": "mspss_q6",
+      "response_key": "value"
+    },
+    {
+      "question_id": "mspss_q7",
+      "response_key": "value"
+    },
+    {
+      "question_id": "mspss_q8",
+      "response_key": "value"
+    },
+    {
+      "question_id": "mspss_q9",
+      "response_key": "value"
+    },
+    {
+      "question_id": "mspss_q10",
+      "response_key": "value"
+    },
+    {
+      "question_id": "mspss_q11",
+      "response_key": "value"
+    },
+    {
+      "question_id": "mspss_q12",
+      "response_key": "value"
+    }
+  ],
+  "components": [
+    {
+      "id": "so_subscale",
+      "name": "Significant Other Subscale",
+      "calculation": {
+        "type": "average",
+        "inputs": [
+          {
+            "question_id": "mspss_q1",
+            "response_key": "value"
+          },
+          {
+            "question_id": "mspss_q2",
+            "response_key": "value"
+          },
+          {
+            "question_id": "mspss_q5",
+            "response_key": "value"
+          },
+          {
+            "question_id": "mspss_q10",
+            "response_key": "value"
+          }
+        ],
+        "score_range": [
+          1,
+          7
+        ]
+      }
+    },
+    {
+      "id": "fam_subscale",
+      "name": "Family Subscale",
+      "calculation": {
+        "type": "average",
+        "inputs": [
+          {
+            "question_id": "mspss_q3",
+            "response_key": "value"
+          },
+          {
+            "question_id": "mspss_q4",
+            "response_key": "value"
+          },
+          {
+            "question_id": "mspss_q8",
+            "response_key": "value"
+          },
+          {
+            "question_id": "mspss_q11",
+            "response_key": "value"
+          }
+        ],
+        "score_range": [
+          1,
+          7
+        ]
+      }
+    },
+    {
+      "id": "fri_subscale",
+      "name": "Friends Subscale",
+      "calculation": {
+        "type": "average",
+        "inputs": [
+          {
+            "question_id": "mspss_q6",
+            "response_key": "value"
+          },
+          {
+            "question_id": "mspss_q7",
+            "response_key": "value"
+          },
+          {
+            "question_id": "mspss_q9",
+            "response_key": "value"
+          },
+          {
+            "question_id": "mspss_q12",
+            "response_key": "value"
+          }
+        ],
+        "score_range": [
+          1,
+          7
+        ]
+      }
+    }
+  ],
+  "global_score": {
+    "calculation": {
+      "type": "formula",
+      "formula": "(mspss_q1+mspss_q2+mspss_q3+mspss_q4+mspss_q5+mspss_q6+mspss_q7+mspss_q8+mspss_q9+mspss_q10+mspss_q11+mspss_q12)/12",
+      "score_range": [
+        1,
+        7
+      ]
+    },
+    "interpretation": {
+      "rules": [
+        {
+          "min": 1,
+          "max": 2.9,
+          "label": "Lack of Social Support for the user",
+          "description": "Perceives low levels of social support."
+        },
+        {
+          "min": 3,
+          "max": 5,
+          "label": "Moderate Support available to the user",
+          "description": "Perceives moderate levels of social support."
+        },
+        {
+          "min": 5.1,
+          "max": 7,
+          "label": "High Social Support available for the user",
+          "description": "Perceives high levels of social support."
+        }
+      ]
+    }
+  }
+}

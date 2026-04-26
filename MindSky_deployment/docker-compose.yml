@@ -1,0 +1,250 @@
+version: "3.9"
+
+services:
+
+  # 🟢 Gateway
+  gateway:
+    image: pratyaksht219/mindsky-gateway:latest
+    ports:
+      - "8080:8080"
+    environment:
+      SCREENING_SERVICE_URL: ${SCREENING_SERVICE_URL}
+      QUESTIONNAIRE_SERVICE_URL: ${QUESTIONNAIRE_SERVICE_URL}
+    depends_on:
+      - screening
+      - questionnaire
+    networks:
+      - mental-health-network
+    restart: unless-stopped
+
+  # 🟢 Screening
+  screening:
+    image: pratyaksht219/mindsky-screening:latest
+    environment:
+      CLASSIFIER_SERVICE_URL: ${CLASSIFIER_SERVICE_URL}
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+    depends_on:
+      - classifier
+      - redis
+    networks:
+      - mental-health-network
+    restart: unless-stopped
+
+  # 🟢 Questionnaire
+  questionnaire:
+    image: pratyaksht219/mindsky-questionnaire:latest
+    environment:
+      AI_SERVICE_URL: ${AI_SERVICE_URL}
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+    depends_on:
+      - ai
+      - redis
+    networks:
+      - mental-health-network
+    restart: unless-stopped
+
+  # 🟢 Classifier
+  classifier:
+    image: pratyaksht219/mindsky-classifier:latest
+    ports:
+      - "9000:9000"
+    networks:
+      - mental-health-network
+    restart: unless-stopped
+
+  # 🟢 AI Service
+  ai:
+    image: pratyaksht219/mindsky-ai-final:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ai_vector_db:/app/vector_store
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+    networks:
+      - mental-health-network
+    restart: unless-stopped
+
+  # 🟢 Redis
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    networks:
+      - mental-health-network
+    restart: unless-stopped
+
+  # 🟢 Backend (Node)
+  backend:
+    image: pratyaksht219/mindsky-backend:latest
+    ports:
+      - "5001:5001"
+    environment:
+      MONGO_URI: ${MONGO_URI}
+      AI_URL_START: ${AI_URL_START}
+      AI_URL_ANSWER: ${AI_URL_ANSWER}
+      CALL_API_URL: ${CALL_API_URL}
+      SMS_API_URL: ${SMS_API_URL}
+    depends_on:
+      - mongo
+    networks:
+      - mental-health-network
+    restart: unless-stopped
+
+  # 🟢 Mongo
+  mongo:
+    image: mongo:6.0
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - mental-health-network
+    restart: unless-stopped
+
+  # 🟢 Mongo Express / Mongo Atlas
+  mongo-express:
+    image: haohanyang/compass-web
+    container_name: mongo-express
+    restart: always
+    ports:
+      - 8002:8080
+    environment:
+      CW_MONGO_URI: ${CW_MONGO_URI}
+    networks:
+      - mental-health-network
+
+  # 🟢 Frontend (Nginx)
+  frontend:
+    image: pratyaksht219/mindsky-frontend:latest
+    ports:
+      - "5173:80"
+    networks:
+      - mental-health-network
+    restart: unless-stopped
+
+  # 🟢 Prometheus
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--web.enable-lifecycle"
+    networks:
+      - mental-health-network
+    restart: unless-stopped
+
+  # 🟢 Grafana
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks:
+      - mental-health-network
+    restart: unless-stopped
+
+  # 🟢 cAdvisor (container metrics)
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    ports:
+      - "8088:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    networks:
+      - mental-health-network
+    restart: unless-stopped
+
+  # 🟢 PostGIS (Emergency Services)
+  postgis-db:
+    image: postgis/postgis:15-3.4
+    container_name: postgis-db
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgis_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - mental-health-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d crisis_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  # 🟢 Data Loader (Emergency Services)
+  data-loader:
+    image: ghcr.io/osgeo/gdal:alpine-small-latest
+    depends_on:
+      postgis-db:
+        condition: service_healthy
+    volumes:
+      - .:/data
+    entrypoint: ["/bin/sh", "/data/import.sh"]
+    networks:
+      - mental-health-network
+
+  # 🟢 Emergency Service
+  emergency:
+    image: pratyaksht219/mindsky-emergency-final:latest
+    container_name: emergency
+    depends_on:
+      postgis-db:
+        condition: service_healthy
+      data-loader:
+        condition: service_completed_successfully
+    ports:
+      - "8084:8084"
+    environment:
+      #Database
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      # Twilio (from .env)
+      TWILIO_SID: ${TWILIO_SID}
+      TWILIO_AUTH_TOKEN: ${TWILIO_AUTH_TOKEN}
+      TWILIO_NUMBER: ${TWILIO_NUMBER}
+    networks:
+      - mental-health-network
+    restart: unless-stopped
+
+  # 🟢 Scraper Service (Emergency Services)
+  scraper-service:
+    image: pratyaksht219/mindsky-emergency-scraper:latest
+    container_name: scraper-service
+    ports:
+      - "8001:8001"
+    networks:
+      - mental-health-network
+    restart: unless-stopped
+
+volumes:
+  redis_data:
+  ai_vector_db:
+  grafana_data:
+  mongo_data:
+  postgis_data:
+
+networks:
+  mental-health-network:
+    driver: bridge

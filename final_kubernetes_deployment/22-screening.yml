@@ -1,0 +1,50 @@
+# ── Screening Deployment + Service ──
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: screening
+  namespace: mindsky
+  labels:
+    app: screening
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: screening
+  template:
+    metadata:
+      labels:
+        app: screening
+    spec:
+      containers:
+        - name: screening
+          image: pratyaksht219/mindsky-screening:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8081
+          env:
+            - name: CLASSIFIER_SERVICE_URL
+              value: "http://classifier:9000"
+            - name: REDIS_HOST
+              value: "redis"
+            - name: REDIS_PORT
+              value: "6379"
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8081
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 5
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: screening
+  namespace: mindsky
+spec:
+  selector:
+    app: screening
+  ports:
+    - port: 8081
+      targetPort: 8081

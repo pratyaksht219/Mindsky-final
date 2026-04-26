@@ -1,0 +1,87 @@
+# ── GeoData Loader Job ──
+# This Job imports india_states.geojson and dists11.geojson into PostGIS.
+# It uses a PVC to mount the geojson data files and the import script from a ConfigMap.
+#
+# PREREQUISITE: Before running this Job, you must create the geodata PVC and
+# manually copy the .geojson files into minikube. See the deploy.sh script.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: geodata-pvc
+  namespace: mindsky
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi
+---
+# Temporary pod to copy geojson files into the PVC
+# This is applied first, then the user copies files via `kubectl cp`
+apiVersion: v1
+kind: Pod
+metadata:
+  name: geodata-copy-helper
+  namespace: mindsky
+  labels:
+    app: geodata-copy-helper
+spec:
+  containers:
+    - name: helper
+      image: busybox
+      command: ["sh", "-c", "echo 'Ready for file copy' && sleep 3600"]
+      volumeMounts:
+        - name: geodata
+          mountPath: /data
+  volumes:
+    - name: geodata
+      persistentVolumeClaim:
+        claimName: geodata-pvc
+  restartPolicy: Never
+---
+# The actual import Job
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: geodata-loader
+  namespace: mindsky
+  labels:
+    app: geodata-loader
+spec:
+  backoffLimit: 3
+  template:
+    metadata:
+      labels:
+        app: geodata-loader
+    spec:
+      initContainers:
+        - name: wait-for-postgis
+          image: busybox
+          command:
+            - sh
+            - -c
+            - |
+              echo "⏳ Waiting for PostGIS to be ready..."
+              until nc -z postgis-db 5432; do
+                echo "  PostGIS not ready, retrying in 3s..."
+                sleep 3
+              done
+              echo "✅ PostGIS is reachable!"
+      containers:
+        - name: geodata-loader
+          image: ghcr.io/osgeo/gdal:alpine-small-latest
+          command: ["/bin/sh", "/scripts/import.sh"]
+          volumeMounts:
+            - name: geodata
+              mountPath: /data
+            - name: import-script
+              mountPath: /scripts
+      restartPolicy: Never
+      volumes:
+        - name: geodata
+          persistentVolumeClaim:
+            claimName: geodata-pvc
+        - name: import-script
+          configMap:
+            name: geodata-import-script
+            defaultMode: 0755

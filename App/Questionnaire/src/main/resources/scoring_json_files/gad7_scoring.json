@@ -1,0 +1,139 @@
+{
+  "id": "gad7_standard_scoring",
+  "questionnaire_id": "gad7",
+  "method": "gad7_scoring",
+  "responses": [
+    {
+      "question_id": "gad7_q1",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "gad7_q2",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "gad7_q3",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "gad7_q4",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "gad7_q5",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "gad7_q6",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "gad7_q7",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    }
+  ],
+  "components": [
+    {
+      "id": "total_anxiety_score",
+      "name": "Total GAD-7 Score",
+      "calculation": {
+        "type": "sum",
+        "inputs": [
+          {
+            "question_id": "gad7_q1",
+            "response_key": "value"
+          },
+          {
+            "question_id": "gad7_q2",
+            "response_key": "value"
+          },
+          {
+            "question_id": "gad7_q3",
+            "response_key": "value"
+          },
+          {
+            "question_id": "gad7_q4",
+            "response_key": "value"
+          },
+          {
+            "question_id": "gad7_q5",
+            "response_key": "value"
+          },
+          {
+            "question_id": "gad7_q6",
+            "response_key": "value"
+          },
+          {
+            "question_id": "gad7_q7",
+            "response_key": "value"
+          }
+        ],
+        "score_range": [
+          0,
+          21
+        ]
+      }
+    }
+  ],
+  "global_score": {
+    "calculation": {
+      "type": "sum_components",
+      "components": [
+        "total_anxiety_score"
+      ],
+      "score_range": [
+        0,
+        21
+      ]
+    },
+    "interpretation": {
+      "rules": [
+        {
+          "min": 0,
+          "max": 4,
+          "label": "Minimal Anxiety",
+          "description": "Minimal anxiety symptoms detected."
+        },
+        {
+          "min": 5,
+          "max": 9,
+          "label": "Mild Anxiety",
+          "description": "Mild anxiety symptoms detected."
+        },
+        {
+          "min": 10,
+          "max": 14,
+          "label": "Moderate Anxiety",
+          "description": "Moderate anxiety symptoms; clinical cut-off for further evaluation."
+        },
+        {
+          "min": 15,
+          "max": 21,
+          "label": "Severe Anxiety",
+          "description": "Severe anxiety symptoms detected."
+        }
+      ]
+    }
+  }
+}

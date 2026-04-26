@@ -1,0 +1,91 @@
+{
+  "id": "dass21_standard_scoring",
+  "questionnaire_id": "dass21",
+  "method": "dass21_scoring",
+
+  "responses": [
+    { "question_id": "dass21_q1", "response_key": "dass21_q1", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q2", "response_key": "dass21_q2", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q3", "response_key": "dass21_q3", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q4", "response_key": "dass21_q4", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q5", "response_key": "dass21_q5", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q6", "response_key": "dass21_q6", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q7", "response_key": "dass21_q7", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q8", "response_key": "dass21_q8", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q9", "response_key": "dass21_q9", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q10", "response_key": "dass21_q10", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q11", "response_key": "dass21_q11", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q12", "response_key": "dass21_q12", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q13", "response_key": "dass21_q13", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q14", "response_key": "dass21_q14", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q15", "response_key": "dass21_q15", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q16", "response_key": "dass21_q16", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q17", "response_key": "dass21_q17", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q18", "response_key": "dass21_q18", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q19", "response_key": "dass21_q19", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q20", "response_key": "dass21_q20", "transform": { "type": "identity" } },
+    { "question_id": "dass21_q21", "response_key": "dass21_q21", "transform": { "type": "identity" } }
+  ],
+
+  "components": [
+    {
+      "id": "depression_score",
+      "name": "Depression",
+      "calculation": {
+        "type": "sum_components",
+        "inputs": [
+          { "question_id": "dass21_q3", "response_key": "dass21_q3" },
+          { "question_id": "dass21_q5", "response_key": "dass21_q5" },
+          { "question_id": "dass21_q10", "response_key": "dass21_q10" },
+          { "question_id": "dass21_q13", "response_key": "dass21_q13" },
+          { "question_id": "dass21_q16", "response_key": "dass21_q16" },
+          { "question_id": "dass21_q17", "response_key": "dass21_q17" },
+          { "question_id": "dass21_q21", "response_key": "dass21_q21" }
+        ]
+      }
+    },
+    {
+      "id": "anxiety_score",
+      "name": "Anxiety",
+      "calculation": {
+        "type": "sum_components",
+        "inputs": [
+          { "question_id": "dass21_q2", "response_key": "dass21_q2" },
+          { "question_id": "dass21_q4", "response_key": "dass21_q4" },
+          { "question_id": "dass21_q7", "response_key": "dass21_q7" },
+          { "question_id": "dass21_q9", "response_key": "dass21_q9" },
+          { "question_id": "dass21_q15", "response_key": "dass21_q15" },
+          { "question_id": "dass21_q19", "response_key": "dass21_q19" },
+          { "question_id": "dass21_q20", "response_key": "dass21_q20" }
+        ]
+      }
+    },
+    {
+      "id": "stress_score",
+      "name": "Stress",
+      "calculation": {
+        "type": "sum_components",
+        "inputs": [
+          { "question_id": "dass21_q1", "response_key": "dass21_q1" },
+          { "question_id": "dass21_q6", "response_key": "dass21_q6" },
+          { "question_id": "dass21_q8", "response_key": "dass21_q8" },
+          { "question_id": "dass21_q11", "response_key": "dass21_q11" },
+          { "question_id": "dass21_q12", "response_key": "dass21_q12" },
+          { "question_id": "dass21_q14", "response_key": "dass21_q14" },
+          { "question_id": "dass21_q18", "response_key": "dass21_q18" }
+        ]
+      }
+    }
+  ],
+
+  "global_score": {
+    "calculation": {
+      "type": "sum_components",
+      "components": [
+        "depression_score",
+        "anxiety_score",
+        "stress_score"
+      ]
+    }
+  }
+}

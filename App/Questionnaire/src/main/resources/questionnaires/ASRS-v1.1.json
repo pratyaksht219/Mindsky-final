@@ -1,0 +1,153 @@
+{
+    "id": "asrs",
+    "name": "Adult ADHD Self-Report Scale",
+    "short_name": "ASRS-v1.1",
+    "category": "adhd",
+    "description": "A screening instrument designed to identify symptoms consistent with adult Attention-Deficit/Hyperactivity Disorder (ADHD).",
+    "version": "v1.1",
+    "source": "World Health Organization (WHO)",
+  
+    "instructions": "Please answer the questions below, thinking about how you have felt and conducted yourself over the past 6 months.",
+  
+    "response_format": {
+      "type": "single_choice",
+      "scale": "frequency_0_4",
+      "options": [
+        { "label": "Never", "value": 0 },
+        { "label": "Rarely", "value": 1 },
+        { "label": "Sometimes", "value": 2 },
+        { "label": "Often", "value": 3 },
+        { "label": "Very Often", "value": 4 }
+      ]
+    },
+  
+    "questions": [
+      { 
+        "id": "asrs_q1", 
+        "text": "How often do you have trouble wrapping up the final details of a project, once the challenging parts have been done?" 
+    },
+      { 
+        "id": "asrs_q2", 
+        "text": "How often do you have difficulty getting things in order when you have to do a task that requires organization?" 
+    },
+      { 
+        "id": "asrs_q3", 
+        "text": "How often do you have problems remembering appointments or obligations?" 
+    },
+      { 
+        "id": "asrs_q4", 
+        "text": "When you have a task that requires a lot of thought, how often do you avoid or delay getting started?" 
+    },
+      { 
+        "id": "asrs_q5", 
+        "text": "How often do you fidget or squirm with your hands or feet when you have to sit down for a long time?" 
+    },
+      { 
+        "id": "asrs_q6", 
+        "text": "How often do you feel overly active and compelled to do things, like you were driven by a motor?" 
+    },
+      { 
+        "id": "asrs_q7", 
+        "text": "How often do you make careless mistakes when you have to work on a boring or difficult project?" 
+    },
+      { 
+        "id": "asrs_q8", 
+        "text": "How often do you have difficulty keeping your attention when you are doing boring or repetitive work?" 
+    },
+      { 
+        "id": "asrs_q9", 
+        "text": "How often do you have difficulty concentrating on what people say to you, even when they are speaking to you directly?" 
+    },
+      { 
+        "id": "asrs_q10", 
+        "text": "How often do you misplace or have difficulty finding things at home or at work?" 
+    },
+      { 
+        "id": "asrs_q11", 
+        "text": "How often are you distracted by activity or noise around you?" 
+    },
+      { 
+        "id": "asrs_q12", 
+        "text": "How often do you leave your seat in meetings or other situations in which you are expected to remain seated?" 
+    },
+      { 
+        "id": "asrs_q13", 
+        "text": "How often do you feel restless or fidgety?" 
+    },
+      { 
+        "id": "asrs_q14", 
+        "text": "How often do you have difficulty unwinding and relaxing when you have time to yourself?" 
+    },
+      { 
+        "id": "asrs_q15",
+        "text": "How often do you find yourself talking too much when you are in social situations?" 
+    },
+      { 
+        "id": "asrs_q16", 
+        "text": "When you’re in a conversation, how often do you finish other people’s sentences before they can finish them themselves?" }
+        ,
+      { 
+        "id": "asrs_q17", 
+        "text": "How often do you have difficulty waiting your turn in situations when turn taking is required?" 
+    },
+      { 
+        "id": "asrs_q18", 
+        "text": "How often do you interrupt others when they are busy?" 
+    }
+    ],
+  
+    "scoring": {
+      "method": "screening_only",
+      "note": "ASRS-v1.1 is a screening tool and does not generate a total score or severity classification."
+    },
+  
+    "screening_rules": {
+      "part_a_question_ids": [
+        "asrs_q1",
+        "asrs_q2",
+        "asrs_q3",
+        "asrs_q4",
+        "asrs_q5",
+        "asrs_q6"
+      ],
+  
+      "positive_response_thresholds": {
+        "asrs_q1": 2,
+        "asrs_q2": 2,
+        "asrs_q3": 2,
+        "asrs_q4": 3,
+        "asrs_q5": 3,
+        "asrs_q6": 3
+      },
+  
+      "positive_screen_condition": {
+        "minimum_positive_items": 4,
+        "outcome_positive": "Positive ADHD Screen",
+        "outcome_negative": "Negative ADHD Screen"
+      }
+    },
+  
+    "part_b": {
+      "description": "Part B items provide additional clinical context but do not contribute to screening positivity.",
+      "question_ids": [
+        "asrs_q7",
+        "asrs_q8",
+        "asrs_q9",
+        "asrs_q10",
+        "asrs_q11",
+        "asrs_q12",
+        "asrs_q13",
+        "asrs_q14",
+        "asrs_q15",
+        "asrs_q16",
+        "asrs_q17",
+        "asrs_q18"
+      ]
+    },
+  
+    "metadata": {
+      "estimated_time_minutes": 5,
+      "clinical_use": true,
+      "license": "Free for clinical and research use (WHO)"
+    }
+  }

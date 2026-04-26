@@ -1,0 +1,139 @@
+{
+    "id": "pcl5",
+    "name": "Posttraumatic Stress Disorder Checklist for DSM-5",
+    "short_name": "PCL-5",
+    "category": "ptsd",
+    "description": "A 20-item self-report measure that assesses the presence and severity of PTSD symptoms according to DSM-5 criteria.",
+    "version": "DSM-5",
+    "source": "Weathers et al., 2013, U.S. Department of Veterans Affairs",
+  
+    "instructions": "Keeping your worst stressful experience in mind, please indicate how much you have been bothered by each problem in the past month.",
+  
+    "response_format": {
+      "type": "single_choice",
+      "scale": "likert_0_4",
+      "options": [
+        { "label": "Not at all", "value": 0 },
+        { "label": "A little bit", "value": 1 },
+        { "label": "Moderately", "value": 2 },
+        { "label": "Quite a bit", "value": 3 },
+        { "label": "Extremely", "value": 4 }
+      ]
+    },
+  
+    "questions": [
+      { 
+        "id": "pcl5_q1",
+        "text": "Repeated, disturbing, and unwanted memories of the stressful experience?" },
+      { 
+        "id": "pcl5_q2",
+        "text": "Repeated, disturbing dreams of the stressful experience?" },
+      { 
+        "id": "pcl5_q3", 
+        "text": "Suddenly feeling or acting as if the stressful experience were actually happening again?" },
+      { 
+        "id": "pcl5_q4", 
+        "text": "Feeling very upset when something reminded you of the stressful experience?" },
+      { 
+        "id": "pcl5_q5", 
+        "text": "Having strong physical reactions when reminded of the stressful experience?" },
+  
+      { 
+        "id": "pcl5_q6", 
+        "text": "Avoiding memories, thoughts, or feelings related to the stressful experience?" },
+      { 
+        "id": "pcl5_q7", 
+        "text": "Avoiding external reminders of the stressful experience?" },
+  
+      { 
+        "id": "pcl5_q8", 
+        "text": "Trouble remembering important parts of the stressful experience?" },
+      { 
+        "id": "pcl5_q9", 
+        "text": "Having strong negative beliefs about yourself, others, or the world?" },
+      { 
+        "id": "pcl5_q10", 
+        "text": "Blaming yourself or someone else for the stressful experience?" },
+      { 
+        "id": "pcl5_q11", 
+        "text": "Having strong negative feelings such as fear, horror, anger, guilt, or shame?" },
+      { 
+        "id": "pcl5_q12", 
+        "text": "Loss of interest in activities that you used to enjoy?" },
+      { 
+        "id": "pcl5_q13", 
+        "text": "Feeling distant or cut off from other people?" },
+      { 
+        "id": "pcl5_q14", 
+        "text": "Trouble experiencing positive feelings?" },
+      { 
+        "id": "pcl5_q15", 
+        "text": "Irritable behavior, angry outbursts, or acting aggressively?" },
+      { 
+        "id": "pcl5_q16", 
+        "text": "Taking too many risks or doing things that could cause you harm?" },
+      { 
+        "id": "pcl5_q17", 
+        "text": "Being super-alert, watchful, or on guard?" },
+      { 
+        "id": "pcl5_q18", 
+        "text": "Feeling jumpy or easily startled?" },
+      { 
+        "id": "pcl5_q19", 
+        "text": "Having difficulty concentrating?" },
+      { 
+        "id": "pcl5_q20", 
+        "text": "Trouble falling or staying asleep?" }
+    ],
+  
+    "scoring": {
+      "method": "sum",
+      "min_score": 0,
+      "max_score": 80,
+      "positive_symptom_threshold": 2
+    },
+  
+    "subscales": [
+      {
+        "name": "Criterion B – Intrusion",
+        "question_ids": ["pcl5_q1", "pcl5_q2", "pcl5_q3", "pcl5_q4", "pcl5_q5"],
+        "minimum_positive_items": 1
+      },
+      {
+        "name": "Criterion C – Avoidance",
+        "question_ids": ["pcl5_q6", "pcl5_q7"],
+        "minimum_positive_items": 1
+      },
+      {
+        "name": "Criterion D – Negative Alterations in Cognition and Mood",
+        "question_ids": [
+          "pcl5_q8", "pcl5_q9", "pcl5_q10", "pcl5_q11",
+          "pcl5_q12", "pcl5_q13", "pcl5_q14"
+        ],
+        "minimum_positive_items": 2
+      },
+      {
+        "name": "Criterion E – Arousal and Reactivity",
+        "question_ids": [
+          "pcl5_q15", "pcl5_q16", "pcl5_q17",
+          "pcl5_q18", "pcl5_q19", "pcl5_q20"
+        ],
+        "minimum_positive_items": 2
+      }
+    ],
+  
+    "diagnostic_rules": {
+      "description": "Provisional PTSD diagnosis requires Criterion A exposure plus symptom thresholds in B, C, D, and E.",
+      "criteria_required": ["B", "C", "D", "E"]
+    },
+  
+    "severity_interpretation": {
+      "note": "The PCL-5 does not define categorical severity cutoffs. Total scores (0–80) are used for symptom severity tracking and treatment response."
+    },
+  
+    "metadata": {
+      "estimated_time_minutes": 5,
+      "clinical_use": true,
+      "license": "Public domain (U.S. Department of Veterans Affairs)"
+    }
+  }

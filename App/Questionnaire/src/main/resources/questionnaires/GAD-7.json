@@ -1,0 +1,93 @@
+{
+    "id": "gad7",
+    "name": "Generalized Anxiety Disorder 7-item scale",
+    "short_name": "GAD-7",
+    "category": "anxiety",
+    "description": "A brief self-report scale for screening and measuring the severity of generalized anxiety disorder.",
+    "version": "1.0",
+    "source": "Spitzer et al., 2006",
+  
+    "instructions": "Over the last 2 weeks, how often have you been bothered by the following problems?",
+  
+    "response_format": {
+      "type": "single_choice",
+      "scale": "likert_0_3",
+      "options": [
+        { "label": "Not at all", "value": 0 },
+        { "label": "Several days", "value": 1 },
+        { "label": "More than half the days", "value": 2 },
+        { "label": "Nearly every day", "value": 3 }
+      ]
+    },
+  
+    "questions": [
+      {
+        "id": "gad7_q1",
+        "text": "Feeling nervous, anxious, or on edge ?: "
+      },
+      {
+        "id": "gad7_q2",
+        "text": "Not being able to stop or control worrying ?: "
+      }
+      ,
+      {
+        "id": "gad7_q3",
+        "text": "Worrying too much about different things ?: "
+      }
+      ,
+      {
+        "id": "gad7_q4",
+        "text": "Trouble relaxing ?: "
+      }
+      ,
+      {
+        "id": "gad7_q5",
+        "text": "Being so restless that it is hard to sit still ?: "
+      }
+      ,
+      {
+        "id": "gad7_q6",
+        "text": "Becoming easily annoyed or irritable ?: "
+      }
+      ,
+      {
+        "id": "gad7_q7",
+        "text": "Feeling afraid as if something awful might happen ?: "
+      }
+    ],
+  
+    "scoring": {
+      "method": "sum",
+      "min_score": 0,
+      "max_score": 21
+    },
+  
+    "severity_levels": [
+      {
+        "label": "Minimal",
+        "min": 0,
+        "max": 4
+      },
+      {
+        "label": "Mild",
+        "min": 5,
+        "max": 9
+      },
+      {
+        "label": "Moderate",
+        "min": 10,
+        "max": 14
+      },
+      {
+        "label": "Severe",
+        "min": 15,
+        "max": 21
+      }
+    ],
+  
+    "metadata": {
+      "estimated_time_minutes": 2,
+      "clinical_use": true,
+      "license": "Free for research and clinical use"
+    }
+  }

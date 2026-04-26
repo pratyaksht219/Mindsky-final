@@ -1,0 +1,45 @@
+# -------- Python --------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# -------- Virtual environments --------
+venv/
+.venv/
+
+# -------- Git --------
+.git/
+.gitignore
+
+# -------- OS --------
+.DS_Store
+
+# -------- Env --------
+.env
+
+# -------- Logs --------
+*.log
+
+# -------- Node --------
+node_modules/
+
+# -------- ML / Cache (IMPORTANT) --------
+.cache/
+huggingface/
+transformers/
+
+# -------- Data (if any) --------
+data/
+*.csv
+*.json
+*.pkl
+
+# -------- Build artifacts --------
+dist/
+build/
+*.egg-info/
+
+# -------- Docker --------
+Dockerfile
+docker-compose.yml

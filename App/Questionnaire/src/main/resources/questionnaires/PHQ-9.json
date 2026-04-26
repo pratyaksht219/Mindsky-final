@@ -1,0 +1,77 @@
+{
+    "id": "phq9",
+    "name": "Patient Health Questionnaire-9",
+    "short_name": "PHQ-9",
+    "category": "depression",
+    "description": "A 9-item self-report questionnaire used to screen, diagnose, monitor, and measure the severity of depression.",
+    "version": "9-item",
+    "source": "Kroenke, Spitzer & Williams (1999), Pfizer Inc.",
+  
+    "instructions": "Over the last 2 weeks, how often have you been bothered by any of the following problems?",
+  
+    "response_format": {
+      "type": "single_choice",
+      "scale": "likert_0_3",
+      "options": [
+        { "label": "Not at all", "value": 0 },
+        { "label": "Several days", "value": 1 },
+        { "label": "More than half the days", "value": 2 },
+        { "label": "Nearly every day", "value": 3 }
+      ]
+    },
+  
+    "questions": [
+      { "id": "phq9_q1", "text": "Little interest or pleasure in doing things" },
+      { "id": "phq9_q2", "text": "Feeling down, depressed, or hopeless" },
+      { "id": "phq9_q3", "text": "Trouble falling or staying asleep, or sleeping too much" },
+      { "id": "phq9_q4", "text": "Feeling tired or having little energy" },
+      { "id": "phq9_q5", "text": "Poor appetite or overeating" },
+      { "id": "phq9_q6", "text": "Feeling bad about yourself — or that you are a failure or have let yourself or your family down" },
+      { "id": "phq9_q7", "text": "Trouble concentrating on things, such as reading the newspaper or watching television" },
+      {
+        "id": "phq9_q8",
+        "text": "Moving or speaking so slowly that other people could have noticed, or the opposite — being so fidgety or restless that you have been moving around a lot more than usual"
+      },
+      {
+        "id": "phq9_q9",
+        "text": "Thoughts that you would be better off dead, or of hurting yourself"
+      }
+    ],
+  
+    "scoring": {
+      "method": "sum",
+      "min_score": 0,
+      "max_score": 27,
+      "note": "Total score is the sum of all item responses."
+    },
+  
+    "severity_levels": [
+      { "label": "Minimal Depression", "min": 0, "max": 4 },
+      { "label": "Mild Depression", "min": 5, "max": 9 },
+      { "label": "Moderate Depression", "min": 10, "max": 14 },
+      { "label": "Moderately Severe Depression", "min": 15, "max": 19 },
+      { "label": "Severe Depression", "min": 20, "max": 27 }
+    ],
+  
+    "diagnostic_notes": {
+      "screening_guidance": "A provisional depressive disorder is suggested if responses indicate frequent symptoms, especially if questions 1 or 2 are endorsed.",
+      "risk_flag_question": "phq9_q9"
+    },
+  
+    "functional_impairment_question": {
+      "id": "phq9_q10",
+      "text": "If you checked off any problems, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?",
+      "options": [
+        "Not difficult at all",
+        "Somewhat difficult",
+        "Very difficult",
+        "Extremely difficult"
+      ]
+    },
+  
+    "metadata": {
+      "estimated_time_minutes": 3,
+      "clinical_use": true,
+      "license": "Copyright © 1999 Pfizer Inc. Reproduced with permission"
+    }
+  }

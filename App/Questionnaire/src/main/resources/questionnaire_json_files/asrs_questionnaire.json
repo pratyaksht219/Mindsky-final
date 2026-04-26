@@ -1,0 +1,71 @@
+{
+  "id": "asrs",
+  "name": "Adult ADHD Self-Report Scale v1.1",
+  "short_name": "ASRS v1.1",
+  "category": "adhd",
+  "description": "A self-report screening scale designed to assess symptoms of Attention-Deficit/Hyperactivity Disorder (ADHD) in adults.",
+  "version": "v1.1",
+  "source": "World Health Organization (WHO)",
+  "instructions": "Please answer the questions based on how you have felt and conducted yourself over the past 6 months.",
+  "questions": [
+    {
+      "id": "asrs_q1",
+      "text": "How often do you have trouble wrapping up the final details of a project, once the challenging parts have been done?",
+      "response_format": {
+        "type": "scale",
+        "scale": "frequency_0_4",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "asrs_q2",
+      "text": "How often do you have difficulty getting things in order when you have to do a task that requires organization?",
+      "response_format": {
+        "type": "scale",
+        "scale": "frequency_0_4",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "asrs_q3",
+      "text": "How often do you have problems remembering appointments or obligations?",
+      "response_format": {
+        "type": "scale",
+        "scale": "frequency_0_4",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "asrs_q4",
+      "text": "When you have a task that requires a lot of thought, how often do you avoid or delay getting started?",
+      "response_format": {
+        "type": "scale",
+        "scale": "frequency_0_4",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "asrs_q5",
+      "text": "How often do you fidget or squirm with your hands or feet when you have to sit down for a long time?",
+      "response_format": {
+        "type": "scale",
+        "scale": "frequency_0_4",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "asrs_q6",
+      "text": "How often do you feel overly active and compelled to do things, like you were driven by a motor?",
+      "response_format": {
+        "type": "scale",
+        "scale": "frequency_0_4",
+        "response_key": "value"
+      }
+    }
+  ],
+  "metadata": {
+    "estimated_time_minutes": 5,
+    "clinical_use": true,
+    "license": "Free for research and clinical use"
+  }
+}

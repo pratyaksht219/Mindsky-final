@@ -1,0 +1,107 @@
+{
+  "id": "pss10",
+  "name": "Perceived Stress Scale",
+  "short_name": "PSS-10",
+  "category": "stress",
+  "description": "A 10-item self-report questionnaire measuring the degree to which situations in one’s life are appraised as stressful over the past month.",
+  "version": "10-item",
+  "source": "Cohen, Kamarck & Mermelstein (1983)",
+  "instructions": "In the last month, how often have you felt or thought a certain way?",
+  "questions": [
+    {
+      "id": "pss_q1",
+      "text": "In the last month, how often have you been upset because of something that happened unexpectedly?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_4",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "pss_q2",
+      "text": "In the last month, how often have you felt that you were unable to control the important things in your life?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_4",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "pss_q3",
+      "text": "In the last month, how often have you felt nervous and stressed?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_4",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "pss_q4",
+      "text": "In the last month, how often have you felt confident about your ability to handle your personal problems?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_4",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "pss_q5",
+      "text": "In the last month, how often have you felt that things were going your way?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_4",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "pss_q6",
+      "text": "In the last month, how often have you found that you could not cope with all the things that you had to do?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_4",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "pss_q7",
+      "text": "In the last month, how often have you been able to control irritations in your life?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_4",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "pss_q8",
+      "text": "In the last month, how often have you felt that you were on top of things?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_4",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "pss_q9",
+      "text": "In the last month, how often have you been angered because of things that happened that were outside of your control?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_4",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "pss_q10",
+      "text": "In the last month, how often have you felt difficulties were piling up so high that you could not overcome them?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_4",
+        "response_key": "value"
+      }
+    }
+  ],
+  "metadata": {
+    "estimated_time_minutes": 3,
+    "clinical_use": true,
+    "license": "Free for research and educational use"
+  }
+}

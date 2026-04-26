@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual envs
+venv/
+.venv/
+
+# Git
+.git/
+.gitignore
+
+# OS
+.DS_Store
+
+# Env files
+.env
+
+# Logs
+*.log
+
+# Node (if present)
+node_modules/
+
+# -------- IMPORTANT (size killers) --------
+# vector_store/
+# data/
+# *.pdf
+# *.md
+
+# HuggingFace cache (VERY IMPORTANT)
+.cache/

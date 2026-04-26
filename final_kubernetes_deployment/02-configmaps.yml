@@ -1,0 +1,109 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-config
+  namespace: mindsky
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 5s
+
+    scrape_configs:
+
+      # 🟢 Spring Boot services
+      - job_name: 'spring-services'
+        metrics_path: '/actuator/prometheus'
+        static_configs:
+          - targets:
+              - gateway:8080
+              - screening:8081
+              - questionnaire:8082
+
+      # 🟢 FastAPI / AI
+      - job_name: 'fastapi-services'
+        metrics_path: '/metrics'
+        static_configs:
+          - targets:
+              - ai:8000
+              - classifier:9000
+
+      # 🟢 Node backend
+      - job_name: 'node-backend'
+        metrics_path: '/metrics'
+        static_configs:
+          - targets:
+              - backend:5001
+
+      # 🟢 cAdvisor (containers)
+      - job_name: 'cadvisor'
+        static_configs:
+          - targets:
+              - cadvisor:8080
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgis-init-sql
+  namespace: mindsky
+data:
+  init.sql: |
+    -- Enable PostGIS
+    CREATE EXTENSION IF NOT EXISTS postgis;
+
+    -- STATES TABLE
+    DROP TABLE IF EXISTS states;
+
+    CREATE TABLE states (
+                            id SERIAL PRIMARY KEY,
+                            st_nm TEXT,
+                            geom GEOMETRY(MULTIPOLYGON, 4326)
+    );
+
+    CREATE INDEX IF NOT EXISTS states_geom_idx
+        ON states USING GIST (geom);
+
+    -- DISTRICTS TABLE
+    DROP TABLE IF EXISTS districts;
+
+    CREATE TABLE districts (
+                               id SERIAL PRIMARY KEY,
+                               district TEXT,
+                               st_nm TEXT,
+                               geom GEOMETRY(MULTIPOLYGON, 4326)
+    );
+
+    CREATE INDEX IF NOT EXISTS districts_geom_idx
+        ON districts USING GIST (geom);
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: geodata-import-script
+  namespace: mindsky
+data:
+  import.sh: |
+    #!/bin/sh
+
+    echo "⏳ Waiting for PostGIS..."
+    until pg_isready -h postgis-db -U postgres -d crisis_db 2>/dev/null; do
+      echo "  PostGIS not ready yet, retrying in 3s..."
+      sleep 3
+    done
+    echo "✅ PostGIS is ready!"
+
+    echo "📂 Debug: Listing files inside container..."
+    ls -R /data
+
+    echo "📥 Importing states..."
+    ogr2ogr -progress -f "PostgreSQL" \
+    PG:"host=postgis-db dbname=crisis_db user=postgres password=postgres" \
+    /data/india_states.geojson \
+    -nln states -nlt MULTIPOLYGON -lco GEOMETRY_NAME=geom -overwrite
+
+    echo "📥 Importing districts..."
+    ogr2ogr -progress -f "PostgreSQL" \
+    PG:"host=postgis-db dbname=crisis_db user=postgres password=postgres" \
+    /data/dists11.geojson \
+    -nln districts -nlt MULTIPOLYGON -lco GEOMETRY_NAME=geom -overwrite
+
+    echo "✅ Data import complete"

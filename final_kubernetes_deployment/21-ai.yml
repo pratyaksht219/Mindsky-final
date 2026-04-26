@@ -1,0 +1,61 @@
+# ── AI Service Deployment + Service ──
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai
+  namespace: mindsky
+  labels:
+    app: ai
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ai
+  template:
+    metadata:
+      labels:
+        app: ai
+    spec:
+      containers:
+        - name: ai
+          image: pratyaksht219/mindsky-ai-final:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          volumeMounts:
+            - name: ai-vector-db
+              mountPath: /app/vector_store
+          env:
+            - name: GROQ_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: ai-secret
+                  key: GROQ_API_KEY
+            - name: OPENROUTER_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: ai-secret
+                  key: OPENROUTER_API_KEY
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            failureThreshold: 5
+      volumes:
+        - name: ai-vector-db
+          persistentVolumeClaim:
+            claimName: ai-vector-db-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai
+  namespace: mindsky
+spec:
+  selector:
+    app: ai
+  ports:
+    - port: 8000
+      targetPort: 8000

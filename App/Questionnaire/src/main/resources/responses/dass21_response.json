@@ -1,0 +1,330 @@
+{
+  "sessionId": "4506e4f6-173b-448f-a359-71e544fdb3af",
+  "phase": "COMPLETED",
+  "nextQuestion": null,
+  "result": {
+    "questionnaireId": "dass21",
+    "finalScore": 80.0,
+    "severityLabel": "DASS-21 completed",
+    "description": "Depression, Anxiety, and Stress scores calculated",
+    "componentScores": {
+      "stress_score": 26.0,
+      "depression_score": 30.0,
+      "anxiety_score": 24.0
+    }
+  },
+  "breakdown": {
+    "questionnaireId": "dass21",
+    "responses": [
+      {
+        "questionId": "dass21_q1",
+        "questionText": "I found it hard to wind down",
+        "responses": [
+          {
+            "responseKey": "dass21_q1",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q2",
+        "questionText": "I was aware of dryness of my mouth",
+        "responses": [
+          {
+            "responseKey": "dass21_q2",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q3",
+        "questionText": "I couldn’t seem to experience any positive feeling at all",
+        "responses": [
+          {
+            "responseKey": "dass21_q3",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q4",
+        "questionText": "I experienced breathing difficulty (e.g., excessively rapid breathing, breathlessness in the absence of physical exertion)",
+        "responses": [
+          {
+            "responseKey": "dass21_q4",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q5",
+        "questionText": "I found it difficult to work up the initiative to do things",
+        "responses": [
+          {
+            "responseKey": "dass21_q5",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q6",
+        "questionText": "I tended to over-react to situations",
+        "responses": [
+          {
+            "responseKey": "dass21_q6",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q7",
+        "questionText": "I experienced trembling (e.g., in the hands)",
+        "responses": [
+          {
+            "responseKey": "dass21_q7",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q8",
+        "questionText": "I felt that I was using a lot of nervous energy",
+        "responses": [
+          {
+            "responseKey": "dass21_q8",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q9",
+        "questionText": "I was worried about situations in which I might panic and make a fool of myself",
+        "responses": [
+          {
+            "responseKey": "dass21_q9",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q10",
+        "questionText": "I felt that I had nothing to look forward to",
+        "responses": [
+          {
+            "responseKey": "dass21_q10",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q11",
+        "questionText": "I found myself getting agitated",
+        "responses": [
+          {
+            "responseKey": "dass21_q11",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q12",
+        "questionText": "I found it difficult to relax",
+        "responses": [
+          {
+            "responseKey": "dass21_q12",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q13",
+        "questionText": "I felt down-hearted and blue",
+        "responses": [
+          {
+            "responseKey": "dass21_q13",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q14",
+        "questionText": "I was intolerant of anything that kept me from getting on with what I was doing",
+        "responses": [
+          {
+            "responseKey": "dass21_q14",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q15",
+        "questionText": "I felt I was close to panic",
+        "responses": [
+          {
+            "responseKey": "dass21_q15",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q16",
+        "questionText": "I was unable to become enthusiastic about anything",
+        "responses": [
+          {
+            "responseKey": "dass21_q16",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q17",
+        "questionText": "I felt I wasn’t worth much as a person",
+        "responses": [
+          {
+            "responseKey": "dass21_q17",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q18",
+        "questionText": "I felt that I was rather touchy",
+        "responses": [
+          {
+            "responseKey": "dass21_q18",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q19",
+        "questionText": "I was aware of the action of my heart in the absence of physical exertion",
+        "responses": [
+          {
+            "responseKey": "dass21_q19",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q20",
+        "questionText": "I felt scared without any good reason",
+        "responses": [
+          {
+            "responseKey": "dass21_q20",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "dass21_q21",
+        "questionText": "I felt that life was meaningless",
+        "responses": [
+          {
+            "responseKey": "dass21_q21",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      }
+    ],
+    "components": [
+      {
+        "componentId": "depression_score",
+        "componentName": "Depression",
+        "inputs": [],
+        "calculationType": "engine",
+        "score": 30.0
+      },
+      {
+        "componentId": "anxiety_score",
+        "componentName": "Anxiety",
+        "inputs": [],
+        "calculationType": "engine",
+        "score": 24.0
+      },
+      {
+        "componentId": "stress_score",
+        "componentName": "Stress",
+        "inputs": [],
+        "calculationType": "engine",
+        "score": 26.0
+      }
+    ],
+    "globalScore": {
+      "score": 80.0,
+      "label": "DASS-21 completed",
+      "description": "Depression, Anxiety, and Stress scores calculated",
+      "componentIds": [
+        "depression_score",
+        "anxiety_score",
+        "stress_score"
+      ]
+    },
+    "metadata": {
+      "engine": "scoring-engine"
+    }
+  }
+}

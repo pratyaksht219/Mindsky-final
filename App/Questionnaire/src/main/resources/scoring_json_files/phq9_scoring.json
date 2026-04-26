@@ -1,0 +1,185 @@
+{
+  "id": "phq9_standard_scoring",
+  "questionnaire_id": "phq9",
+  "method": "phq9_scoring",
+  "responses": [
+    {
+      "question_id": "phq9_q1",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "phq9_q2",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "phq9_q3",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "phq9_q4",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "phq9_q5",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "phq9_q6",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "phq9_q7",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "phq9_q8",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "phq9_q9",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    }
+  ],
+  "components": [
+    {
+      "id": "depression_severity_sum",
+      "name": "PHQ-9 Total Score",
+      "calculation": {
+        "type": "sum",
+        "inputs": [
+          {
+            "question_id": "phq9_q1",
+            "response_key": "value"
+          },
+          {
+            "question_id": "phq9_q2",
+            "response_key": "value"
+          },
+          {
+            "question_id": "phq9_q3",
+            "response_key": "value"
+          },
+          {
+            "question_id": "phq9_q4",
+            "response_key": "value"
+          },
+          {
+            "question_id": "phq9_q5",
+            "response_key": "value"
+          },
+          {
+            "question_id": "phq9_q6",
+            "response_key": "value"
+          },
+          {
+            "question_id": "phq9_q7",
+            "response_key": "value"
+          },
+          {
+            "question_id": "phq9_q8",
+            "response_key": "value"
+          },
+          {
+            "question_id": "phq9_q9",
+            "response_key": "value"
+          }
+        ],
+        "score_range": [
+          0,
+          27
+        ]
+      }
+    },
+    {
+      "id": "suicide_risk_flag",
+      "name": "Suicide Risk Flag",
+      "calculation": {
+        "type": "formula",
+        "inputs": [
+          {
+            "question_id": "phq9_q9",
+            "response_key": "value"
+          }
+        ],
+        "formula": "inputs[0] > 0",
+        "score_range": [
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "global_score": {
+    "calculation": {
+      "type": "sum_components",
+      "components": [
+        "depression_severity_sum"
+      ],
+      "score_range": [
+        0,
+        27
+      ]
+    },
+    "interpretation": {
+      "rules": [
+        {
+          "min": 0,
+          "max": 4,
+          "label": "Minimal Depression",
+          "description": "Symptoms do not reach clinical threshold."
+        },
+        {
+          "min": 5,
+          "max": 9,
+          "label": "Mild Depression",
+          "description": "Watchful waiting; repeat PHQ-9 at follow-up."
+        },
+        {
+          "min": 10,
+          "max": 14,
+          "label": "Moderate Depression",
+          "description": "Consider counseling, follow-up, and/or pharmacotherapy."
+        },
+        {
+          "min": 15,
+          "max": 19,
+          "label": "Moderately Severe Depression",
+          "description": "Active treatment with pharmacotherapy and/or psychotherapy."
+        },
+        {
+          "min": 20,
+          "max": 27,
+          "label": "Severe Depression",
+          "description": "Immediate initiation of pharmacotherapy and referral to specialist."
+        }
+      ]
+    }
+  }
+}

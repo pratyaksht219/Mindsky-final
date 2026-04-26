@@ -1,0 +1,175 @@
+{
+  "id": "psqi",
+  "name": "Pittsburgh Sleep Quality Index",
+  "short_name": "PSQI",
+  "category": "sleep",
+  "description": "A self-rated questionnaire assessing sleep quality and disturbances over a one-month interval.",
+  "version": "Original",
+  "source": "Buysse et al., 1989, University of Pittsburgh",
+  "instructions": "The following questions relate to your usual sleep habits during the past month only. Your answers should reflect the most accurate response for most days and nights.",
+  "questions": [
+    {
+      "id": "psqi_q1",
+      "text": "During the past month, what time have you usually gone to bed at night?",
+      "response_format": {
+        "type": "time",
+        "response_key": "time"
+      }
+    },
+    {
+      "id": "psqi_q2",
+      "text": "During the past month, how long (in minutes) has it usually taken you to fall asleep each night?",
+      "response_format": {
+        "type": "number",
+        "unit": "minutes",
+        "min": 0,
+        "max": 300,
+        "allow_decimal": false,
+        "response_key": "minutes"
+      }
+    },
+    {
+      "id": "psqi_q3",
+      "text": "During the past month, what time have you usually gotten up in the morning?",
+      "response_format": {
+        "type": "time",
+        "response_key": "time"
+      }
+    },
+    {
+      "id": "psqi_q4",
+      "text": "During the past month, how many hours of actual sleep did you get at night?",
+      "response_format": {
+        "type": "number",
+        "unit": "hours",
+        "min": 0,
+        "max": 24,
+        "allow_decimal": true,
+        "step": 0.25,
+        "response_key": "hours"
+      }
+    },
+    {
+      "id": "psqi_q5a",
+      "text": "Cannot get to sleep within 30 minutes",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "psqi_q5b",
+      "text": "Wake up in the middle of the night or early morning",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "psqi_q5c",
+      "text": "Have to get up to use the bathroom",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "psqi_q5d",
+      "text": "Cannot breathe comfortably",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "psqi_q5e",
+      "text": "Cough or snore loudly",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "psqi_q5f",
+      "text": "Feel too cold",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "psqi_q5g",
+      "text": "Feel too hot",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "psqi_q5h",
+      "text": "Had bad dreams",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "psqi_q5i",
+      "text": "Have pain",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "psqi_q6",
+      "text": "During the past month, how would you rate your sleep quality overall?",
+      "response_format": {
+        "type": "scale",
+        "scale": "quality_0_3",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "psqi_q7",
+      "text": "During the past month, how often have you taken medicine to help you sleep?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "psqi_q8",
+      "text": "During the past month, how often have you had trouble staying awake while driving, eating meals, or engaging in social activity?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "psqi_q9",
+      "text": "During the past month, how much of a problem has it been for you to keep up enough enthusiasm to get things done?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    }
+  ],
+  "metadata": {
+    "estimated_time_minutes": 5,
+    "clinical_use": true,
+    "license": "© University of Pittsburgh, non-commercial research and clinical use"
+  }
+}

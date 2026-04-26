@@ -1,0 +1,239 @@
+{
+  "sessionId": "41d0eae2-552c-4c80-9c61-9450f7471df9",
+  "phase": "COMPLETED",
+  "nextQuestion": null,
+  "result": {
+    "questionnaireId": "phq9",
+    "finalScore": 11.0,
+    "severityLabel": "Moderate Depression",
+    "description": "Consider counseling, follow-up, and/or pharmacotherapy.",
+    "componentScores": {
+      "depression_severity_sum": 11.0,
+      "suicide_risk_flag": 0.0
+    }
+  },
+  "breakdown": {
+    "questionnaireId": "phq9",
+    "responses": [
+      {
+        "questionId": "phq9_q1",
+        "questionText": "Little interest or pleasure in doing things",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "phq9_q2",
+        "questionText": "Feeling down, depressed, or hopeless",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "phq9_q3",
+        "questionText": "Trouble falling or staying asleep, or sleeping too much",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "phq9_q4",
+        "questionText": "Feeling tired or having little energy",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "phq9_q5",
+        "questionText": "Poor appetite or overeating",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "phq9_q6",
+        "questionText": "Feeling bad about yourself — or that you are a failure or have let yourself or your family down",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "phq9_q7",
+        "questionText": "Trouble concentrating on things, such as reading the newspaper or watching television",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "phq9_q8",
+        "questionText": "Moving or speaking so slowly that other people could have noticed, or the opposite — being so fidgety or restless that you have been moving around a lot more than usual",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "phq9_q9",
+        "questionText": "Thoughts that you would be better off dead, or of hurting yourself",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 0.0,
+            "normalizedValue": 0.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "phq9_q10",
+        "questionText": "If you checked off any problems, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      }
+    ],
+    "components": [
+      {
+        "componentId": "depression_severity_sum",
+        "componentName": "PHQ-9 Total Score",
+        "inputs": [
+          {
+            "responseKey": "value",
+            "questionId": "phq9_q1",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "phq9_q2",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "phq9_q3",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "phq9_q4",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "phq9_q5",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "phq9_q6",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "phq9_q7",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "phq9_q8",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "phq9_q9",
+            "rawValue": 0.0,
+            "normalizedValue": 0.0
+          }
+        ],
+        "calculationType": "engine",
+        "score": 11.0
+      },
+      {
+        "componentId": "suicide_risk_flag",
+        "componentName": "Suicide Risk Flag",
+        "inputs": [
+          {
+            "responseKey": "value",
+            "questionId": "phq9_q9",
+            "rawValue": 0.0,
+            "normalizedValue": 0.0
+          }
+        ],
+        "calculationType": "engine",
+        "score": 0.0
+      }
+    ],
+    "globalScore": {
+      "score": 11.0,
+      "label": "Moderate Depression",
+      "description": "Consider counseling, follow-up, and/or pharmacotherapy.",
+      "componentIds": [
+        "depression_severity_sum"
+      ]
+    },
+    "metadata": {
+      "engine": "scoring-engine"
+    }
+  }
+}

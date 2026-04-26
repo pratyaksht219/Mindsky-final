@@ -1,0 +1,834 @@
+{
+  "aiServiceResponse": {
+    "disclaimer": "Disclaimer\nThis explanation is generated to help you better understand your assessment results and reflect on how you’ve been feeling. It is not a medical diagnosis and should not be used as a substitute for professional care. If your symptoms feel overwhelming or persistent, seeking support from a qualified mental health professional is strongly encouraged.",
+    "summary": "Your responses indicate a pattern of emotional distress that may be affecting your mood, energy levels, and daily functioning. Several answers suggest that these feelings have been present consistently rather than only occasionally.",
+    "severityExplanation": "A moderately severe level generally means that symptoms are frequent and impactful, but not uncommon. People in this range often notice difficulties in concentration, motivation, and emotional balance that can interfere with everyday activities.",
+    "keyFindings": [
+      "Low mood and reduced interest appear consistently across multiple responses",
+      "Fatigue and concentration difficulties are reported more than half the days",
+      "No indication of active self-harm thoughts based on the responses provided"
+    ],
+    "recommendations": [
+      "Consider discussing these results with a qualified mental health professional for personalized guidance",
+      "Maintain regular sleep and daily routines to support emotional stability",
+      "Engage in activities that offer small, achievable sources of enjoyment or relaxation"
+    ],
+    "reassurance": "Many people experience similar challenges at different points in life. Support is available, and seeking understanding is a positive step forward."
+  },
+  "breakdown": {
+    "questionnaireId": "lsas",
+    "responses": [
+      {
+        "questionId": "lsas_q1",
+        "questionText": "Telephoning in public",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q2",
+        "questionText": "Participating in small groups",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q3",
+        "questionText": "Eating in public places",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q4",
+        "questionText": "Drinking with others in public places",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q5",
+        "questionText": "Talking to people in authority",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q6",
+        "questionText": "Acting, performing, or giving a talk in front of an audience",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q7",
+        "questionText": "Going to a party",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q8",
+        "questionText": "Working while being observed",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q9",
+        "questionText": "Writing while being observed",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q10",
+        "questionText": "Calling someone you don’t know very well",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q11",
+        "questionText": "Talking with people you don’t know very well",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q12",
+        "questionText": "Meeting strangers",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q13",
+        "questionText": "Urinating in a public bathroom",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q14",
+        "questionText": "Entering a room when others are already seated",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q15",
+        "questionText": "Being the centre of attention",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q16",
+        "questionText": "Speaking up at a meeting",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q17",
+        "questionText": "Taking a test",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 0.0,
+            "normalizedValue": 0.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q18",
+        "questionText": "Expressing disagreement or disapproval to people you don’t know very well",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q19",
+        "questionText": "Looking at people you don’t know very well in the eyes",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q20",
+        "questionText": "Giving a report to a group",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q21",
+        "questionText": "Trying to pick up someone",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q22",
+        "questionText": "Returning goods to a store",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q23",
+        "questionText": "Giving a party",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "lsas_q24",
+        "questionText": "Resisting a high-pressure salesperson",
+        "responses": [
+          {
+            "responseKey": "fear_anxiety_0_3",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          },
+          {
+            "responseKey": "avoidance_0_3",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      }
+    ],
+    "components": [
+      {
+        "componentId": "fear_total",
+        "componentName": "Fear/Anxiety Subtotal",
+        "inputs": [
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q1",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q2",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q3",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q4",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q5",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q6",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q7",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q8",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q9",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q10",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q11",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q12",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q13",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q14",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q15",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q16",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q17",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q18",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q19",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q20",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q21",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q22",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q23",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "fear",
+            "questionId": "lsas_q24",
+            "rawValue": null,
+            "normalizedValue": null
+          }
+        ],
+        "calculationType": "engine",
+        "score": 52.0
+      },
+      {
+        "componentId": "avoidance_total",
+        "componentName": "Avoidance Subtotal",
+        "inputs": [
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q1",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q2",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q3",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q4",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q5",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q6",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q7",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q8",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q9",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q10",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q11",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q12",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q13",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q14",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q15",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q16",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q17",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q18",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q19",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q20",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q21",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q22",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q23",
+            "rawValue": null,
+            "normalizedValue": null
+          },
+          {
+            "responseKey": "avoidance",
+            "questionId": "lsas_q24",
+            "rawValue": null,
+            "normalizedValue": null
+          }
+        ],
+        "calculationType": "engine",
+        "score": 44.0
+      }
+    ],
+    "globalScore": {
+      "score": 96.0,
+      "label": "Probable Generalized Social Anxiety Disorder",
+      "description": "Characterized by broad situational anxiety.",
+      "componentIds": [
+        "fear_total",
+        "avoidance_total"
+      ]
+    },
+    "metadata": {
+      "engine": "scoring-engine"
+    }
+  },
+  "nextQuestion": null,
+  "phase": "COMPLETED",
+  "result": {
+    "questionnaireId": "lsas",
+    "finalScore": 96.0,
+    "severityLabel": "Probable Generalized Social Anxiety Disorder",
+    "description": "Characterized by broad situational anxiety.",
+    "componentScores": {
+      "fear_total": 52.0,
+      "avoidance_total": 44.0
+    }
+  },
+  "sessionId": "5cdb850e-24ea-4f99-8d87-53b3ffbfe6b8"
+}

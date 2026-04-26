@@ -1,0 +1,169 @@
+{
+  "sessionId": "4918dbce-873b-405a-b3d9-a1abe5ab01b2",
+  "phase": "COMPLETED",
+  "nextQuestion": null,
+  "result": {
+    "questionnaireId": "pss10",
+    "finalScore": 30.0,
+    "severityLabel": "High Stress",
+    "description": "Scores indicative of high perceived stress levels.",
+    "componentScores": {
+      "perceived_stress_total": 30.0
+    }
+  },
+  "breakdown": {
+    "questionnaireId": "pss10",
+    "responses": [
+      {
+        "questionId": "pss_q1",
+        "questionText": "In the last month, how often have you been upset because of something that happened unexpectedly?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pss_q2",
+        "questionText": "In the last month, how often have you felt that you were unable to control the important things in your life?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pss_q3",
+        "questionText": "In the last month, how often have you felt nervous and stressed?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 4.0,
+            "normalizedValue": 4.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pss_q4",
+        "questionText": "In the last month, how often have you felt confident about your ability to handle your personal problems?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pss_q5",
+        "questionText": "In the last month, how often have you felt that things were going your way?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pss_q6",
+        "questionText": "In the last month, how often have you found that you could not cope with all the things that you had to do?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pss_q7",
+        "questionText": "In the last month, how often have you been able to control irritations in your life?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pss_q8",
+        "questionText": "In the last month, how often have you felt that you were on top of things?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pss_q9",
+        "questionText": "In the last month, how often have you been angered because of things that happened that were outside of your control?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "pss_q10",
+        "questionText": "In the last month, how often have you felt difficulties were piling up so high that you could not overcome them?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 4.0,
+            "normalizedValue": 4.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      }
+    ],
+    "components": [
+      {
+        "componentId": "perceived_stress_total",
+        "componentName": "Total Perceived Stress Score",
+        "inputs": [],
+        "calculationType": "engine",
+        "score": 30.0
+      }
+    ],
+    "globalScore": {
+      "score": 30.0,
+      "label": "High Stress",
+      "description": "Scores indicative of high perceived stress levels.",
+      "componentIds": [
+        "perceived_stress_total"
+      ]
+    },
+    "metadata": {
+      "engine": "scoring-engine"
+    }
+  }
+}

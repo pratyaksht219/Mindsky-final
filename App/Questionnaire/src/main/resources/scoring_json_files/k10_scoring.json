@@ -1,0 +1,172 @@
+{
+  "id": "k10_standard_scoring",
+  "questionnaire_id": "k10",
+  "method": "k10_scoring",
+  "responses": [
+    {
+      "question_id": "k10_q1",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "k10_q2",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "k10_q3",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "k10_q4",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "k10_q5",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "k10_q6",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "k10_q7",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "k10_q8",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "k10_q9",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "k10_q10",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    }
+  ],
+  "components": [
+    {
+      "id": "distress_total",
+      "name": "K10 Total Score",
+      "calculation": {
+        "type": "sum",
+        "inputs": [
+          {
+            "question_id": "k10_q1",
+            "response_key": "value"
+          },
+          {
+            "question_id": "k10_q2",
+            "response_key": "value"
+          },
+          {
+            "question_id": "k10_q3",
+            "response_key": "value"
+          },
+          {
+            "question_id": "k10_q4",
+            "response_key": "value"
+          },
+          {
+            "question_id": "k10_q5",
+            "response_key": "value"
+          },
+          {
+            "question_id": "k10_q6",
+            "response_key": "value"
+          },
+          {
+            "question_id": "k10_q7",
+            "response_key": "value"
+          },
+          {
+            "question_id": "k10_q8",
+            "response_key": "value"
+          },
+          {
+            "question_id": "k10_q9",
+            "response_key": "value"
+          },
+          {
+            "question_id": "k10_q10",
+            "response_key": "value"
+          }
+        ],
+        "score_range": [
+          10,
+          50
+        ]
+      }
+    }
+  ],
+  "global_score": {
+    "calculation": {
+      "type": "sum_components",
+      "components": [
+        "distress_total"
+      ],
+      "score_range": [
+        10,
+        50
+      ]
+    },
+    "interpretation": {
+      "rules": [
+        {
+          "min": 10,
+          "max": 19,
+          "label": "Likely well",
+          "description": "Symptoms indicative of good mental health."
+        },
+        {
+          "min": 20,
+          "max": 24,
+          "label": "Mild mental disorder",
+          "description": "Symptoms indicative of a mild mental disorder."
+        },
+        {
+          "min": 25,
+          "max": 29,
+          "label": "Moderate mental disorder",
+          "description": "Symptoms indicative of a moderate mental disorder."
+        },
+        {
+          "min": 30,
+          "max": 50,
+          "label": "Severe mental disorder",
+          "description": "Symptoms indicative of a severe mental disorder."
+        }
+      ]
+    }
+  }
+}

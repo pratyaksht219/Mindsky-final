@@ -1,0 +1,41 @@
+// Test-1
+// Verify controller + DTO + JSON wiring.
+
+// {
+//   "sessionId": "postman-test-1",
+//   "message": "Hello"
+// }
+
+// --------------------------------------------------
+// Test-2
+// Confirm state is retained across requests.
+
+// {
+//   "sessionId": "postman-test-1",
+//   "message": "I feel anxious and restless"
+// }
+
+// --------------------------------------------------
+
+//  Test-3
+// Ensure independent sessions.
+
+// {
+//   "sessionId": "user-A",
+//   "message": "Hello"
+// }
+
+
+// {
+//   "sessionId": "user-A",
+//   "message": "Hello"
+// }
+
+// --------------------------------------------------
+
+// Test-4
+// Ensure DTO validation works.
+
+// {
+//   "message": "Hello"
+// }

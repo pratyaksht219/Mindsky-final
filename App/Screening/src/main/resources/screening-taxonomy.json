@@ -1,0 +1,393 @@
+{
+  "domains": {
+    "ANXIETY": "gad7",
+    "DEPRESSION": "phq9",
+    "ADHD": "asrs",
+    "SLEEP": "psqi",
+    "STRESS": "pss10",
+    "SOCIAL_ANXIETY": "lsas",
+    "TRAUMA": "pcl5",
+    "DISTRESS_GENERAL": "k10"
+  },
+
+  "fallbackQuestionnaire": "dass21",
+
+  "microSignals": {
+
+    "general_anxiety": {
+      "domain": "ANXIETY",
+      "weight": 1.5
+    },
+
+    "panic_episodes": {
+      "domain": "ANXIETY",
+      "weight": 2.5
+    },
+
+    "excessive_worry": {
+      "domain": "ANXIETY",
+      "weight": 1.8
+    },
+
+    "hyperarousal": {
+      "domain": "ANXIETY",
+      "weight": 1.5
+    },
+
+    "sadness_core": {
+      "domain": "DEPRESSION",
+      "weight": 1.5
+    },
+
+    "hopelessness": {
+      "domain": "DEPRESSION",
+      "weight": 2.0
+    },
+
+    "anhedonia": {
+      "domain": "DEPRESSION",
+      "weight": 2.0
+    },
+
+    "low_motivation": {
+      "domain": "DEPRESSION",
+      "weight": 1.5
+    },
+
+    "worthlessness": {
+      "domain": "DEPRESSION",
+      "weight": 2.2
+    },
+
+    "fatigue": {
+      "domain": "DEPRESSION",
+      "weight": 1.2
+    },
+
+    "attention_deficit": {
+      "domain": "ADHD",
+      "weight": 1.8
+    },
+
+    "impulsivity": {
+      "domain": "ADHD",
+      "weight": 2.0
+    },
+
+    "disorganization": {
+      "domain": "ADHD",
+      "weight": 1.6
+    },
+
+    "hyperactivity": {
+      "domain": "ADHD",
+      "weight": 1.5
+    },
+
+    "sleep_latency": {
+      "domain": "SLEEP",
+      "weight": 1.5
+    },
+
+    "sleep_fragmentation": {
+      "domain": "SLEEP",
+      "weight": 1.7
+    },
+
+    "insomnia": {
+      "domain": "SLEEP",
+      "weight": 2.0
+    },
+
+    "night_awakenings": {
+      "domain": "SLEEP",
+      "weight": 1.8
+    },
+
+    "daytime_sleepiness": {
+      "domain": "SLEEP",
+      "weight": 1.4
+    },
+
+    "chronic_stress": {
+      "domain": "STRESS",
+      "weight": 1.8
+    },
+
+    "burnout": {
+      "domain": "STRESS",
+      "weight": 2.2
+    },
+
+    "overwhelm": {
+      "domain": "STRESS",
+      "weight": 1.6
+    },
+
+    "fear_of_judgement": {
+      "domain": "SOCIAL_ANXIETY",
+      "weight": 2.0
+    },
+
+    "social_avoidance": {
+      "domain": "SOCIAL_ANXIETY",
+      "weight": 1.8
+    },
+
+    "public_speaking_fear": {
+      "domain": "SOCIAL_ANXIETY",
+      "weight": 1.6
+    },
+
+    "flashbacks": {
+      "domain": "TRAUMA",
+      "weight": 3.0
+    },
+
+    "nightmares": {
+      "domain": "TRAUMA",
+      "weight": 2.2
+    },
+
+    "avoidance": {
+      "domain": "TRAUMA",
+      "weight": 2.0
+    },
+
+    "hypervigilance": {
+      "domain": "TRAUMA",
+      "weight": 2.3
+    },
+
+    "general_distress": {
+      "domain": "DISTRESS_GENERAL",
+      "weight": 1.4
+    }
+  },
+
+  "keywords": {
+
+
+
+    "anxious": "general_anxiety",
+    "anxiety": "general_anxiety",
+    "nervous": "general_anxiety",
+    "uneasy": "general_anxiety",
+    "tense": "hyperarousal",
+    "on edge": "hyperarousal",
+    "restless": "hyperarousal",
+    "shaky": "hyperarousal",
+    "heart racing": "hyperarousal",
+    "racing heart": "hyperarousal",
+    "tight chest": "hyperarousal",
+    "short breath": "hyperarousal",
+    "panic": "panic_episodes",
+    "panic attack": "panic_episodes",
+    "sudden fear": "panic_episodes",
+    "suddenly scared": "panic_episodes",
+    "fear attack": "panic_episodes",
+    "intense fear": "panic_episodes",
+    "worried": "excessive_worry",
+    "worry": "excessive_worry",
+    "constant worry": "excessive_worry",
+    "excessive worry": "excessive_worry",
+    "overthinking": "excessive_worry",
+    "thinking too much": "excessive_worry",
+    "cannot stop worrying": "excessive_worry",
+    "fear something bad": "excessive_worry",
+    "anticipating worst": "excessive_worry",
+    "always worried": "excessive_worry",
+
+
+
+    "sad": "sadness_core",
+    "feeling sad": "sadness_core",
+    "depressed": "sadness_core",
+    "feeling down": "sadness_core",
+    "low mood": "sadness_core",
+    "empty": "sadness_core",
+    "emotionally empty": "sadness_core",
+    "hopeless": "hopelessness",
+    "life pointless": "hopelessness",
+    "no future": "hopelessness",
+    "nothing will improve": "hopelessness",
+    "hopeless about future": "hopelessness",
+    "feel hopeless": "hopelessness",
+    "lost interest": "anhedonia",
+    "nothing enjoyable": "anhedonia",
+    "no interest": "anhedonia",
+    "cannot enjoy": "anhedonia",
+    "things not enjoyable": "anhedonia",
+    "lack motivation": "low_motivation",
+    "no motivation": "low_motivation",
+    "cannot start tasks": "low_motivation",
+    "difficulty starting": "low_motivation",
+    "no drive": "low_motivation",
+    "worthless": "worthlessness",
+    "feel useless": "worthlessness",
+    "feel like failure": "worthlessness",
+    "no self worth": "worthlessness",
+    "tired": "fatigue",
+    "exhausted": "fatigue",
+    "low energy": "fatigue",
+    "no energy": "fatigue",
+    "always tired": "fatigue",
+    "constant fatigue": "fatigue",
+    "drained": "fatigue",
+
+
+
+    "focus": "attention_deficit",
+    "cannot focus": "attention_deficit",
+    "trouble focusing": "attention_deficit",
+    "difficulty focusing": "attention_deficit",
+    "concentrate": "attention_deficit",
+    "difficulty concentrating": "attention_deficit",
+    "poor concentration": "attention_deficit",
+    "distracted": "attention_deficit",
+    "easily distracted": "attention_deficit",
+    "lose attention": "attention_deficit",
+    "forgetful": "attention_deficit",
+    "forget things": "attention_deficit",
+    "forget tasks": "attention_deficit",
+    "impulsive": "impulsivity",
+    "act without thinking": "impulsivity",
+    "interrupt others": "impulsivity",
+    "blurting out": "impulsivity",
+    "impatient": "impulsivity",
+    "restless": "hyperactivity",
+    "fidgeting": "hyperactivity",
+    "cannot sit still": "hyperactivity",
+    "always moving": "hyperactivity",
+    "hyperactive": "hyperactivity",
+    "disorganized": "disorganization",
+    "messy work": "disorganization",
+    "difficulty organizing": "disorganization",
+    "lose things": "disorganization",
+    "unfinished tasks": "disorganization",
+    "poor planning": "disorganization",
+
+
+    "sleep": "sleep_latency",
+    "trouble sleeping": "sleep_latency",
+    "difficulty sleeping": "sleep_latency",
+    "cannot sleep": "sleep_latency",
+    "cant sleep": "sleep_latency",
+    "hard to sleep": "sleep_latency",
+    "struggle sleeping": "sleep_latency",
+    "fall asleep": "sleep_latency",
+    "taking long sleep": "sleep_latency",
+    "slow falling asleep": "sleep_latency",
+    "insomnia": "insomnia",
+    "sleepless": "insomnia",
+    "sleeplessness": "insomnia",
+    "chronic insomnia": "insomnia",
+    "awake at night": "night_awakenings",
+    "wake at night": "night_awakenings",
+    "wake up at night": "night_awakenings",
+    "waking at night": "night_awakenings",
+    "awake during night": "night_awakenings",
+    "wake up often": "sleep_fragmentation",
+    "waking up often": "sleep_fragmentation",
+    "broken sleep": "sleep_fragmentation",
+    "interrupted sleep": "sleep_fragmentation",
+    "restless sleep": "sleep_fragmentation",
+    "sleep fragmentation": "sleep_fragmentation",
+    "night waking": "night_awakenings",
+    "sleepy daytime": "daytime_sleepiness",
+    "daytime sleepiness": "daytime_sleepiness",
+    "very sleepy": "daytime_sleepiness",
+    "drowsy": "daytime_sleepiness",
+    "fall asleep daytime": "daytime_sleepiness",
+    "sleep during day": "daytime_sleepiness",
+    "sleepy at work": "daytime_sleepiness",
+
+
+
+    "stressed": "chronic_stress",
+    "stress": "chronic_stress",
+    "constant stress": "chronic_stress",
+    "too much stress": "chronic_stress",
+    "pressure": "chronic_stress",
+    "under pressure": "chronic_stress",
+    "work pressure": "chronic_stress",
+    "academic pressure": "chronic_stress",
+    "overwhelmed": "overwhelm",
+    "cannot cope": "overwhelm",
+    "too many responsibilities": "overwhelm",
+    "feel overloaded": "overwhelm",
+    "burned out": "burnout",
+    "burnout": "burnout",
+    "emotionally drained": "burnout",
+    "mentally exhausted": "burnout",
+    "work burnout": "burnout",
+    "study burnout": "burnout",
+
+
+    "judged": "fear_of_judgement",
+    "fear of judgement": "fear_of_judgement",
+    "people judging me": "fear_of_judgement",
+    "being judged": "fear_of_judgement",
+    "fear criticism": "fear_of_judgement",
+    "embarrassed": "social_avoidance",
+    "fear embarrassment": "social_avoidance",
+    "avoid people": "social_avoidance",
+    "avoid gatherings": "social_avoidance",
+    "avoid social situations": "social_avoidance",
+    "avoid talking": "social_avoidance",
+    "public speaking": "public_speaking_fear",
+    "speaking in public": "public_speaking_fear",
+    "presentation fear": "public_speaking_fear",
+    "talking to strangers": "public_speaking_fear",
+    "social situations scare me": "public_speaking_fear",
+
+
+
+    "flashback": "flashbacks",
+    "flashbacks": "flashbacks",
+    "reliving trauma": "flashbacks",
+    "trauma memory": "flashbacks",
+    "traumatic memory": "flashbacks",
+    "cannot forget trauma": "flashbacks",
+    "nightmare": "nightmares",
+    "nightmares": "nightmares",
+    "bad dreams": "nightmares",
+    "trauma dreams": "nightmares",
+    "avoid memories": "avoidance",
+    "avoid trauma thoughts": "avoidance",
+    "avoid places": "avoidance",
+    "avoid reminders": "avoidance",
+    "hyper alert": "hypervigilance",
+    "constantly alert": "hypervigilance",
+    "always alert": "hypervigilance",
+    "easily startled": "hypervigilance",
+    "jump easily": "hypervigilance",
+
+
+
+    "distressed": "general_distress",
+    "emotionally unstable": "general_distress",
+    "mentally struggling": "general_distress",
+    "emotionally overwhelmed": "general_distress",
+    "feeling mentally unwell": "general_distress",
+    "emotional distress": "general_distress",
+    "psychological distress": "general_distress"
+  },
+
+  "emergencyKeywords": {
+    "HIGH": [
+      "kill myself",
+      "suicide",
+      "end my life",
+      "want to die",
+      "self harm"
+    ],
+
+    "MODERATE": [
+      "better off dead",
+      "life meaningless",
+      "no reason to live",
+      "hopeless about life"
+    ]
+  }
+}

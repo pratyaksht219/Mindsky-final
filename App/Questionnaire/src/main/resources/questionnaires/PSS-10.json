@@ -1,0 +1,68 @@
+{
+    "id": "pss10",
+    "name": "Perceived Stress Scale",
+    "short_name": "PSS-10",
+    "category": "stress",
+    "description": "A 10-item self-report questionnaire measuring the degree to which situations in one’s life are appraised as stressful over the past month.",
+    "version": "10-item",
+    "source": "Cohen, Kamarck & Mermelstein (1983)",
+  
+    "instructions": "In the last month, how often have you felt or thought a certain way?",
+  
+    "response_format": {
+      "type": "single_choice",
+      "scale": "likert_0_4",
+      "options": [
+        { "label": "Never", "value": 0 },
+        { "label": "Almost never", "value": 1 },
+        { "label": "Sometimes", "value": 2 },
+        { "label": "Fairly often", "value": 3 },
+        { "label": "Very often", "value": 4 }
+      ]
+    },
+  
+    "questions": [
+      { "id": "pss_q1", "text": "In the last month, how often have you been upset because of something that happened unexpectedly?" },
+      { "id": "pss_q2", "text": "In the last month, how often have you felt that you were unable to control the important things in your life?" },
+      { "id": "pss_q3", "text": "In the last month, how often have you felt nervous and stressed?" },
+      { "id": "pss_q4", "text": "In the last month, how often have you felt confident about your ability to handle your personal problems?" },
+      { "id": "pss_q5", "text": "In the last month, how often have you felt that things were going your way?" },
+      { "id": "pss_q6", "text": "In the last month, how often have you found that you could not cope with all the things that you had to do?" },
+      { "id": "pss_q7", "text": "In the last month, how often have you been able to control irritations in your life?" },
+      { "id": "pss_q8", "text": "In the last month, how often have you felt that you were on top of things?" },
+      { "id": "pss_q9", "text": "In the last month, how often have you been angered because of things that happened that were outside of your control?" },
+      { "id": "pss_q10", "text": "In the last month, how often have you felt difficulties were piling up so high that you could not overcome them?" }
+    ],
+  
+    "scoring": {
+      "method": "sum_with_reverse_scoring",
+      "min_score": 0,
+      "max_score": 40,
+      "reverse_scored_questions": [
+        "pss_q4",
+        "pss_q5",
+        "pss_q7",
+        "pss_q8"
+      ],
+      "reverse_mapping": {
+        "0": 4,
+        "1": 3,
+        "2": 2,
+        "3": 1,
+        "4": 0
+      }
+    },
+  
+    "severity_levels": [
+      { "label": "Low Stress", "min": 0, "max": 13 },
+      { "label": "Moderate Stress", "min": 14, "max": 26 },
+      { "label": "High Stress", "min": 27, "max": 40 }
+    ],
+  
+    "metadata": {
+      "estimated_time_minutes": 3,
+      "clinical_use": true,
+      "license": "Free for research and educational use",
+      "disclaimer": "Scores do not indicate a diagnosis and are intended for stress assessment only."
+    }
+  }

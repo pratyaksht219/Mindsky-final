@@ -1,0 +1,165 @@
+{
+  "id": "lsas_standard_scoring",
+  "questionnaire_id": "lsas",
+  "method": "lsas_scoring",
+
+  "responses": [
+    { "question_id": "lsas_q1",  "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q1",  "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q2",  "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q2",  "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q3",  "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q3",  "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q4",  "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q4",  "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q5",  "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q5",  "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q6",  "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q6",  "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q7",  "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q7",  "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q8",  "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q8",  "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q9",  "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q9",  "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q10", "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q10", "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q11", "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q11", "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q12", "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q12", "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q13", "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q13", "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q14", "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q14", "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q15", "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q15", "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q16", "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q16", "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q17", "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q17", "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q18", "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q18", "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q19", "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q19", "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q20", "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q20", "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q21", "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q21", "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q22", "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q22", "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q23", "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q23", "response_key": "avoidance",  "transform": { "type": "identity" } },
+
+    { "question_id": "lsas_q24", "response_key": "fear",       "transform": { "type": "identity" } },
+    { "question_id": "lsas_q24", "response_key": "avoidance",  "transform": { "type": "identity" } }
+  ],
+
+  "components": [
+    {
+      "id": "fear_total",
+      "name": "Fear/Anxiety Subtotal",
+      "calculation": {
+        "type": "sum",
+        "inputs": [
+          { "question_id": "lsas_q1",  "response_key": "fear" },
+          { "question_id": "lsas_q2",  "response_key": "fear" },
+          { "question_id": "lsas_q3",  "response_key": "fear" },
+          { "question_id": "lsas_q4",  "response_key": "fear" },
+          { "question_id": "lsas_q5",  "response_key": "fear" },
+          { "question_id": "lsas_q6",  "response_key": "fear" },
+          { "question_id": "lsas_q7",  "response_key": "fear" },
+          { "question_id": "lsas_q8",  "response_key": "fear" },
+          { "question_id": "lsas_q9",  "response_key": "fear" },
+          { "question_id": "lsas_q10", "response_key": "fear" },
+          { "question_id": "lsas_q11", "response_key": "fear" },
+          { "question_id": "lsas_q12", "response_key": "fear" },
+          { "question_id": "lsas_q13", "response_key": "fear" },
+          { "question_id": "lsas_q14", "response_key": "fear" },
+          { "question_id": "lsas_q15", "response_key": "fear" },
+          { "question_id": "lsas_q16", "response_key": "fear" },
+          { "question_id": "lsas_q17", "response_key": "fear" },
+          { "question_id": "lsas_q18", "response_key": "fear" },
+          { "question_id": "lsas_q19", "response_key": "fear" },
+          { "question_id": "lsas_q20", "response_key": "fear" },
+          { "question_id": "lsas_q21", "response_key": "fear" },
+          { "question_id": "lsas_q22", "response_key": "fear" },
+          { "question_id": "lsas_q23", "response_key": "fear" },
+          { "question_id": "lsas_q24", "response_key": "fear" }
+        ],
+        "score_range": [0, 72]
+      }
+    },
+    {
+      "id": "avoidance_total",
+      "name": "Avoidance Subtotal",
+      "calculation": {
+        "type": "sum",
+        "inputs": [
+          { "question_id": "lsas_q1",  "response_key": "avoidance" },
+          { "question_id": "lsas_q2",  "response_key": "avoidance" },
+          { "question_id": "lsas_q3",  "response_key": "avoidance" },
+          { "question_id": "lsas_q4",  "response_key": "avoidance" },
+          { "question_id": "lsas_q5",  "response_key": "avoidance" },
+          { "question_id": "lsas_q6",  "response_key": "avoidance" },
+          { "question_id": "lsas_q7",  "response_key": "avoidance" },
+          { "question_id": "lsas_q8",  "response_key": "avoidance" },
+          { "question_id": "lsas_q9",  "response_key": "avoidance" },
+          { "question_id": "lsas_q10", "response_key": "avoidance" },
+          { "question_id": "lsas_q11", "response_key": "avoidance" },
+          { "question_id": "lsas_q12", "response_key": "avoidance" },
+          { "question_id": "lsas_q13", "response_key": "avoidance" },
+          { "question_id": "lsas_q14", "response_key": "avoidance" },
+          { "question_id": "lsas_q15", "response_key": "avoidance" },
+          { "question_id": "lsas_q16", "response_key": "avoidance" },
+          { "question_id": "lsas_q17", "response_key": "avoidance" },
+          { "question_id": "lsas_q18", "response_key": "avoidance" },
+          { "question_id": "lsas_q19", "response_key": "avoidance" },
+          { "question_id": "lsas_q20", "response_key": "avoidance" },
+          { "question_id": "lsas_q21", "response_key": "avoidance" },
+          { "question_id": "lsas_q22", "response_key": "avoidance" },
+          { "question_id": "lsas_q23", "response_key": "avoidance" },
+          { "question_id": "lsas_q24", "response_key": "avoidance" }
+        ],
+        "score_range": [0, 72]
+      }
+    }
+  ],
+
+  "global_score": {
+    "calculation": {
+      "type": "sum_components",
+      "components": ["fear_total", "avoidance_total"],
+      "score_range": [0, 144]
+    },
+    "interpretation": {
+      "rules": [
+        { "min": 0,  "max": 29,  "label": "No Social Anxiety", "description": "Symptoms below clinical threshold." },
+        { "min": 30, "max": 59,  "label": "Probable Social Anxiety Disorder", "description": "Likely Social Anxiety Disorder." },
+        { "min": 60, "max": 144, "label": "Probable Generalized Social Anxiety Disorder", "description": "Characterized by broad situational anxiety." }
+      ]
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "sessionId": "d1387c0a-da85-43fb-81c3-1f0c53100c24",
+  "phase": "COMPLETED",
+  "nextQuestion": null,
+  "result": {
+    "questionnaireId": "gad7",
+    "finalScore": 10.0,
+    "severityLabel": "Moderate",
+    "description": "Moderate anxiety symptoms; clinical cut-off for further evaluation.",
+    "componentScores": {
+      "total_anxiety_score": 10.0
+    }
+  },
+  "breakdown": {
+    "questionnaireId": "gad7",
+    "responses": [
+      {
+        "questionId": "gad7_q1",
+        "questionText": "Feeling nervous, anxious, or on edge?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "gad7_q2",
+        "questionText": "Not being able to stop or control worrying?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "gad7_q3",
+        "questionText": "Worrying too much about different things?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "gad7_q4",
+        "questionText": "Trouble relaxing?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "gad7_q5",
+        "questionText": "Being so restless that it is hard to sit still?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "gad7_q6",
+        "questionText": "Becoming easily annoyed or irritable?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 0.0,
+            "normalizedValue": 0.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      },
+      {
+        "questionId": "gad7_q7",
+        "questionText": "Feeling afraid as if something awful might happen?",
+        "responses": [
+          {
+            "responseKey": "value",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0,
+            "transformType": "identity",
+            "note": null
+          }
+        ]
+      }
+    ],
+    "components": [
+      {
+        "componentId": "total_anxiety_score",
+        "componentName": "Total GAD-7 Score",
+        "inputs": [
+          {
+            "responseKey": "value",
+            "questionId": "gad7_q1",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "gad7_q2",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "gad7_q3",
+            "rawValue": 3.0,
+            "normalizedValue": 3.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "gad7_q4",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "gad7_q5",
+            "rawValue": 2.0,
+            "normalizedValue": 2.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "gad7_q6",
+            "rawValue": 0.0,
+            "normalizedValue": 0.0
+          },
+          {
+            "responseKey": "value",
+            "questionId": "gad7_q7",
+            "rawValue": 1.0,
+            "normalizedValue": 1.0
+          }
+        ],
+        "calculationType": "engine",
+        "score": 10.0
+      }
+    ],
+    "globalScore": {
+      "score": 10.0,
+      "label": "Moderate",
+      "description": "Moderate anxiety symptoms; clinical cut-off for further evaluation.",
+      "componentIds": [
+        "total_anxiety_score"
+      ]
+    },
+    "metadata": {
+      "engine": "scoring-engine"
+    }
+  }
+}

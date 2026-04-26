@@ -1,0 +1,57 @@
+# ── Backend (Node.js) Deployment + Service ──
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: mindsky
+  labels:
+    app: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: pratyaksht219/mindsky-backend:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5001
+          env:
+            - name: MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: MONGO_URI
+            - name: AI_URL_START
+              value: "http://gateway:8080/api/gateway/start"
+            - name: AI_URL_ANSWER
+              value: "http://gateway:8080/api/gateway/answer"
+            - name: CALL_API_URL
+              value: "http://emergency:8084/crisis/call?to=%2B91"
+            - name: SMS_API_URL
+              value: "http://emergency:8084/crisis/sendSms?to=%2B91"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5001
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            failureThreshold: 5
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: mindsky
+spec:
+  selector:
+    app: backend
+  ports:
+    - port: 5001
+      targetPort: 5001

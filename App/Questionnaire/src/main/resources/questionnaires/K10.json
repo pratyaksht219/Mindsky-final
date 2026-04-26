@@ -1,0 +1,56 @@
+{
+    "id": "k10",
+    "name": "Kessler Psychological Distress Scale",
+    "short_name": "K10",
+    "category": "psychological_distress",
+    "description": "A 10-item self-report questionnaire designed to yield a global measure of psychological distress based on anxiety and depressive symptoms experienced over the past 4 weeks.",
+    "version": "10-item",
+    "source": "Kessler et al. (2002), Harvard Medical School",
+  
+    "instructions": "These questions concern how you have been feeling over the past 30 days. For each question, select the option that best describes how often you felt that way.",
+  
+    "response_format": {
+      "type": "single_choice",
+      "scale": "likert_1_5",
+      "options": [
+        { "label": "None of the time", "value": 1 },
+        { "label": "A little of the time", "value": 2 },
+        { "label": "Some of the time", "value": 3 },
+        { "label": "Most of the time", "value": 4 },
+        { "label": "All of the time", "value": 5 }
+      ]
+    },
+  
+    "questions": [
+      { "id": "k10_q1", "text": "During the last 30 days, about how often did you feel tired out for no good reason?" },
+      { "id": "k10_q2", "text": "During the last 30 days, about how often did you feel nervous?" },
+      { "id": "k10_q3", "text": "During the last 30 days, about how often did you feel so nervous that nothing could calm you down?" },
+      { "id": "k10_q4", "text": "During the last 30 days, about how often did you feel hopeless?" },
+      { "id": "k10_q5", "text": "During the last 30 days, about how often did you feel restless or fidgety?" },
+      { "id": "k10_q6", "text": "During the last 30 days, about how often did you feel so restless you could not sit still?" },
+      { "id": "k10_q7", "text": "During the last 30 days, about how often did you feel depressed?" },
+      { "id": "k10_q8", "text": "During the last 30 days, about how often did you feel that everything was an effort?" },
+      { "id": "k10_q9", "text": "During the last 30 days, about how often did you feel so sad that nothing could cheer you up?" },
+      { "id": "k10_q10", "text": "During the last 30 days, about how often did you feel worthless?" }
+    ],
+  
+    "scoring": {
+      "method": "sum",
+      "min_score": 10,
+      "max_score": 50
+    },
+  
+    "severity_levels": [
+      { "label": "Likely well", "min": 10, "max": 19 },
+      { "label": "Mild mental disorder", "min": 20, "max": 24 },
+      { "label": "Moderate mental disorder", "min": 25, "max": 29 },
+      { "label": "Severe mental disorder", "min": 30, "max": 50 }
+    ],
+  
+    "metadata": {
+      "estimated_time_minutes": 3,
+      "clinical_use": true,
+      "license": "Free for clinical and research use",
+      "disclaimer": "This is a screening instrument and does not provide a diagnosis. Clinical judgement is required."
+    }
+  }

@@ -1,0 +1,80 @@
+{
+  "id": "gad7",
+  "name": "Generalized Anxiety Disorder 7-item scale",
+  "short_name": "GAD-7",
+  "category": "anxiety",
+  "description": "A brief self-report scale for screening and measuring the severity of generalized anxiety disorder.",
+  "version": "1.0",
+  "source": "Spitzer et al., 2006",
+  "instructions": "Over the last 2 weeks, how often have you been bothered by the following problems?",
+  "questions": [
+    {
+      "id": "gad7_q1",
+      "text": "Feeling nervous, anxious, or on edge?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "gad7_q2",
+      "text": "Not being able to stop or control worrying?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "gad7_q3",
+      "text": "Worrying too much about different things?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "gad7_q4",
+      "text": "Trouble relaxing?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "gad7_q5",
+      "text": "Being so restless that it is hard to sit still?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "gad7_q6",
+      "text": "Becoming easily annoyed or irritable?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    },
+    {
+      "id": "gad7_q7",
+      "text": "Feeling afraid as if something awful might happen?",
+      "response_format": {
+        "type": "scale",
+        "scale": "likert_0_3",
+        "response_key": "value"
+      }
+    }
+  ],
+  "metadata": {
+    "estimated_time_minutes": 2,
+    "clinical_use": true,
+    "license": "Free for research and clinical use"
+  }
+}

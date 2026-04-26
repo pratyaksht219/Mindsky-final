@@ -1,0 +1,166 @@
+{
+  "id": "pss10_standard_scoring",
+  "questionnaire_id": "pss10",
+  "method": "pss10_scoring",
+  "responses": [
+    {
+      "question_id": "pss_q1",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pss_q2",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pss_q3",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pss_q4",
+      "response_key": "value",
+      "transform": {
+        "type": "reverse"
+      }
+    },
+    {
+      "question_id": "pss_q5",
+      "response_key": "value",
+      "transform": {
+        "type": "reverse"
+      }
+    },
+    {
+      "question_id": "pss_q6",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pss_q7",
+      "response_key": "value",
+      "transform": {
+        "type": "reverse"
+      }
+    },
+    {
+      "question_id": "pss_q8",
+      "response_key": "value",
+      "transform": {
+        "type": "reverse"
+      }
+    },
+    {
+      "question_id": "pss_q9",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    },
+    {
+      "question_id": "pss_q10",
+      "response_key": "value",
+      "transform": {
+        "type": "identity"
+      }
+    }
+  ],
+  "components": [
+    {
+      "id": "perceived_stress_total",
+      "name": "Total Perceived Stress Score",
+      "calculation": {
+        "type": "sum",
+        "inputs": [
+          {
+            "question_id": "pss_q1",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pss_q2",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pss_q3",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pss_q4",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pss_q5",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pss_q6",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pss_q7",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pss_q8",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pss_q9",
+            "response_key": "value"
+          },
+          {
+            "question_id": "pss_q10",
+            "response_key": "value"
+          }
+        ],
+        "score_range": [
+          0,
+          40
+        ]
+      }
+    }
+  ],
+  "global_score": {
+    "calculation": {
+      "type": "sum_components",
+      "components": [
+        "perceived_stress_total"
+      ],
+      "score_range": [
+        0,
+        40
+      ]
+    },
+    "interpretation": {
+      "rules": [
+        {
+          "min": 0,
+          "max": 13,
+          "label": "Low Stress",
+          "description": "Scores indicative of low perceived stress levels."
+        },
+        {
+          "min": 14,
+          "max": 26,
+          "label": "Moderate Stress",
+          "description": "Scores indicative of moderate perceived stress levels."
+        },
+        {
+          "min": 27,
+          "max": 40,
+          "label": "High Stress",
+          "description": "Scores indicative of high perceived stress levels."
+        }
+      ]
+    }
+  }
+}
