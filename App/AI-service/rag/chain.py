@@ -79,6 +79,10 @@ class RAGChain:
             print("======================================================================================")
             return safe_fallback_response()
 
+            
+            # USE THE FOLLOWING RETURN STATEMENT WHEN IN DEVELOPMENT MODE 
+            #----------------------------------------------------------------------
+
         # return AiServiceResponse(
         #     summary="Your responses indicate a pattern of emotional distress that may be affecting your mood, energy levels, and daily functioning. Several answers suggest that these feelings have been present consistently rather than only occasionally.",
         #     severityExplanation="A moderately severe level generally means that symptoms are frequent and impactful, but not uncommon. People in this range often notice difficulties in concentration, motivation, and emotional balance that can interfere with everyday activities.",

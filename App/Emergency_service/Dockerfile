@@ -14,7 +14,6 @@ WORKDIR /app
 
 # Copy jar from builder stage
 COPY --from=builder /build/target/*.jar app.jar
-COPY .env /app/.env
 
 EXPOSE 8084
 

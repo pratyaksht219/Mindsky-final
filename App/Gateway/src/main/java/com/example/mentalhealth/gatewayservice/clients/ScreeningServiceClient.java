@@ -2,24 +2,32 @@ package com.example.mentalhealth.gatewayservice.clients;
 
 import com.example.mentalhealth.gatewayservice.dto.screening.ScreeningRequestDTO;
 import com.example.mentalhealth.gatewayservice.dto.screening.ScreeningResponseDTO;
-import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
+@Slf4j
 @Component
-@RequiredArgsConstructor
 public class ScreeningServiceClient {
 
-    private final WebClient.Builder webClient;
+    private final WebClient webClient;
 
-//    private final String SCREENING_BASE_URL = "http://screening:8081";
-    private static final String SCREENING_BASE_URL = "http://localhost:8081";
+    public ScreeningServiceClient(
+            WebClient.Builder builder,
+            @Value("${screening.service.url}") String baseUrl
+    ) {
+        this.webClient = builder
+                .baseUrl(baseUrl)
+                .build();
+
+        log.info("Screening client initialized with URL: {}", baseUrl);
+    }
 
     public ScreeningResponseDTO startScreening(String correlationId) {
 
-        return webClient.build()
-                .post()
-                .uri(SCREENING_BASE_URL + "/api/screening/start")
+        return webClient.post()
+                .uri("/api/screening/start")
                 .header("X-Correlation-ID", correlationId)
                 .retrieve()
                 .bodyToMono(ScreeningResponseDTO.class)
@@ -28,9 +36,8 @@ public class ScreeningServiceClient {
 
     public ScreeningResponseDTO submitAnswer(ScreeningRequestDTO request) {
 
-        return webClient.build()
-                .post()
-                .uri(SCREENING_BASE_URL + "/api/screening/answer")
+        return webClient.post()
+                .uri("/api/screening/answer")
                 .bodyValue(request)
                 .retrieve()
                 .bodyToMono(ScreeningResponseDTO.class)

@@ -15,7 +15,7 @@ public class DefaultKeywordScreeningEngine implements KeywordScreeningEngine {
 
     private static final int MIN_SCREENING_TURNS = 3;
 
-    private static final int MAX_SCREENING_TURNS = 5;
+    private static final int MAX_SCREENING_TURNS = 6;
 
     private static final String FALLBACK_QUESTIONNAIRE = "dass21";
 
@@ -29,7 +29,8 @@ public class DefaultKeywordScreeningEngine implements KeywordScreeningEngine {
                     "social_anxiety", "lsas",
                     "trauma", "pcl5",
                     "distress_general","k10",
-                    "social_support", "mspss"
+                    "social_support", "mspss",
+                    "vague", "dass21"
             );
 
     @Override
@@ -75,43 +76,41 @@ public class DefaultKeywordScreeningEngine implements KeywordScreeningEngine {
         Optional<Map.Entry<String, Double>> dominant =
                 signalState.getDominantDomain();
 
-        if (dominant.isEmpty()) {
-            return notReady();
-        }
+        if (dominant.isPresent()) {
+            String domain = dominant.get().getKey().toLowerCase();
+            double score = dominant.get().getValue();
+            log.debug("Dominant domain={} score={}", domain, score);
 
-        String domain = dominant.get().getKey().toLowerCase();
-        double score = dominant.get().getValue();
-        log.debug("Dominant domain={} score={}", domain, score);
+            /* =========================
+               4️⃣ Check threshold
+               ========================= */
 
-        /* =========================
-           4️⃣ Check threshold
-           ========================= */
+            if (score >= ROUTING_THRESHOLD) {
 
-        if (score >= ROUTING_THRESHOLD) {
+                String questionnaireId =
+                        DOMAIN_TO_QUESTIONNAIRE.get(domain);
 
-            String questionnaireId =
-                    DOMAIN_TO_QUESTIONNAIRE.get(domain);
+                if (questionnaireId == null) {
+                    questionnaireId = FALLBACK_QUESTIONNAIRE;
+                }
 
-            if (questionnaireId == null) {
-                questionnaireId = FALLBACK_QUESTIONNAIRE;
+                double confidence =
+                        Math.min(1.0, score / 5.0);
+
+                log.info(
+                        "Routing screening → {} | confidence={}",
+                        questionnaireId,
+                        confidence
+                );
+
+                return new ScreeningDecision(
+                        true,
+                        questionnaireId,
+                        confidence,
+                        signalState.getMatchedKeywords(domain),
+                        false
+                );
             }
-
-            double confidence =
-                    Math.min(1.0, score / 5.0);
-
-            log.info(
-                    "Routing screening → {} | confidence={}",
-                    questionnaireId,
-                    confidence
-            );
-
-            return new ScreeningDecision(
-                    true,
-                    questionnaireId,
-                    confidence,
-                    signalState.getMatchedKeywords(domain),
-                    false
-            );
         }
 
         /* =========================

@@ -5,7 +5,8 @@ import com.example.mentalhealth.Assessment.AssessmentResult;
 import com.example.mentalhealth.aiService.AIService;
 import com.example.mentalhealth.aiService.DTO.AIServiceRequestDTO;
 import com.example.mentalhealth.aiService.DTO.AIServiceResponseDTO;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -13,26 +14,30 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.time.Duration;
 
+@Slf4j
 @Service
 public class AIServiceImplementation implements AIService {
 
-//private static final String AI_SERVICE_URL = "http://ai:8000/analyze";
-     private static final String AI_SERVICE_URL = "http://localhost:8000/analyze";
+    private final WebClient webClient;
 
-    @Autowired
-    private WebClient.Builder builder;
+    public AIServiceImplementation(
+            WebClient.Builder builder,
+            @Value("${ai.service.url}") String aiServiceUrl
+    ) {
+        this.webClient = builder
+                .baseUrl(aiServiceUrl)
+                .build();
 
-    private WebClient getAiClient(){
-        return builder.build();
+        log.info("AI client initialized with URL: {}", aiServiceUrl);
     }
-
 
     @Override
     public AIServiceResponseDTO getAiServiceResponse(AIServiceRequestDTO requestDTO) {
-        System.out.println("AI Service called"+requestDTO);
-        return getAiClient()
-                .post()
-                .uri(AI_SERVICE_URL)
+
+        log.info("AI Service called with request: {}", requestDTO);
+
+        return webClient.post()
+                .uri("/analyze")
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(requestDTO)
                 .retrieve()

@@ -1,0 +1,18 @@
+# Ignore build directories and generated files
+target/
+*.jar
+*.class
+
+# Ignore IDE and OS files
+.idea/
+*.iml
+.DS_Store
+.vscode/
+
+# Ignore environment variables
+.env
+.env.*
+*.properties.local
+
+# Ignore logs
+*.log
