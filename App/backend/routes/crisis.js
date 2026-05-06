@@ -6,6 +6,7 @@ const CrisisAlert = require('../models/CrisisAlert');
 const User = require('../models/User');
 const authMiddleware = require('../middleware/auth'); // assuming standard layout if exists
 const twilio = require('twilio');
+
 const CALL_API_URL = process.env.CALL_API_URL;
 const SMS_API_URL = process.env.SMS_API_URL
 
@@ -18,7 +19,7 @@ if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN) {
 const sendEmergencySMS = async (to, userName, latitude, longitude, crisisType) => {
   const timestamp = new Date().toLocaleString();
   const locationUrl = (latitude && longitude) ? `https://maps.google.com/?q=${latitude},${longitude}` : 'Location unavailable';
-
+  
   const messageBody = `🚨 MENTAL HEALTH CRISIS\n${userName} triggered an alert (${crisisType}) and may need help.\n📍 Location: ${locationUrl}\n🕒 Time: ${timestamp}\n⚠️ PLEASE CHECK ON THEM.`;
 
   if (twilioClient && process.env.TWILIO_PHONE_NUMBER) {
@@ -50,7 +51,7 @@ router.post('/emergency-contacts', async (req, res) => {
     let userId = req.body.userId;
     // fallback if using auth token
     if (!userId && req.user) userId = req.user.id;
-
+    
     const { contacts } = req.body;
     if (!userId || !contacts || !Array.isArray(contacts)) {
       return res.status(400).json({ message: 'Invalid data' });
@@ -63,7 +64,7 @@ router.post('/emergency-contacts', async (req, res) => {
     const inserted = [];
     for (const c of contacts) {
       if (!c.fullName && !c.phoneNumber && !c.relationship) continue;
-
+      
       if (!c.fullName || !c.phoneNumber || !c.relationship) {
         return res.status(400).json({ message: `Please provide Name, Phone, and Relationship for contact.` });
       }
@@ -125,9 +126,9 @@ router.post('/trigger', async (req, res) => {
           // const rawPhone = contact.phoneNumber.replace(/^\+/, '');
           // const encodedPhone = encodeURIComponent(rawPhone);
           // const encodedUserName = encodeURIComponent(uName);
-
-          const callReq = await fetch(`${CALL_API_URL}${contact.phoneNumber}&username=${uName}`, { method: 'POST' });
-          console.log('callreq : ', callReq)
+          
+          const callReq = await fetch(`${CALL_API_URL}${contact.phoneNumber}&username=${uName}`,{method:'POST'});
+          // console.log('callreq : ',callReq)
           const smsReq = await fetch(`${SMS_API_URL}${contact.phoneNumber}&username=${uName}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -136,7 +137,8 @@ router.post('/trigger', async (req, res) => {
               longitude: longitude || 77.2090
             })
           });
-          console.log('smsreq : ', smsReq)
+          // console.log('smsreq : ',smsReq)
+          
           smsSentCount++;
         } catch (err) {
           console.error('External crisis API call failed:', err);

@@ -228,11 +228,24 @@ export default function ChatBot({ user, onClose, onUpdateUser }) {
     }
   }, [phase, user]);
 
-  // ── Send message ────────────────────────────────────────────────────────────
   const handleSend = async (textOverride = null) => {
     if (isTypingRef.current) return;
     const text = textOverride !== null ? textOverride : input.trim();
     if (text === '' || text === null) return;
+
+    // Validation: Require at least 5 words for free-text responses
+    if (typeof text === 'string' && phase !== 'QUESTIONNAIRE') {
+      const wordCount = text.trim().split(/\s+/).filter(w => w.length > 0).length;
+      if (wordCount <= 4) {
+        setMessages((prev) => [
+          ...prev, 
+          { role: 'user', content: text },
+          { role: 'assistant', content: "Could you please elaborate a bit more? This response is a bit too short for me to fully understand how you're feeling." }
+        ]);
+        if (textOverride === null) setInput('');
+        return;
+      }
+    }
 
     if (textOverride === null) setInput('');
     setError(null);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Logo from './Logo';
-import ChatBot from './Chatbot';
+import ChatBot from './ChatBot';
 import Journal from './Journal';
 import Games from './Games';
 import Activities from './Activities';
@@ -133,6 +133,60 @@ const Dashboard = ({ onLogout }) => {
     addXP(100, { mood: emoji }); // single atomic request: mood + XP together
     spawnMoodXP();
   };
+
+  const handleDownloadReport = (idx) => {
+    const a = assessments[idx];
+    const ai = a.data?.aiServiceResponse ?? a.aiServiceResponse ?? {};
+    const rawDate = a.completedAt || a.data?.completedAt || null;
+    const date = rawDate ? new Date(rawDate).toLocaleString() : 'Unknown';
+    
+    let content = `MindSky Assessment Report\n`;
+    content += `Session #${assessments.length - idx} | Date: ${date}\n`;
+    content += `-------------------------------------------------\n\n`;
+    
+    if (ai.summary) {
+      content += `SUMMARY:\n${ai.summary}\n\n`;
+    }
+    
+    if (ai.insights) {
+      content += `DEEP INSIGHTS:\n${ai.insights}\n\n`;
+    }
+    
+    if (ai.recommendations && ai.recommendations.length > 0) {
+      content += `ACTIONABLE STEPS:\n`;
+      ai.recommendations.forEach((r, i) => {
+        content += `${i + 1}. ${r}\n`;
+      });
+      content += `\n`;
+    }
+    
+    if (ai.keyFindings && ai.keyFindings.length > 0) {
+      content += `CORE FINDINGS:\n`;
+      ai.keyFindings.forEach((f) => {
+        content += `- ${f}\n`;
+      });
+      content += `\n`;
+    }
+    
+    if (ai.reassurance) {
+      content += `REASSURANCE:\n"${ai.reassurance}"\n\n`;
+    }
+    
+    if (ai.disclaimer) {
+      content += `IMPORTANT NOTICE:\n${ai.disclaimer}\n\n`;
+    }
+    
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `MindSky_Report_Session_${assessments.length - idx}.txt`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
 
   if (!user) return null;
 
@@ -290,10 +344,10 @@ const Dashboard = ({ onLogout }) => {
                   key={item.id}
                   onClick={() => !isLocked && setActiveTab(item.id)}
                   className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl font-bold transition-all duration-300 ${activeTab === item.id
-                    ? 'bg-white shadow-[0_4px_20px_rgba(0,0,0,0.05)] text-[#0D1B2A]'
-                    : isLocked
-                      ? 'text-[#0D1B2A]/20 cursor-not-allowed'
-                      : 'text-[#0D1B2A]/40 hover:text-[#0D1B2A] hover:bg-white/30 cursor-pointer'
+                      ? 'bg-white shadow-[0_4px_20px_rgba(0,0,0,0.05)] text-[#0D1B2A]'
+                      : isLocked
+                        ? 'text-[#0D1B2A]/20 cursor-not-allowed'
+                        : 'text-[#0D1B2A]/40 hover:text-[#0D1B2A] hover:bg-white/30 cursor-pointer'
                     }`}
                 >
                   <div className="flex items-center gap-4">
@@ -483,6 +537,13 @@ const Dashboard = ({ onLogout }) => {
                               Session #{assessments.length - idx}
                             </span>
                             <span className="text-[10px] font-semibold uppercase tracking-widest text-[#0D1B2A]/30">{date}</span>
+                            <button
+                              onClick={() => handleDownloadReport(idx)}
+                              className="ml-auto flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 hover:bg-indigo-100 text-indigo-600 text-[10px] font-bold uppercase tracking-widest transition-colors cursor-pointer"
+                            >
+                              <FiIcons.FiDownload size={12} />
+                              Download Report
+                            </button>
                           </div>
 
                           <h2 className="text-[19px] md:text-xl font-semibold text-[#0D1B2A] leading-snug tracking-tight mb-8 pr-12">

@@ -22,7 +22,7 @@ const OnboardingFlow = ({ onBack, onComplete }) => {
   const nextStep = () => setStep((prev) => prev + 1);
   const prevStep = () => setStep((prev) => prev - 1);
 
-  const updateForm = (key, value) => setFormData({ ...formData, [key]: value });
+  const updateForm = (key, value) => setFormData(prev => typeof key === 'object' ? { ...prev, ...key } : { ...prev, [key]: value });
 
   if (step === 1) {
     return <Step1Credentials formData={formData} updateForm={updateForm} onNext={nextStep} onBack={onBack} />;
@@ -907,6 +907,17 @@ const Step7Goals = ({ formData, updateForm }) => {
 
 const Step8Consent = ({ formData, updateForm }) => {
   const toggleC = (id) => updateForm(id, !formData[id]);
+  
+  const allConsents = ['consent1', 'consent2', 'consent3', 'consent4', 'consent5'];
+  const isAllChecked = allConsents.every(c => formData[c]);
+  
+  const handleCheckAll = () => {
+    const newValue = !isAllChecked;
+    const updates = {};
+    allConsents.forEach(c => updates[c] = newValue);
+    updateForm(updates);
+  };
+
   return (
     <div className="space-y-5 animate-fade-in text-[#0D1B2A]">
       <p className="opacity-70 text-sm mb-4">Just a few checkboxes to ensure your security & privacy.</p>
@@ -931,6 +942,16 @@ const Step8Consent = ({ formData, updateForm }) => {
         </div>
         <span className="text-sm font-semibold opacity-80 group-hover:opacity-100 leading-snug">Optional: Send me rare, positive affirmations to my email inbox once a week.</span>
       </label>
+
+      {/* Check All Checkbox - Positioned above submit */}
+      <div className="pt-2 mt-4 border-t border-gray-100">
+        <label className="flex items-center gap-4 p-4 border border-gray-100 rounded-[16px] cursor-pointer hover:bg-[#EFF3F8] transition-colors group">
+          <div className="flex-shrink-0">
+            <input type="checkbox" checked={isAllChecked} onChange={handleCheckAll} className="rounded border-[#0D1B2A] text-[#0D1B2A] focus:ring-[#0D1B2A] accent-[#F5A623] cursor-pointer" style={{ width: '20px', height: '20px', minWidth: '20px', minHeight: '20px' }} />
+          </div>
+          <span className="text-sm font-semibold opacity-80 group-hover:opacity-100 leading-snug">I agree to all of the above</span>
+        </label>
+      </div>
     </div>
   );
 };

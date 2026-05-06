@@ -23,7 +23,7 @@ function App() {
   if (currentRoute === 'login') {
     return <LoginPage onBack={() => setCurrentRoute('home')} onSignUp={() => setCurrentRoute('onboarding')} onLoginSuccess={() => setCurrentRoute('dashboard')} />;
   }
-
+  
   if (currentRoute === 'onboarding') {
     return <OnboardingFlow onBack={() => setCurrentRoute('home')} onComplete={() => setCurrentRoute('dashboard')} />;
   }

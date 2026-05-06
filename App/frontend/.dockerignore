@@ -7,11 +7,11 @@ yarn-error.log*
 Dockerfile
 .dockerignore
 README.md
+dist
+dist-ssr
+*.local
 .env
 .env.*
 .vscode
 .idea
 .DS_Store
-logs
-*.log
-coverage
