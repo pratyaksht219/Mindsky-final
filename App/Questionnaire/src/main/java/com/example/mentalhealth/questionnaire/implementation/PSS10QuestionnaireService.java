@@ -29,9 +29,7 @@ public class PSS10QuestionnaireService implements QuestionnaireService {
     private QuestionnaireDTO getDefinition() {
         return questionnaireRegistry
                 .getById(supportedQuestionnaireId())
-                .orElseThrow(() ->
-                        new IllegalStateException("PSS-10 questionnaire not found")
-                );
+                .orElseThrow(() -> new IllegalStateException("PSS-10 questionnaire not found"));
     }
 
     @Override
@@ -49,28 +47,24 @@ public class PSS10QuestionnaireService implements QuestionnaireService {
     @Override
     public void submitAnswer(
             AnswerSubmissionDTO submission,
-            QuestionnaireSession session
-    ) {
+            QuestionnaireSession session) {
 
         /* Questionnaire integrity */
         if (submission.getQuestionnaireId() == null) {
             throw new IllegalArgumentException(
-                    "questionnaire_id is required in AnswerSubmissionDTO"
-            );
+                    "questionnaire_id is required in AnswerSubmissionDTO");
         }
 
         if (!supportedQuestionnaireId().equals(submission.getQuestionnaireId())) {
             throw new IllegalArgumentException(
                     "Invalid questionnaire_id for PSS-10: "
-                            + submission.getQuestionnaireId()
-            );
+                            + submission.getQuestionnaireId());
         }
 
         /* CRITICAL FIX: block submits after completion */
         if (isCompleted(session)) {
             throw new IllegalStateException(
-                    "PSS-10 questionnaire already completed for this session"
-            );
+                    "PSS-10 questionnaire already completed for this session");
         }
 
         QuestionDTO question = getNextQuestion(session);
@@ -80,8 +74,7 @@ public class PSS10QuestionnaireService implements QuestionnaireService {
                 submission.getSessionId(),
                 submission.getQuestionId(),
                 question.getId(),
-                session.getCurrentQuestionIndex()
-        );
+                session.getCurrentQuestionIndex());
 
         /* Strict order enforcement */
         if (!question.getId().equals(submission.getQuestionId())) {
@@ -89,47 +82,40 @@ public class PSS10QuestionnaireService implements QuestionnaireService {
                     "Question ID mismatch. Expected "
                             + question.getId()
                             + " but got "
-                            + submission.getQuestionId()
-            );
+                            + submission.getQuestionId());
         }
 
         /* Response type guard */
         if (question.getResponseFormat().getType() != ResponseType.SCALE) {
             throw new IllegalStateException(
-                    "PSS-10 only supports SCALE responses"
-            );
+                    "PSS-10 only supports SCALE responses");
         }
 
         Double value = AnswerExtractor.extractScaleValue(submission, question);
 
-        //  GAD-7 scale guard (0–3)
-        if (value < 0 || value > 3) {
+        // PSS-10 scale guard (0–4)
+        if (value < 0 || value > 4) {
             throw new IllegalArgumentException(
-                    "GAD-7 response must be between 0 and 3"
-            );
+                    "PSS-10 response must be between 0 and 4");
         }
 
-        //  Store (single writer)
+        // Store (single writer)
         session.getAnswerStore().put(
                 question.getId(),
                 question.getResponseFormat().getResponseKey(),
-                value
-        );
+                value);
 
-
-        /*  Advance EXACTLY once */
+        /* Advance EXACTLY once */
         session.incrementQuestionIndex();
 
         log.info(
                 "PSS-10 after submit: index={}",
-                session.getCurrentQuestionIndex()
-        );
+                session.getCurrentQuestionIndex());
     }
 
     @Override
     public boolean isCompleted(QuestionnaireSession session) {
-        return session.getCurrentQuestionIndex()
-                >= getDefinition().getQuestions().size();
+        return session.getCurrentQuestionIndex() >= getDefinition().getQuestions().size();
     }
 
     /* ---------- helpers ---------- */
@@ -139,7 +125,6 @@ public class PSS10QuestionnaireService implements QuestionnaireService {
             return n.doubleValue();
         }
         throw new IllegalArgumentException(
-                "PSS-10 response must be numeric"
-        );
+                "PSS-10 response must be numeric");
     }
 }

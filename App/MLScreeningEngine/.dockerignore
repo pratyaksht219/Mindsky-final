@@ -35,6 +35,9 @@ data/
 *.json
 *.pkl
 
+# -------- Fine-tuned model (override *.json exclusion above) --------
+!fine_tuned_model/
+
 # -------- Build artifacts --------
 dist/
 build/

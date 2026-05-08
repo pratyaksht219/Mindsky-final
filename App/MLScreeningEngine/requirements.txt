@@ -4,3 +4,5 @@ sentence-transformers
 scikit-learn
 numpy
 prometheus-fastapi-instrumentator
+datasets
+accelerate
