@@ -62,11 +62,43 @@ const Step1Credentials = ({ formData, updateForm, onNext, onBack }) => {
     let newErrors = {};
 
     if (!formData.fullName) { newErrors.fullName = 'Required'; valid = false; }
-    if (!formData.email) { newErrors.email = 'Required'; valid = false; }
-    if (!formData.password) { newErrors.password = 'Required'; valid = false; }
+    
+    if (!formData.email) { 
+      newErrors.email = 'Required'; valid = false; 
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Invalid email format'; valid = false;
+    }
+    
+    if (!formData.password) { 
+      newErrors.password = 'Required'; valid = false; 
+    } else if (formData.password.length < 8) {
+      newErrors.password = 'Must be at least 8 characters'; valid = false;
+    }
+    
     if (formData.password !== formData.confirmPassword) {
       newErrors.confirmPassword = 'Passwords do not match';
       valid = false;
+    }
+
+    if (!formData.phone) {
+      newErrors.phone = 'Required'; valid = false;
+    } else if (!/^\d{10}$/.test(formData.phone)) {
+      newErrors.phone = 'Must be a 10-digit number'; valid = false;
+    }
+
+    if (!formData.dob) {
+      newErrors.dob = 'Required'; valid = false;
+    } else {
+      const today = new Date();
+      const birthDate = new Date(formData.dob);
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+      if (age < 18) {
+        newErrors.dob = 'Must be at least 18 years old'; valid = false;
+      }
     }
 
     setErrors(newErrors);
@@ -181,10 +213,11 @@ const Step1Credentials = ({ formData, updateForm, onNext, onBack }) => {
                 type="tel"
                 placeholder="Mobile Number"
                 value={formData.phone}
-                onChange={(e) => updateForm('phone', e.target.value)}
-                className="w-full pl-11 pr-4 py-3.5 rounded-full outline-none transition-shadow placeholder:text-[#0D1B2A] placeholder:opacity-70 focus:ring-2 focus:ring-[#0D1B2A] border border-transparent h-[50px] shadow-sm"
+                onChange={(e) => { updateForm('phone', e.target.value); if (errors.phone) setErrors({ ...errors, phone: null }) }}
+                className={`w-full pl-11 pr-4 py-3.5 rounded-full outline-none transition-shadow placeholder:text-[#0D1B2A] placeholder:opacity-70 h-[50px] shadow-sm ${errors.phone ? 'border-2 border-red-600' : 'border border-transparent focus:ring-2 focus:ring-[#0D1B2A]'}`}
                 style={{ backgroundColor: '#ffffff', color: '#0D1B2A' }}
               />
+              {errors.phone && <p className="text-red-700 text-[13px] mt-1 ml-4 font-bold">{errors.phone}</p>}
             </div>
 
             {/* Password */}
@@ -235,10 +268,11 @@ const Step1Credentials = ({ formData, updateForm, onNext, onBack }) => {
                 <input
                   type="date"
                   value={formData.dob}
-                  onChange={(e) => updateForm('dob', e.target.value)}
-                  className="w-full pl-11 pr-4 py-3.5 rounded-full outline-none transition-shadow focus:ring-2 focus:ring-[#0D1B2A] border border-transparent h-[50px] shadow-sm"
+                  onChange={(e) => { updateForm('dob', e.target.value); if (errors.dob) setErrors({ ...errors, dob: null }) }}
+                  className={`w-full pl-11 pr-4 py-3.5 rounded-full outline-none transition-shadow h-[50px] shadow-sm ${errors.dob ? 'border-2 border-red-600' : 'border border-transparent focus:ring-2 focus:ring-[#0D1B2A]'}`}
                   style={{ backgroundColor: '#ffffff', color: '#0D1B2A' }}
                 />
+                {errors.dob && <p className="text-red-700 text-[13px] mt-1 ml-4 font-bold">{errors.dob}</p>}
               </div>
 
               <div className="relative text-[#0D1B2A]">
@@ -334,7 +368,7 @@ const GuideCard = ({ guide, isSelected, onClick }) => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-
+    
     const multiplier = 15;
     const xRotate = (-y / rect.height) * multiplier;
     const yRotate = (x / rect.width) * multiplier;
@@ -359,14 +393,14 @@ const GuideCard = ({ guide, isSelected, onClick }) => {
       onMouseLeave={handleMouseLeave}
       style={tiltStyle}
       className={`relative cursor-pointer rounded-[24px] lg:rounded-[32px] p-3 sm:p-4 md:p-5 flex flex-col items-center justify-center transition-all duration-300 group overflow-hidden border backdrop-blur-xl
-        ${isSelected
-          ? 'border-[#F5A622] bg-[#F5A622]/5 shadow-[0_15px_30px_rgba(245,166,34,0.3)] z-10 scale-105'
+        ${isSelected 
+          ? 'border-[#F5A622] bg-[#F5A622]/5 shadow-[0_15px_30px_rgba(245,166,34,0.3)] z-10 scale-105' 
           : 'border-white/20 hover:border-[#F5A622]/40 bg-white/10 shadow-[0_8px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_15px_35px_rgba(245,166,34,0.15)] hover:-translate-y-1'}`}
     >
       {isSelected && (
         <div className="absolute inset-0 rounded-[24px] border-4 border-[#F5A622]/20 pointer-events-none z-0"></div>
       )}
-
+      
       {isSelected && (
         <div className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-[#F5A622] text-white rounded-full p-1 sm:p-1.5 animate-fade-in z-20 shadow-[0_0_15px_rgba(245,166,34,0.4)]">
           <FiCheck className="text-xs sm:text-sm font-bold" />
@@ -374,13 +408,13 @@ const GuideCard = ({ guide, isSelected, onClick }) => {
       )}
 
       <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mb-2 flex items-center justify-center pointer-events-none">
-        <img
-          src={guide.image}
-          alt={guide.name}
-          className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 drop-shadow-lg"
+        <img 
+          src={guide.image} 
+          alt={guide.name} 
+          className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 drop-shadow-lg" 
         />
       </div>
-
+      
       <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-[#0D1B2A] text-center mb-0.5 leading-tight">{guide.name}</h3>
       <p className={`${isSelected ? 'text-[#F5A622]' : 'text-[#0D1B2A]/70'} font-bold text-[9px] sm:text-[10px] md:text-xs uppercase tracking-widest text-center transition-colors duration-300`}>{guide.tag}</p>
     </div>
@@ -403,8 +437,8 @@ const Step2ChooseGuide = ({ formData, updateForm, onNext, onBack }) => {
 
       {/* Header Container (Top) */}
       <div className="w-full flex justify-between items-center relative z-50 mb-1 sm:mb-2 px-2 sm:px-6 mt-1 sm:mt-2">
-        <Logo withGlass lightText={false} className="drop-shadow-md scale-75 md:scale-100 origin-left" onClick={onBack} />
-        <button
+         <Logo withGlass lightText={false} className="drop-shadow-md scale-75 md:scale-100 origin-left" onClick={onBack} />
+         <button
           onClick={onBack}
           className="flex items-center gap-1 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2.5 rounded-full font-bold cursor-pointer transition-all duration-300 bg-white/40 backdrop-blur-xl border border-white/60 shadow-sm hover:bg-white/70 text-[#0D1B2A] text-xs sm:text-base"
         >
@@ -415,7 +449,7 @@ const Step2ChooseGuide = ({ formData, updateForm, onNext, onBack }) => {
 
       {/* Main Content (Flex-1 properly bounds height) */}
       <div className="flex-1 w-full max-w-5xl flex flex-col items-center justify-evenly relative z-10 px-1 py-1">
-
+        
         {/* Header Texts */}
         <div className="text-center w-full px-2 mt-[-10px] sm:mt-[-15px] md:mt-[-30px]">
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0D1B2A] mb-1 tracking-tight drop-shadow-sm animate-fade-in-up">
@@ -429,7 +463,7 @@ const Step2ChooseGuide = ({ formData, updateForm, onNext, onBack }) => {
         {/* Grid Container ALWAYS 3 cols to save vertical space */}
         <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 lg:gap-6 w-full px-1 animate-fade-in-up animation-delay-300">
           {guides.filter(g => g.id !== 'ai_guide').map((guide) => (
-            <GuideCard
+            <GuideCard 
               key={guide.id}
               guide={guide}
               isSelected={formData.selectedGuide === guide.id}
@@ -495,6 +529,22 @@ const SharedOnboardingLayout = ({ step, formData, onNext, onBack, updateForm }) 
 
   // Determine if next is allowed based on consent primarily, or basic validation
   const canProceed = () => {
+    if (step === 3) {
+      return !!(formData.institution && formData.course);
+    }
+    if (step === 4) {
+      return !!(formData.activity && formData.social);
+    }
+    if (step === 6) {
+      return formData.screening?.s1 !== undefined && 
+             formData.screening?.s2 !== undefined && 
+             formData.screening?.s3 !== undefined && 
+             formData.screening?.s4 !== undefined && 
+             formData.screening?.s5 !== undefined;
+    }
+    if (step === 7) {
+      return formData.goals && formData.goals.length > 0;
+    }
     if (step === 8) {
       return formData.consent1 && formData.consent2 && formData.consent3 && formData.consent4;
     }
@@ -503,12 +553,12 @@ const SharedOnboardingLayout = ({ step, formData, onNext, onBack, updateForm }) 
 
   return (
     <div className="flex w-full min-h-[100dvh] font-sans relative overflow-hidden bg-gradient-to-br from-[#E0F2FE] via-[#E9D5FF] to-[#FFEDD5] text-[#0D1B2A] animate-gradient-x">
-
+      
       {/* Noise Texture & Enhanced Sky Atmosphere */}
       <div className="absolute inset-0 bg-noise z-0 mix-blend-overlay opacity-40"></div>
       <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-white/60 blur-[130px] rounded-full pointer-events-none animate-pulse-slow z-0"></div>
       <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-[#BAE6FD]/40 blur-[150px] rounded-full pointer-events-none z-0"></div>
-
+      
       {/* Parallax Floating Particles */}
       <div className="absolute top-[15%] right-[20%] w-2 h-2 bg-white rounded-full blur-[1px] shadow-[0_0_10px_white] opacity-60 animate-float pointer-events-none z-0" style={{ animationDuration: '7s' }}></div>
       <div className="absolute bottom-[25%] left-[15%] w-3 h-3 bg-white rounded-full blur-[2px] shadow-[0_0_15px_white] opacity-40 animate-float pointer-events-none z-0" style={{ animationDuration: '9s', animationDelay: '1s' }}></div>
@@ -538,7 +588,7 @@ const SharedOnboardingLayout = ({ step, formData, onNext, onBack, updateForm }) 
 
       {/* Main Content Area */}
       <div className="w-full h-full flex flex-col md:flex-row items-center justify-center relative z-10 pt-20 sm:pt-24 px-4 sm:px-6 md:px-8 gap-4 md:gap-8 lg:gap-10">
-
+        
         {/* Mascot / Guide Companion */}
         <div className="hidden md:flex flex-col items-center w-[25%] max-w-[280px] animate-fade-in-up">
           <div className="relative mb-6 group">
@@ -552,21 +602,21 @@ const SharedOnboardingLayout = ({ step, formData, onNext, onBack, updateForm }) 
 
           {/* Contextual Speech Bubble */}
           <div className="bg-white/80 backdrop-blur-2xl border border-white/80 rounded-[24px] p-5 shadow-[0_20px_40px_rgba(0,0,0,0.08)] w-full relative mt-2 animate-fade-in-up animation-delay-300">
-            {/* Speech Tail pointing UP */}
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-white/80 backdrop-blur-2xl border-t border-l border-white/80 rotate-45 z-0"></div>
-
-            <h2 className="text-xl lg:text-2xl font-serif font-bold text-[#0D1B2A] mb-1.5 text-center drop-shadow-sm tracking-wide relative z-10">
-              {selectedGuide.name}
-            </h2>
-            <p className="text-sm lg:text-[15px] text-[#0D1B2A]/70 text-center font-medium leading-relaxed italic relative z-10">
-              "{currentMsg}"
-            </p>
+             {/* Speech Tail pointing UP */}
+             <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-white/80 backdrop-blur-2xl border-t border-l border-white/80 rotate-45 z-0"></div>
+             
+             <h2 className="text-xl lg:text-2xl font-serif font-bold text-[#0D1B2A] mb-1.5 text-center drop-shadow-sm tracking-wide relative z-10">
+                {selectedGuide.name}
+             </h2>
+             <p className="text-sm lg:text-[15px] text-[#0D1B2A]/70 text-center font-medium leading-relaxed italic relative z-10">
+                "{currentMsg}"
+             </p>
           </div>
         </div>
 
         {/* Central Form Card */}
         <div className="w-full max-w-[650px] bg-white/70 backdrop-blur-3xl border border-white/80 rounded-[40px] p-6 sm:p-10 md:p-14 shadow-[0_30px_80px_rgba(0,0,0,0.1),inset_0_2px_20px_rgba(255,255,255,0.8)] relative animate-fade-in-up md:w-[65%] flex-shrink-0 transition-transform duration-500 hover:shadow-[0_40px_100px_rgba(0,0,0,0.12),inset_0_2px_20px_rgba(255,255,255,0.9)]">
-
+          
           <div className="mb-8 sm:mb-10 text-center relative z-20">
             <h2 className="text-3xl sm:text-4xl md:text-[2.75rem] font-serif font-bold text-[#0D1B2A] mb-2 sm:mb-4 tracking-wide drop-shadow-sm leading-tight">
               {step === 3 && 'Academic Profile'}
@@ -590,11 +640,11 @@ const SharedOnboardingLayout = ({ step, formData, onNext, onBack, updateForm }) 
               disabled={!canProceed()}
               className="px-8 sm:px-12 py-4 sm:py-5 rounded-full font-bold text-lg sm:text-[20px] bg-gradient-to-r from-[#F5A622] to-[#FB923C] text-white transition-all duration-300 shadow-[0_10px_30px_rgba(245,166,34,0.4)] hover:shadow-[0_15px_40px_rgba(245,166,34,0.6)] hover:-translate-y-1.5 active:scale-95 flex items-center justify-center gap-3 cursor-pointer group disabled:opacity-50 disabled:hover:translate-y-0 disabled:shadow-none disabled:cursor-not-allowed w-full sm:w-[85%]"
             >
-              {step === 8 ? 'Complete Setup' : 'Let\'s go'}
+              {step === 8 ? 'Complete Setup' : 'Let\'s go'} 
               <FiArrowLeft className="rotate-180 transition-transform duration-500 group-hover:translate-x-3 text-xl" />
             </button>
           </div>
-
+          
         </div>
 
       </div>
@@ -605,7 +655,7 @@ const SharedOnboardingLayout = ({ step, formData, onNext, onBack, updateForm }) 
 // ==========================================
 // PREMIUM INPUT COMPONENTS
 // ==========================================
-const PremiumFloatingInput = ({ label, value, onChange, placeholder, type = "text" }) => {
+const PremiumFloatingInput = ({ label, value, onChange, placeholder, type = "text", maxLength }) => {
   const [isFocused, setIsFocused] = useState(false);
   const isActive = isFocused || (value && value.toString().length > 0);
 
@@ -613,11 +663,12 @@ const PremiumFloatingInput = ({ label, value, onChange, placeholder, type = "tex
     <div className="relative group w-full">
       {/* Pill Input (Matches Step 2 guide card glass) */}
       <div className={`relative bg-white/50 backdrop-blur-xl border transition-all duration-300 rounded-[20px] shadow-[0_4px_15px_rgba(0,0,0,0.03)] ${isFocused ? 'border-[#F5A622]/60 shadow-[0_0_20px_rgba(245,166,34,0.15)] bg-white/80' : 'border-white/60 hover:bg-white/70 hover:border-[#F5A622]/30'}`}>
-        <label
-          className={`absolute left-5 transition-all duration-300 pointer-events-none font-bold ${isActive
-              ? 'top-2 text-[10px] text-[#F5A622] uppercase tracking-widest'
+        <label 
+          className={`absolute left-5 transition-all duration-300 pointer-events-none font-bold ${
+            isActive 
+              ? 'top-2 text-[10px] text-[#F5A622] uppercase tracking-widest' 
               : 'top-1/2 -translate-y-1/2 text-sm sm:text-base text-[#0D1B2A]/50 tracking-wide'
-            }`}
+          }`}
         >
           {label}
         </label>
@@ -625,6 +676,7 @@ const PremiumFloatingInput = ({ label, value, onChange, placeholder, type = "tex
           type={type}
           value={value || ''}
           onChange={onChange}
+          maxLength={maxLength}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           className={`w-full bg-transparent outline-none px-5 pb-2.5 pt-6 text-[#0D1B2A] font-bold transition-opacity duration-300 ${isActive || isFocused ? 'opacity-100' : 'opacity-0'}`}
@@ -639,56 +691,56 @@ const PremiumFloatingInput = ({ label, value, onChange, placeholder, type = "tex
 const PremiumSlider = ({ value, onChange, min, max, label = "Current Semester", showMarks = false }) => {
   const safeVal = value || min;
   const percentage = ((safeVal - min) / (max - min)) * 100;
-
+  
   return (
     <div className="w-full relative animate-fade-in-up py-4 mt-2">
       <div className="flex justify-between items-center mb-14 px-1 relative">
         <p className="font-bold text-[#0D1B2A]/60 text-xs uppercase tracking-[0.15em]">{label}</p>
       </div>
-
+      
       <div className="relative h-3 w-full bg-black/5 backdrop-blur-xl border border-black/5 rounded-full shadow-inner overflow-visible mt-2">
-        {/* Floating Pill Indicator perfectly centered dynamically above the physical thumb */}
-        <div
-          className="absolute -top-[42px] transform -translate-x-1/2 px-5 py-2 min-w-[60px] bg-white backdrop-blur-xl border border-[#F5A622]/30 rounded-full text-[#F5A622] font-extrabold text-sm shadow-[0_10px_25px_rgba(245,166,34,0.25)] flex items-center justify-center z-30 pointer-events-none transition-all duration-[50ms]"
-          style={{ left: `calc(${percentage}%)` }}
-        >
-          {safeVal}{showMarks ? 'h' : ''}
-          {/* Arrow pointing down */}
-          <div className="absolute -bottom-[5px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-white"></div>
-        </div>
-        {/* Active Track */}
-        <div
-          className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#F5A622] to-[#FB923C] rounded-full shadow-[0_0_15px_rgba(245,166,34,0.4)] transition-all duration-[50ms]"
-          style={{ width: `${percentage}%` }}
-        ></div>
+         {/* Floating Pill Indicator perfectly centered dynamically above the physical thumb */}
+         <div 
+           className="absolute -top-[42px] transform -translate-x-1/2 px-5 py-2 min-w-[60px] bg-white backdrop-blur-xl border border-[#F5A622]/30 rounded-full text-[#F5A622] font-extrabold text-sm shadow-[0_10px_25px_rgba(245,166,34,0.25)] flex items-center justify-center z-30 pointer-events-none transition-all duration-[50ms]"
+           style={{ left: `calc(${percentage}%)` }}
+         >
+           {safeVal}{showMarks ? 'h' : ''}
+           {/* Arrow pointing down */}
+           <div className="absolute -bottom-[5px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-white"></div>
+         </div>
+         {/* Active Track */}
+         <div 
+           className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#F5A622] to-[#FB923C] rounded-full shadow-[0_0_15px_rgba(245,166,34,0.4)] transition-all duration-[50ms]"
+           style={{ width: `${percentage}%` }}
+         ></div>
+         
+         {/* Tick Marks */}
+         {showMarks && [5, 7, 9].map(tick => {
+           const tickP = ((tick - min) / (max - min)) * 100;
+           return (
+             <div key={tick} className="absolute top-1/2 -translate-y-1/2 w-1 h-3 bg-white/70 rounded-full pointer-events-none z-10" style={{ left: `calc(${tickP}%)` }}></div>
+           );
+         })}
 
-        {/* Tick Marks */}
-        {showMarks && [5, 7, 9].map(tick => {
-          const tickP = ((tick - min) / (max - min)) * 100;
-          return (
-            <div key={tick} className="absolute top-1/2 -translate-y-1/2 w-1 h-3 bg-white/70 rounded-full pointer-events-none z-10" style={{ left: `calc(${tickP}%)` }}></div>
-          );
-        })}
-
-        {/* Draggable Thumb */}
-        <div
-          className="absolute top-1/2 w-8 h-8 bg-white border-4 border-[#F5A622] rounded-full shadow-[0_5px_15px_rgba(245,166,34,0.4)] pointer-events-none transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20 transition-all duration-[50ms] scale-100 peer-active:scale-90"
-          style={{ left: `calc(${percentage}%)` }}
-        >
-          <div className="w-2.5 h-2.5 bg-[#F5A622] rounded-full animate-pulse-slow"></div>
-        </div>
-
-        {/* Native Input Range Overlay */}
-        <input
-          type="range"
-          min={min}
-          max={max}
-          value={safeVal}
-          onChange={onChange}
-          className="peer absolute inset-0 -top-4 w-full h-10 opacity-0 cursor-pointer z-30"
-        />
+         {/* Draggable Thumb */}
+         <div 
+            className="absolute top-1/2 w-8 h-8 bg-white border-4 border-[#F5A622] rounded-full shadow-[0_5px_15px_rgba(245,166,34,0.4)] pointer-events-none transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20 transition-all duration-[50ms] scale-100 peer-active:scale-90"
+            style={{ left: `calc(${percentage}%)` }}
+         >
+             <div className="w-2.5 h-2.5 bg-[#F5A622] rounded-full animate-pulse-slow"></div>
+         </div>
+         
+         {/* Native Input Range Overlay */}
+         <input
+           type="range"
+           min={min}
+           max={max}
+           value={safeVal}
+           onChange={onChange}
+           className="peer absolute inset-0 -top-4 w-full h-10 opacity-0 cursor-pointer z-30"
+         />
       </div>
-
+      
       <div className="flex justify-between mt-6 px-1 text-xs font-bold text-[#0D1B2A]/40 uppercase tracking-widest">
         <span>{min}{showMarks ? 'h' : ' Year 1'}</span>
         <span>{max}{showMarks ? 'h' : ' Year 4'}</span>
@@ -705,8 +757,8 @@ const PremiumChip = ({ label, selected, onClick, icon, subtext }) => (
     type="button"
     onClick={onClick}
     className={`px-5 py-3.5 rounded-[24px] font-bold text-sm sm:text-[15px] cursor-pointer transition-all duration-300 flex items-center gap-3 border shadow-sm hover:-translate-y-0.5 group
-      ${selected
-        ? 'bg-gradient-to-r from-[#0ea5e9] to-[#38bdf8] text-white border-transparent shadow-[0_12px_25px_rgba(14,165,233,0.3)] scale-[1.02]'
+      ${selected 
+        ? 'bg-gradient-to-r from-[#0ea5e9] to-[#38bdf8] text-white border-transparent shadow-[0_12px_25px_rgba(14,165,233,0.3)] scale-[1.02]' 
         : 'bg-white/60 backdrop-blur-xl text-[#0D1B2A]/80 border-white/80 hover:bg-white/90 hover:shadow-[0_8px_20px_rgba(0,0,0,0.06)]'}`}
   >
     {icon && <span className="text-xl sm:text-2xl drop-shadow-sm group-hover:scale-110 transition-transform">{icon}</span>}
@@ -720,35 +772,38 @@ const PremiumChip = ({ label, selected, onClick, icon, subtext }) => (
 const Step3Academic = ({ formData, updateForm }) => (
   <div className="space-y-6 sm:space-y-8 animate-fade-in text-[#0D1B2A] mt-2 sm:mt-6 px-1 pb-4 relative z-30">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-6">
-      <PremiumFloatingInput
+      <PremiumFloatingInput 
         label="Institution"
         value={formData.institution}
         onChange={(e) => updateForm('institution', e.target.value)}
-        placeholder="e.g. Lovely Professional University"
+        placeholder="e.g. LPU"
+        maxLength={100}
       />
-      <PremiumFloatingInput
+      <PremiumFloatingInput 
         label="Course / Major"
         value={formData.course}
         onChange={(e) => updateForm('course', e.target.value)}
-        placeholder="e.g. Bachelor of Computer Applications"
+        placeholder="e.g. Computer Science"
+        maxLength={100}
+      />
+    </div>
+    
+    <div className="w-full">
+      <PremiumSlider 
+        min={1} 
+        max={8} 
+        value={formData.semester} 
+        onChange={(e) => updateForm('semester', parseInt(e.target.value))} 
       />
     </div>
 
     <div className="w-full">
-      <PremiumSlider
-        min={1}
-        max={8}
-        value={formData.semester}
-        onChange={(e) => updateForm('semester', parseInt(e.target.value))}
-      />
-    </div>
-
-    <div className="w-full">
-      <PremiumFloatingInput
+      <PremiumFloatingInput 
         label="Student ID (Optional)"
         value={formData.studentId}
         onChange={(e) => updateForm('studentId', e.target.value)}
         placeholder="e.g. 190422X"
+        maxLength={50}
       />
     </div>
   </div>
@@ -906,10 +961,10 @@ const Step7Goals = ({ formData, updateForm }) => {
 
 const Step8Consent = ({ formData, updateForm }) => {
   const toggleC = (id) => updateForm(id, !formData[id]);
-
+  
   const allConsents = ['consent1', 'consent2', 'consent3', 'consent4', 'consent5'];
   const isAllChecked = allConsents.every(c => formData[c]);
-
+  
   const handleCheckAll = () => {
     const newValue = !isAllChecked;
     const updates = {};
@@ -974,7 +1029,7 @@ const CompletionScreen = ({ formData, onFinish }) => {
         body: JSON.stringify(formData)
       });
       const data = await res.json();
-
+      
       setLoading(false);
       if (res.ok || res.status === 201) {
         localStorage.setItem('token', data.token);

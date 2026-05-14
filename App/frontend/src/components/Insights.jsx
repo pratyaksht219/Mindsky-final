@@ -44,13 +44,14 @@ const Insights = ({ user }) => {
   const maxActivity = Math.max(...daysData.map(d => d.count), 4);
 
   // Real-time Mood Distribution from both journals and dedicated mood logs
-  const moodMap = { joyful: 0, neutral: 0, down: 0, anxious: 0 };
+  const moodMap = { joyful: 0, neutral: 0, down: 0, anxious: 0, tired: 0 };
   
   const processMood = (m) => {
     if (['😊', '🥰'].includes(m)) moodMap.joyful++;
-    else if (['😐', '😌', '🤔', '😴'].includes(m)) moodMap.neutral++;
+    else if (['😐', '😌', '🤔'].includes(m)) moodMap.neutral++;
     else if (['😔'].includes(m)) moodMap.down++;
     else if (['😰', '😤'].includes(m)) moodMap.anxious++;
+    else if (['😴'].includes(m)) moodMap.tired++;
     else moodMap.neutral++; // default
   };
 
@@ -62,18 +63,20 @@ const Insights = ({ user }) => {
   const getPercent = (count) => totalEntries > 0 ? Math.round((count / totalEntries) * 100) : 0;
   
   const moodData = [
-    { m: '😊', p: getPercent(moodMap.joyful), c: 'from-emerald-300 to-emerald-500', shadow: 'rgba(16,185,129,0.3)', label: 'Joyful' },
-    { m: '😐', p: getPercent(moodMap.neutral), c: 'from-yellow-300 to-yellow-500', shadow: 'rgba(234,179,8,0.3)', label: 'Neutral' },
-    { m: '😔', p: getPercent(moodMap.down), c: 'from-indigo-300 to-indigo-500', shadow: 'rgba(99,102,241,0.3)', label: 'Down' },
     { m: '😰', p: getPercent(moodMap.anxious), c: 'from-red-300 to-red-500',   shadow: 'rgba(239,68,68,0.3)', label: 'Anxious' },
+    { m: '😔', p: getPercent(moodMap.down), c: 'from-orange-300 to-orange-500', shadow: 'rgba(249,115,22,0.3)', label: 'Sad' },
+    { m: '😐', p: getPercent(moodMap.neutral), c: 'from-yellow-300 to-yellow-500', shadow: 'rgba(234,179,8,0.3)', label: 'Neutral' },
+    { m: '😊', p: getPercent(moodMap.joyful), c: 'from-emerald-300 to-emerald-500', shadow: 'rgba(16,185,129,0.3)', label: 'Joyful' },
+    { m: '😴', p: getPercent(moodMap.tired), c: 'from-indigo-300 to-indigo-500', shadow: 'rgba(99,102,241,0.3)', label: 'Tired' },
   ];
 
   // If no data, provide a gentle baseline
   const finalMoodData = totalEntries === 0 ? [
-    { m: '😊', p: 0, c: 'from-emerald-300 to-emerald-500', shadow: 'rgba(16,185,129,0.3)', label: 'Joyful' },
-    { m: '😐', p: 0, c: 'from-yellow-300 to-yellow-500', shadow: 'rgba(234,179,8,0.3)', label: 'Neutral' },
-    { m: '😔', p: 0, c: 'from-indigo-300 to-indigo-500', shadow: 'rgba(99,102,241,0.3)', label: 'Down' },
-    { m: '😰', p: 0, c: 'from-red-300 to-red-500',   shadow: 'rgba(239,68,68,0.3)', label: 'Anxious' },
+    { m: '😰', p: 0, c: 'from-gray-100 to-gray-200', shadow: 'rgba(0,0,0,0)', label: 'Anxious' },
+    { m: '😔', p: 0, c: 'from-gray-100 to-gray-200', shadow: 'rgba(0,0,0,0)', label: 'Sad' },
+    { m: '😐', p: 0, c: 'from-gray-100 to-gray-200', shadow: 'rgba(0,0,0,0)', label: 'Neutral' },
+    { m: '😊', p: 0, c: 'from-gray-100 to-gray-200', shadow: 'rgba(0,0,0,0)', label: 'Joyful' },
+    { m: '😴', p: 0, c: 'from-gray-100 to-gray-200', shadow: 'rgba(0,0,0,0)', label: 'Tired' },
   ] : moodData;
 
   return (

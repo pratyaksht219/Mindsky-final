@@ -144,101 +144,198 @@ function createOcean(ctx, out) {
   return () => { try { src.stop(); lfo.stop(); } catch (_) {} };
 }
 
-function createForest(ctx, out) {
-  const timers = [];
-  const wind = ctx.createBufferSource();
-  wind.buffer = makePinkNoiseBuffer(ctx, 6);
-  wind.loop = true;
-  const lpf = ctx.createBiquadFilter();
-  lpf.frequency.value = 400;
-  wind.connect(lpf); lpf.connect(out);
-  wind.start();
+// 1. 432Hz Deep Earth (Ultra-Soothing Sub Bass Hum)
+function create432Earth(ctx, out) {
+  const master = ctx.createGain(); master.gain.value = 0.8; master.connect(out);
+  const activeNodes = [];
+  
+  // Frequencies based on 432Hz geometry, but lowered to sub-bass for maximum warmth
+  // 54Hz (Sub), 108Hz (Bass), 216Hz (Warmth), 432Hz (Whisper)
+  const layers = [
+    { freq: 54, gain: 0.5, pan: 0, swellSpeed: 0.03 },
+    { freq: 108, gain: 0.3, pan: -0.5, swellSpeed: 0.04 },
+    { freq: 108.5, gain: 0.3, pan: 0.5, swellSpeed: 0.05 }, // slight detune for wide stereo
+    { freq: 216, gain: 0.1, pan: 0, swellSpeed: 0.02 },
+    { freq: 432, gain: 0.02, pan: 0, swellSpeed: 0.01 } // Barely audible sparkle
+  ];
+  
+  layers.forEach(l => {
+    const osc = ctx.createOscillator();
+    osc.type = 'sine'; // Sine is the smoothest waveform, zero harsh harmonics
+    osc.frequency.value = l.freq;
+    
+    const vca = ctx.createGain();
+    vca.gain.value = 0; // Controlled entirely by LFO
+    
+    // Extremely slow volume breathing
+    const lfo = ctx.createOscillator();
+    lfo.type = 'sine';
+    lfo.frequency.value = l.swellSpeed;
+    
+    const lfoScale = ctx.createGain();
+    lfoScale.gain.value = l.gain; 
+    
+    lfo.connect(lfoScale); lfoScale.connect(vca.gain);
+    
+    // Gentle lowpass just to be safe
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.value = 300; 
+    
+    const panner = ctx.createStereoPanner();
+    panner.pan.value = l.pan;
+    
+    osc.connect(filter); filter.connect(vca); vca.connect(panner); panner.connect(master);
+    
+    osc.start(); lfo.start();
+    activeNodes.push(osc, lfo);
+  });
 
-  const scheduleEvent = () => {
-    const isChirp = Math.random() > 0.5;
-    if (isChirp) {
-      const osc = ctx.createOscillator();
-      const g = ctx.createGain();
-      const panner = ctx.createStereoPanner();
-      panner.pan.value = Math.random() * 2 - 1;
-      const startFreq = 2500 + Math.random() * 1500;
-      osc.frequency.setValueAtTime(startFreq, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(startFreq + 500, ctx.currentTime + 0.1);
-      g.gain.setValueAtTime(0, ctx.currentTime);
-      g.gain.linearRampToValueAtTime(0.005, ctx.currentTime + 0.05);
-      g.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.15);
-      osc.connect(g); g.connect(panner); panner.connect(out);
-      osc.start(); osc.stop(ctx.currentTime + 0.2);
-    } else {
-      const noise = ctx.createBufferSource();
-      noise.buffer = makePinkNoiseBuffer(ctx, 0.2);
-      const bpf = ctx.createBiquadFilter();
-      bpf.type = 'bandpass'; bpf.frequency.value = 3000;
-      const g = ctx.createGain();
-      const panner = ctx.createStereoPanner();
-      panner.pan.value = Math.random() * 2 - 1;
-      g.gain.setValueAtTime(0, ctx.currentTime);
-      g.gain.linearRampToValueAtTime(0.01, ctx.currentTime + 0.05);
-      g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.2);
-      noise.connect(bpf); bpf.connect(g); g.connect(panner); panner.connect(out);
-      noise.start();
-    }
-    timers.push(setTimeout(scheduleEvent, 3000 + Math.random() * 7000));
+  return () => { activeNodes.forEach(n => { try { n.stop(); } catch(e){} }); };
+}
+
+// 2. 528Hz Miracle Flow (DNA Repair & Water)
+function create528Flow(ctx, out) {
+  const master = ctx.createGain(); master.gain.value = 0.5; master.connect(out);
+  const activeNodes = []; const timers = [];
+  
+  // Ocean base
+  const noise = ctx.createBufferSource(); noise.buffer = makeBrownNoiseBuffer(ctx, 10); noise.loop = true;
+  const nFilter = ctx.createBiquadFilter(); nFilter.type = 'lowpass'; nFilter.frequency.value = 200;
+  const nLfo = ctx.createOscillator(); nLfo.frequency.value = 0.05;
+  const nLfoGain = ctx.createGain(); nLfoGain.gain.value = 100;
+  const nVca = ctx.createGain(); nVca.gain.value = 0.3;
+  nLfo.connect(nLfoGain); nLfoGain.connect(nFilter.frequency);
+  noise.connect(nFilter); nFilter.connect(nVca); nVca.connect(master);
+  noise.start(); nLfo.start(); activeNodes.push(noise, nLfo);
+
+  // Soft 528Hz generative pings
+  const scale = [132, 264, 396, 528, 660];
+  const playPing = () => {
+    const f = scale[Math.floor(Math.random()*scale.length)];
+    const osc = ctx.createOscillator(); osc.type = 'sine'; osc.frequency.value = f;
+    const vca = ctx.createGain(); vca.gain.setValueAtTime(0, ctx.currentTime);
+    vca.gain.linearRampToValueAtTime(0.1, ctx.currentTime + 3);
+    vca.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 8);
+    const pan = ctx.createStereoPanner(); pan.pan.value = (Math.random()*2)-1;
+    osc.connect(vca); vca.connect(pan); pan.connect(master);
+    osc.start(); osc.stop(ctx.currentTime + 9);
+    timers.push(setTimeout(playPing, 2000 + Math.random()*4000));
   };
-  scheduleEvent();
-  return () => {
-    timers.forEach(t => clearTimeout(t));
-    try { wind.stop(); } catch (_) {}
+  playPing();
+
+  return () => { timers.forEach(t=>clearTimeout(t)); activeNodes.forEach(n => { try { n.stop(); } catch(e){} }); };
+}
+
+// 3. 852Hz Ethereal (Crystal Drone + Gentle Melody)
+function create852Ethereal(ctx, out) {
+  const master = ctx.createGain(); master.gain.value = 0.5; master.connect(out);
+  const activeNodes = [];
+  const timers = [];
+  
+  // 1. Crystal Drone Base (Very soft, provides the ethereal foundation)
+  const bowls = [
+    { freq: 213, gain: 0.25, pan: 0, speed: 0.02 },
+    { freq: 426, gain: 0.15, pan: -0.5, speed: 0.03 }
+  ];
+  
+  bowls.forEach(bowl => {
+    [0, 0.5].forEach(detune => {
+      const osc = ctx.createOscillator(); osc.type = 'sine'; osc.frequency.value = bowl.freq + detune;
+      const vca = ctx.createGain(); vca.gain.value = 0;
+      const lfo = ctx.createOscillator(); lfo.type = 'sine'; lfo.frequency.value = bowl.speed + (detune * 0.01);
+      const lfoScale = ctx.createGain(); lfoScale.gain.value = bowl.gain;
+      lfo.connect(lfoScale); lfoScale.connect(vca.gain);
+      const panner = ctx.createStereoPanner(); panner.pan.value = bowl.pan;
+      osc.connect(vca); vca.connect(panner); panner.connect(master);
+      osc.start(); lfo.start();
+      activeNodes.push(osc, lfo);
+    });
+  });
+
+  // 2. Generative 852Hz Melody
+  // Pentatonic scale based around 852Hz proportions
+  const scale = [426, 479.25, 532.5, 639, 710, 852, 1065];
+  
+  const playNote = () => {
+    const f = scale[Math.floor(Math.random() * scale.length)];
+    const osc = ctx.createOscillator();
+    osc.type = 'sine';
+    osc.frequency.value = f;
+
+    const vca = ctx.createGain();
+    vca.gain.setValueAtTime(0, ctx.currentTime);
+    // Super soft attack, incredibly long release to simulate reverb
+    vca.gain.linearRampToValueAtTime(0.08, ctx.currentTime + 3); 
+    vca.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 10); 
+    
+    const panner = ctx.createStereoPanner();
+    panner.pan.value = (Math.random() * 2) - 1; // Wide stereo ping
+    
+    osc.connect(vca);
+    vca.connect(panner);
+    panner.connect(master);
+    
+    osc.start();
+    osc.stop(ctx.currentTime + 11);
+    
+    // Clear dead nodes to prevent memory leak
+    setTimeout(() => { try { osc.disconnect(); } catch(e){} }, 12000);
+
+    // Schedule next note slowly (rarely overlaps too much)
+    const nextTime = 4000 + Math.random() * 5000; // 4 to 9 seconds between notes
+    timers.push(setTimeout(playNote, nextTime));
+  };
+
+  playNote(); // Start melody loop
+
+  return () => { 
+    timers.forEach(t => clearTimeout(t)); 
+    activeNodes.forEach(n => { try { n.stop(); } catch(e){} }); 
   };
 }
 
-function createLofi(ctx, out) {
-  const timers = [];
-  const stopFns = [];
-  const notes = [130.81, 164.81, 196.00, 246.94];
-  notes.forEach(f => {
-    const osc = ctx.createOscillator();
-    const g = ctx.createGain();
-    const lpf = ctx.createBiquadFilter();
-    lpf.frequency.value = 350;
-    osc.frequency.value = f;
-    g.gain.value = 0.04;
-    osc.connect(lpf); lpf.connect(g); g.connect(out);
-    osc.start();
-    stopFns.push(() => osc.stop());
-  });
+// 4. 4Hz Delta Sleep (Deep Rest Binaural)
+function createDeltaSleep(ctx, out) {
+  const master = ctx.createGain(); master.gain.value = 0.6; master.connect(out);
+  const activeNodes = [];
 
-  const scheduleCrackle = () => {
-    const osc = ctx.createOscillator();
-    const g = ctx.createGain();
-    const panner = ctx.createStereoPanner();
-    panner.pan.value = Math.random() * 2 - 1;
-    osc.type = 'square';
-    osc.frequency.value = 50 + Math.random() * 100;
-    g.gain.setValueAtTime(0.002, ctx.currentTime);
-    g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.003);
-    osc.connect(g); g.connect(panner); panner.connect(out);
-    osc.start(); osc.stop(ctx.currentTime + 0.01);
-    timers.push(setTimeout(scheduleCrackle, Math.random() * 500));
-  };
-  scheduleCrackle();
-  return () => {
-    timers.forEach(t => clearTimeout(t));
-    stopFns.forEach(f => f());
-  };
+  // Carrier: 136.1Hz (Om). Delta: 4Hz
+  const oscL = ctx.createOscillator(); oscL.type = 'triangle'; oscL.frequency.value = 134.1;
+  const oscR = ctx.createOscillator(); oscR.type = 'triangle'; oscR.frequency.value = 138.1;
+  const filterL = ctx.createBiquadFilter(); filterL.type = 'lowpass'; filterL.frequency.value = 160;
+  const filterR = ctx.createBiquadFilter(); filterR.type = 'lowpass'; filterR.frequency.value = 160;
+  const panL = ctx.createStereoPanner(); panL.pan.value = -1;
+  const panR = ctx.createStereoPanner(); panR.pan.value = 1;
+  
+  oscL.connect(filterL); filterL.connect(panL); panL.connect(master);
+  oscR.connect(filterR); filterR.connect(panR); panR.connect(master);
+  oscL.start(); oscR.start(); activeNodes.push(oscL, oscR);
+
+  // Deep rumble
+  const noise = ctx.createBufferSource(); noise.buffer = makeBrownNoiseBuffer(ctx, 10); noise.loop = true;
+  const nFilter = ctx.createBiquadFilter(); nFilter.type = 'lowpass'; nFilter.frequency.value = 80;
+  const nVca = ctx.createGain(); nVca.gain.value = 0.5;
+  noise.connect(nFilter); nFilter.connect(nVca); nVca.connect(master);
+  noise.start(); activeNodes.push(noise);
+
+  return () => { activeNodes.forEach(n => { try { n.stop(); } catch(e){} }); };
 }
 
 const SOUNDS = [
-  { id: 'rain',   label: 'Rain',   emoji: '🌧️', fn: createRain },
-  { id: 'ocean',  label: 'Ocean',  emoji: '🌊', fn: createOcean },
-  { id: 'forest', label: 'Forest', emoji: '🌿', fn: createForest },
-  { id: 'lofi',   label: 'Lo-fi',  emoji: '🎵', fn: createLofi },
+  { id: 'earth432',  label: '432Hz Earth',    emoji: '🌲', fn: create432Earth },
+  { id: 'flow528',   label: '528Hz Flow',     emoji: '💧', fn: create528Flow },
+  { id: 'ether852',  label: '852Hz Ethereal', emoji: '✨', fn: create852Ethereal },
+  { id: 'delta4',    label: '4Hz Delta',      emoji: '🌌', fn: createDeltaSleep },
 ];
 
 export default function AmbientPlayer() {
   const [open, setOpen] = useState(false);
   const [playing, setPlaying] = useState(false);
-  const [activeSound, setActiveSound] = useState(() => localStorage.getItem('ambientSound') || 'rain');
+  const [activeSound, setActiveSound] = useState(() => {
+    const saved = localStorage.getItem('ambientSound');
+    return SOUNDS.some(s => s.id === saved) ? saved : 'earth432';
+  });
   const [volume, setVolume] = useState(() => parseFloat(localStorage.getItem('ambientVolume') || '0.7'));
 
   const ctxRef = useRef(null);
@@ -312,7 +409,7 @@ export default function AmbientPlayer() {
 
   useEffect(() => () => stopCurrent(), []);
 
-  const currentLabel = SOUNDS.find(s => s.id === activeSound)?.label || 'Rain';
+  const currentLabel = SOUNDS.find(s => s.id === activeSound)?.label || '432Hz Earth';
 
   return (
     <div ref={panelRef} className="relative w-full">

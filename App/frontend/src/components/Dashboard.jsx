@@ -688,7 +688,7 @@ const Dashboard = ({ onLogout }) => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 items-start">
 
                 {/* Col 1: Streak + Assessment */}
-                <div className="space-y-8">
+                <div className="flex flex-col gap-8 h-full">
                   <div className="bg-gradient-to-br from-orange-400 to-amber-500 rounded-[32px] p-8 text-white shadow-xl h-[200px] flex flex-col justify-between overflow-hidden relative">
                     <div className="absolute top-[-20%] right-[-10%] w-36 h-36 bg-white/20 blur-3xl rounded-full pointer-events-none"></div>
                     <div className="flex justify-between items-start relative z-10">
@@ -705,7 +705,7 @@ const Dashboard = ({ onLogout }) => {
                       <div className="text-xs font-bold opacity-70 uppercase tracking-widest">Days Strong</div>
                     </div>
                   </div>
-                  <div className="bg-white/60 backdrop-blur-xl border border-white p-8 rounded-[32px] shadow-sm hover:shadow-md transition-all group cursor-pointer">
+                  <div className="flex-1 bg-white/60 backdrop-blur-xl border border-white p-8 rounded-[32px] shadow-sm hover:shadow-md transition-all group cursor-pointer flex flex-col justify-center">
                     <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
                       <FiIcons.FiFileText size={24} />
                     </div>
@@ -716,7 +716,7 @@ const Dashboard = ({ onLogout }) => {
                 </div>
 
                 {/* Col 2: Level + Journal */}
-                <div className="space-y-8">
+                <div className="flex flex-col gap-8 h-full">
                   <div className="bg-[#0D1B2A] rounded-[32px] p-8 text-white shadow-xl h-[200px] flex flex-col justify-between overflow-hidden relative">
                     <div className="absolute bottom-[-20%] left-[-10%] w-44 h-44 bg-blue-400/20 blur-3xl rounded-full pointer-events-none"></div>
                     <div className="flex justify-between items-start relative z-10">
@@ -746,7 +746,7 @@ const Dashboard = ({ onLogout }) => {
                       if (user.isGuest) return;
                       setActiveTab('journal');
                     }}
-                    className={`w-full bg-white/60 backdrop-blur-xl border border-white p-8 rounded-[32px] shadow-sm transition-all group flex flex-col items-center text-center ${user.isGuest ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl hover:-translate-y-1 cursor-pointer'}`}
+                    className={`flex-1 w-full bg-white/60 backdrop-blur-xl border border-white p-8 rounded-[32px] shadow-sm transition-all group flex flex-col items-center justify-center text-center ${user.isGuest ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl hover:-translate-y-1 cursor-pointer'}`}
                   >
                     <div className="w-16 h-16 bg-amber-50 rounded-full flex items-center justify-center text-amber-500 mb-5 group-hover:scale-110 transition-transform">
                       <FiIcons.FiBookOpen size={28} />

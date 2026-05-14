@@ -124,7 +124,7 @@ services:
 
   # 🟢 Frontend (Nginx)
   frontend:
-    image: pratyaksht219/mindsky-frontend:latest
+    image: pratyaksht219/mindsky-frontend:valid
     ports:
       - "5173:80"
     networks:

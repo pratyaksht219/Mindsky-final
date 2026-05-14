@@ -20,6 +20,9 @@ const LoginPage = ({ onBack, onSignUp, onLoginSuccess }) => {
     if (!email) {
       newErrors.email = 'Username/Email is required';
       valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      newErrors.email = 'Invalid email format';
+      valid = false;
     }
     if (!password) {
       newErrors.password = 'Password is required';

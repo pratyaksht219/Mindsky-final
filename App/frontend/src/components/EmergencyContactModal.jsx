@@ -62,12 +62,22 @@ const EmergencyContactModal = ({ userId, onComplete, onClose }) => {
       return;
     }
 
-    // Validate any partially filled contacts
+    // Validate any partially filled contacts + format
     for (let c of contacts) {
       const isPartiallyFilled = c.fullName || c.phoneNumber || c.relationship;
-      if (isPartiallyFilled && (!c.fullName || !c.phoneNumber || !c.relationship)) {
-        setError(`Please fill all fields for ${c.priority} contact, or leave them completely blank.`);
-        return;
+      if (isPartiallyFilled) {
+        if (!c.fullName || !c.phoneNumber || !c.relationship) {
+          setError(`Please fill all fields for ${c.priority} contact, or leave them completely blank.`);
+          return;
+        }
+        if (!/^\d{10}$/.test(c.phoneNumber)) {
+          setError(`Please enter a valid 10-digit phone number for your ${c.priority} contact.`);
+          return;
+        }
+        if (!/^[a-zA-Z\s]+$/.test(c.relationship)) {
+          setError(`Relationship for ${c.priority} contact should only contain letters.`);
+          return;
+        }
       }
     }
 

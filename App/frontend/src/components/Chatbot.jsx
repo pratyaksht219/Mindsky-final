@@ -771,6 +771,7 @@ export default function ChatBot({ user, onClose, onUpdateUser }) {
             <textarea
               id="chat-input"
               rows={1}
+              maxLength={1000}
               value={input}
               onChange={(e) => {
                 setInput(e.target.value);
